@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Agregar");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Modificar");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Eliminar");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Filtrar");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Formulario Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Agregar");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Modificar");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Eliminar");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Filtrar");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Resetear Clave");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Formulario Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Agregar");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Modificar");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Eliminar");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Filtrar");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
+            treeNode31,
+            treeNode32,
+            treeNode33,
+            treeNode34});
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Formulario Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
+            treeNode35});
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
+            treeNode36});
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Agregar");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Modificar");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Eliminar");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Filtrar");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Resetear Clave");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
+            treeNode38,
+            treeNode39,
+            treeNode40,
+            treeNode41,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Formulario Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
+            treeNode43});
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
+            treeNode44});
             this.TABCdatos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.chbEstado = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbDescripcion = new System.Windows.Forms.TextBox();
+            this.txtbCodigo = new System.Windows.Forms.TextBox();
             this.lbEstado = new System.Windows.Forms.Label();
             this.lbDescripcion = new System.Windows.Forms.Label();
             this.LbCodigo = new System.Windows.Forms.Label();
@@ -92,8 +92,8 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.chbEstado);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtbDescripcion);
+            this.tabPage1.Controls.Add(this.txtbCodigo);
             this.tabPage1.Controls.Add(this.lbEstado);
             this.tabPage1.Controls.Add(this.lbDescripcion);
             this.tabPage1.Controls.Add(this.LbCodigo);
@@ -115,19 +115,20 @@
             this.chbEstado.Text = "Activo";
             this.chbEstado.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtbDescripcion
             // 
-            this.textBox2.Location = new System.Drawing.Point(76, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtbDescripcion.Location = new System.Drawing.Point(76, 89);
+            this.txtbDescripcion.Name = "txtbDescripcion";
+            this.txtbDescripcion.Size = new System.Drawing.Size(175, 20);
+            this.txtbDescripcion.TabIndex = 4;
+            this.txtbDescripcion.TextChanged += new System.EventHandler(this.TxtbDescripcion_TextChanged);
             // 
-            // textBox1
+            // txtbCodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(76, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtbCodigo.Location = new System.Drawing.Point(76, 21);
+            this.txtbCodigo.Name = "txtbCodigo";
+            this.txtbCodigo.Size = new System.Drawing.Size(175, 20);
+            this.txtbCodigo.TabIndex = 3;
             // 
             // lbEstado
             // 
@@ -204,39 +205,39 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 28);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Agregar";
-            treeNode1.Text = "Agregar";
-            treeNode2.Name = "Modificar";
-            treeNode2.Text = "Modificar";
-            treeNode3.Name = "Eliminar";
-            treeNode3.Text = "Eliminar";
-            treeNode4.Name = "Filtar";
-            treeNode4.Text = "Filtrar";
-            treeNode5.Name = "Acciones";
-            treeNode5.Text = "Acciones";
-            treeNode6.Name = "FrmGestionarGrupos";
-            treeNode6.Text = "Formulario Gestionar Grupos";
-            treeNode7.Name = "GestionarGrupos";
-            treeNode7.Text = "Gestionar Grupos";
-            treeNode8.Name = "Agregar";
-            treeNode8.Text = "Agregar";
-            treeNode9.Name = "Modificar";
-            treeNode9.Text = "Modificar";
-            treeNode10.Name = "Eliminar";
-            treeNode10.Text = "Eliminar";
-            treeNode11.Name = "Filtrar";
-            treeNode11.Text = "Filtrar";
-            treeNode12.Name = "ResetearClave";
-            treeNode12.Text = "Resetear Clave";
-            treeNode13.Name = "Acciones";
-            treeNode13.Text = "Acciones";
-            treeNode14.Name = "FormularioGestionarUsuarios";
-            treeNode14.Text = "Formulario Gestionar Usuarios";
-            treeNode15.Name = "GestionarUsuarios";
-            treeNode15.Text = "Gestionar Usuarios";
+            treeNode31.Name = "Agregar";
+            treeNode31.Text = "Agregar";
+            treeNode32.Name = "Modificar";
+            treeNode32.Text = "Modificar";
+            treeNode33.Name = "Eliminar";
+            treeNode33.Text = "Eliminar";
+            treeNode34.Name = "Filtar";
+            treeNode34.Text = "Filtrar";
+            treeNode35.Name = "Acciones";
+            treeNode35.Text = "Acciones";
+            treeNode36.Name = "FrmGestionarGrupos";
+            treeNode36.Text = "Formulario Gestionar Grupos";
+            treeNode37.Name = "GestionarGrupos";
+            treeNode37.Text = "Gestionar Grupos";
+            treeNode38.Name = "Agregar";
+            treeNode38.Text = "Agregar";
+            treeNode39.Name = "Modificar";
+            treeNode39.Text = "Modificar";
+            treeNode40.Name = "Eliminar";
+            treeNode40.Text = "Eliminar";
+            treeNode41.Name = "Filtrar";
+            treeNode41.Text = "Filtrar";
+            treeNode42.Name = "ResetearClave";
+            treeNode42.Text = "Resetear Clave";
+            treeNode43.Name = "Acciones";
+            treeNode43.Text = "Acciones";
+            treeNode44.Name = "FormularioGestionarUsuarios";
+            treeNode44.Text = "Formulario Gestionar Usuarios";
+            treeNode45.Name = "GestionarUsuarios";
+            treeNode45.Text = "Gestionar Usuarios";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode15});
+            treeNode37,
+            treeNode45});
             this.treeView1.Size = new System.Drawing.Size(340, 186);
             this.treeView1.TabIndex = 0;
             // 
@@ -290,14 +291,14 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label lbDescripcion;
         private System.Windows.Forms.Label LbCodigo;
-        private System.Windows.Forms.CheckBox chbEstado;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbEstado;
         private System.Windows.Forms.Label lbAsignar;
         private System.Windows.Forms.DataGridView dgvGrupoUsuarios;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.CheckBox chbEstado;
+        public System.Windows.Forms.TextBox txtbDescripcion;
+        public System.Windows.Forms.TextBox txtbCodigo;
     }
 }

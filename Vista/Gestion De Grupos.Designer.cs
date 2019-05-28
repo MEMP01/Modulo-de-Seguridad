@@ -37,8 +37,8 @@
             this.lbDescripcion = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbEstado = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DgvGrillaGrupos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaGrupos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -124,23 +124,23 @@
             this.lbEstado.TabIndex = 8;
             this.lbEstado.Text = "Estado";
             // 
-            // dataGridView1
+            // DgvGrillaGrupos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 131);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(686, 268);
-            this.dataGridView1.TabIndex = 9;
+            this.DgvGrillaGrupos.AllowUserToAddRows = false;
+            this.DgvGrillaGrupos.AllowUserToDeleteRows = false;
+            this.DgvGrillaGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvGrillaGrupos.Location = new System.Drawing.Point(28, 131);
+            this.DgvGrillaGrupos.Name = "DgvGrillaGrupos";
+            this.DgvGrillaGrupos.ReadOnly = true;
+            this.DgvGrillaGrupos.Size = new System.Drawing.Size(686, 268);
+            this.DgvGrillaGrupos.TabIndex = 9;
             // 
             // Gestion_De_Grupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 438);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgvGrillaGrupos);
             this.Controls.Add(this.lbEstado);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbDescripcion);
@@ -153,7 +153,7 @@
             this.Name = "Gestion_De_Grupos";
             this.Text = "Gestion_De_Grupos";
             this.Load += new System.EventHandler(this.Gestion_De_Grupos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaGrupos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +170,6 @@
         private System.Windows.Forms.Label lbDescripcion;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbEstado;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgvGrillaGrupos;
     }
 }

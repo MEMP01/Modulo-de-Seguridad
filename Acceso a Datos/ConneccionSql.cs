@@ -6,7 +6,7 @@ namespace Acceso_a_Datos
 {
     public class ConneccionSql : IConeccion
     {
-        private string ConnecionString = "@Data Source=LAPTOP-J71K94AN/SQLEXPRESSS;Initial Catalog=ModuloDeSeguridad;Integrated Security=True;Asynchronous Processing=True;MultipleActiveResultSets=True;TrustServerCertificate=False;Column Encryption Setting=Enabled";
+        private readonly string ConnecionString = "@Data Source=LAPTOP-J71K94AN/SQLEXPRESSS;Initial Catalog=ModuloDeSeguridad;Integrated Security=True;Asynchronous Processing=True;MultipleActiveResultSets=True;TrustServerCertificate=False;Column Encryption Setting=Enabled";
         SqlConnection conneccionSqlServer;
 
         public string ConnecionString1

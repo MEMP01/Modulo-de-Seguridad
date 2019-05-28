@@ -7,7 +7,16 @@ namespace Control
 /// </summary>
     public class ControlGrupo
     {
+
+
         private DatosGrupo datosGrupo;
+         /// <summary>
+         /// Constructor de la clase ControlGrupo
+         /// </summary>
+        public ControlGrupo()
+        {
+        }
+
         /// <summary>
         /// Encapsulo un campo del tipo <see cref="DatosGrupo"/>
         /// </summary>
@@ -28,7 +37,7 @@ namespace Control
 
 
             };
-            return DatosGrupo.IngresarGrupo(DatosGrupo);
+            return DatosGrupo.IngresarGrupo(grupo: DatosGrupo);
 
         }
         /// <summary>
