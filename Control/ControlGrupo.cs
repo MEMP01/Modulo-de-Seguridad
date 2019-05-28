@@ -8,9 +8,9 @@ namespace Control
     public class ControlGrupo
     {
         private DatosGrupo datosGrupo;
-         /// <summary>
-         /// Encapsulo un campo del tipo <see cref="DatosGrupo"/>
-         /// </summary>
+        /// <summary>
+        /// Encapsulo un campo del tipo <see cref="DatosGrupo"/>
+        /// </summary>
         public DatosGrupo DatosGrupo { get => datosGrupo; set => datosGrupo = value; }
 
         /// <summary>
@@ -23,10 +23,10 @@ namespace Control
         {
             DatosGrupo = new DatosGrupo
             {
-                NombreGrupo = NombreDelGrupo    ,
-                EstadoGrupo=Estado
+                NombreGrupo = NombreDelGrupo,
+                EstadoGrupo = Estado
 
-              
+
             };
             return DatosGrupo.IngresarGrupo(DatosGrupo);
 
@@ -38,7 +38,7 @@ namespace Control
         /// <param name="nombredelGrupo">Ingresar el nombre del grupo</param>
         /// <param name="estado"> ingresar el estado del grupo</param>
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
-        public string UpdateGrupo (int idGrupo,string nombredelGrupo, string estado)
+        public string UpdateGrupo(int idGrupo, string nombredelGrupo, string estado)
         {
             DatosGrupo = new DatosGrupo
             {
