@@ -28,9 +28,9 @@ namespace Datos
         /// </summary>
         public string EstadoGrupo { get => estadoGrupo; set => estadoGrupo = value; }
 
-
+        //campos auxiliares
         private SqlCommand SqlComando;
-        ConneccionSql ConneccionSql;
+        private ConneccionSql ConneccionSql;
 
            /// <summary>
            /// Contructor de la clase DatosGrupos           
@@ -52,7 +52,7 @@ namespace Datos
         /// <summary>
         /// Metodo para ingresar un nuevo grupo de usuarios
         /// </summary>
-        /// <param name="grupo">ingresar objeto del tipo grupo</param>
+        /// <param name="grupo">ingresar objeto del tipo Datosgrupo</param>
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string IngresarGrupo(DatosGrupo grupo)
         {
@@ -68,9 +68,11 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = "Insert",
+                    CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
+
+
 
                 SqlParameter sqlparametersNombre = new SqlParameter
                 {
@@ -92,6 +94,15 @@ namespace Datos
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
 
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Insert"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
 
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
 
@@ -128,7 +139,7 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = "Update",
+                    CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -151,6 +162,16 @@ namespace Datos
                     Value = grupo.EstadoGrupo
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Update"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
 
 
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
@@ -191,7 +212,7 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = "Delete",
+                    CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -204,7 +225,19 @@ namespace Datos
 
                 };
 
+
+
                 SqlComando.Parameters.Add(sqlparametersIdnGrupo);
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Delete"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
 
 
 
@@ -240,17 +273,23 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sql,
-                    CommandText = "select",
+                    CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "select"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
+
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
                 dataTable = new DataTable();
                 sqltabla.Fill(dataTable);
-
-
-
-
-
 
             }
             catch (Exception ex)
@@ -281,7 +320,7 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sql,
-                    CommandText = "Buscar",
+                    CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -292,6 +331,16 @@ namespace Datos
                     Value = datosGrupo.IdNombre1
                 };
                 SqlComando.Parameters.Add(sqlParameter);
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Buscar"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
                 dataTable = new DataTable();
