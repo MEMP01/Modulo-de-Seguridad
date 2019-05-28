@@ -197,9 +197,20 @@ namespace Datos
             ConneccionSql = new ConneccionSql();
             try
             {
-                
-                
-                
+
+                ConneccionSql.OpenConneccion();
+                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                SqlComando = new SqlCommand
+                {
+                    Connection = sql,
+                    CommandText = "select",
+                    CommandType = CommandType.StoredProcedure
+                };
+                SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
+                dataTable = new DataTable();
+                sqltabla.Fill(dataTable);
+
+
 
 
 
@@ -218,14 +229,34 @@ namespace Datos
 
         }
 
-        public DataTable BuscarGrupos(int datosGrupo)
+        public DataTable BuscarGrupos(DatosGrupo datosGrupo)
         {
             DataTable dataTable;
             ConneccionSql = new ConneccionSql();
             try
             {
+                ConneccionSql.OpenConneccion();
+                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                SqlComando = new SqlCommand
+                {
+                    Connection = sql,
+                    CommandText = "Buscar",
+                    CommandType = CommandType.StoredProcedure
+                };
 
-                
+                SqlParameter sqlParameter = new SqlParameter
+                {
+                    ParameterName = "@idGrupo",
+                    SqlDbType = SqlDbType.Int,
+                    Value = datosGrupo.IdNombre1
+                };
+                SqlComando.Parameters.Add(sqlParameter);
+
+                SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
+                dataTable = new DataTable();
+                sqltabla.Fill(dataTable);
+
+
 
             }
             catch (Exception ex)
@@ -236,6 +267,7 @@ namespace Datos
             {
                 ConneccionSql.CloseConneccion();
             }
+
             return dataTable;
 
 
