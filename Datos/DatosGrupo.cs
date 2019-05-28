@@ -14,7 +14,7 @@ namespace Datos
         private string nombreGrupo;
         private int IdNombre;
         private string estadoGrupo;
-        
+
         /// <summary>
         /// encapsulamiento del campo Nombre del grupo
         /// </summary>
@@ -32,16 +32,16 @@ namespace Datos
         private SqlCommand SqlComando;
         private ConneccionSql ConneccionSql;
 
-           /// <summary>
-           /// Contructor de la clase DatosGrupos           
-           /// </summary>
+        /// <summary>
+        /// Contructor de la clase DatosGrupos           
+        /// </summary>
         public DatosGrupo() { }
-       /// <summary>
-       /// contructo de la clase datos grupo
-       /// </summary>
-       /// <param name="id"> ID del Grupo</param>
-       /// <param name="nombre"> Nombre del Grupo</param>
-       /// <param name="estado">Estado Del Grupo</param>
+        /// <summary>
+        /// contructo de la clase datos grupo
+        /// </summary>
+        /// <param name="id"> ID del Grupo</param>
+        /// <param name="nombre"> Nombre del Grupo</param>
+        /// <param name="estado">Estado Del Grupo</param>
         public DatosGrupo(int id, string nombre, string estado)
         {
             NombreGrupo = nombre;
@@ -257,10 +257,10 @@ namespace Datos
         }
 
 
-              /// <summary>
-              /// lista todos los grupos existentes en el sistema
-              /// </summary>
-              /// <returns>Devuelve una lista de todos los grupos del tipo datatable</returns>
+        /// <summary>
+        /// lista todos los grupos existentes en el sistema
+        /// </summary>
+        /// <returns>Devuelve una lista de todos los grupos del tipo datatable</returns>
         public DataTable ListarGrupos()
         {
             DataTable dataTable;
@@ -304,11 +304,11 @@ namespace Datos
 
 
         }
-         /// <summary>
-         /// buscar por ID un grupo en particular
-         /// </summary>
-         /// <param name="datosGrupo">Ingrese el Id del grupo a encontrar</param>
-         /// <returns>devuelve el grupo </returns>
+        /// <summary>
+        /// buscar por ID un grupo en particular
+        /// </summary>
+        /// <param name="datosGrupo">Ingrese el Id del grupo a encontrar</param>
+        /// <returns>devuelve el grupo </returns>
         public DataTable BuscarGrupos(DatosGrupo datosGrupo)
         {
             DataTable dataTable;
@@ -351,7 +351,7 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                throw new ArgumentException("Error de Listado", ex);
+                throw new ArgumentException("Error de Busqueda", ex);
             }
             finally
             {

@@ -260,7 +260,7 @@ namespace Datos
                 {
                     ParameterName = "@statementType",
                     SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,                       
+                    Size = 20,
                     Value = "Insert"
                 };
 
@@ -285,7 +285,7 @@ namespace Datos
         /// </summary>
         /// <param name="datosUsuarios">Ingresar objeto del tipo DatosUsuarios</param>
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
-        public string UpdateUsuarios (DatosUsuarios datosUsuarios)
+        public string UpdateUsuarios(DatosUsuarios datosUsuarios)
         {
             string rta = "";
             ConneccionSql = new ConneccionSql();
@@ -447,6 +447,174 @@ namespace Datos
 
         }
 
+        /// <summary>
+        ///    Metodo para Eliminar un usuario al sistema
+        /// </summary>
+        /// <param name="datosUsuarios"></param>
+        /// <returns>respuesta Si o No fue exitosa la operacion</returns>
+        public string EliminarUsuario(DatosUsuarios datosUsuarios)
+        {
+
+            string rta = "";
+            ConneccionSql = new ConneccionSql();
+
+            try
+            {
+
+
+                ConneccionSql.OpenConneccion();
+                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                SqlComando = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = "Sp_ABMC_Usuarios",
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlParameter sqlparametersDNI = new SqlParameter()
+                {
+                    ParameterName = "@DNI",
+                    SqlDbType = SqlDbType.Int,
+
+                    Value = datosUsuarios.DNI1
+
+                };
+
+                SqlComando.Parameters.Add(sqlparametersDNI);
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Delete"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
+
+
+
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+
+            }
+            catch (Exception ex)
+            {
+                rta = ex.Message;
+            }
+            finally
+            {
+                ConneccionSql.CloseConneccion();
+            }
+            return rta;
+
+        }
+
+        /// <summary>
+        ///  Metodo para Listar todos los usuarios del sistema
+        /// </summary>
+        /// <returns>devuelve todos los usuarios con objeto de tipo datatable</returns>
+        public DataTable ListarUsuarios()
+        {
+            DataTable dataTable;
+            ConneccionSql = new ConneccionSql();
+            try
+            {
+
+                ConneccionSql.OpenConneccion();
+                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                SqlComando = new SqlCommand
+                {
+                    Connection = sql,
+                    CommandText = "Sp_ABMC_Usuarios",
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "select"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
+
+                SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
+                dataTable = new DataTable();
+                sqltabla.Fill(dataTable);
+
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error de Listado", ex);
+            }
+            finally
+            {
+                ConneccionSql.CloseConneccion();
+            }
+            return dataTable;
+
+        }
+
+        /// <summary>
+        ///  Metodo para Buscar  a  los usuarios del sistema mediante su DNI
+        /// </summary>
+        /// <param name="datosUsuarios"></param>
+        /// <returns>devuelve el usuario</returns>
+        public DataTable BuscarUsuariosPorDNI(DatosUsuarios datosUsuarios)
+        {
+
+            DataTable dataTable;
+            ConneccionSql = new ConneccionSql();
+            try
+            {
+                ConneccionSql.OpenConneccion();
+                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                SqlComando = new SqlCommand
+                {
+                    Connection = sql,
+                    CommandText = "Sp_ABMC_Usuarios",
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                SqlParameter sqlparametersDNI = new SqlParameter
+                {
+                    ParameterName = "@DNI",
+                    SqlDbType = SqlDbType.Int,
+                    Value = datosUsuarios.DNI1
+                };
+
+                SqlComando.Parameters.Add(sqlparametersDNI);
+
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Buscar"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
+
+                SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
+                dataTable = new DataTable();
+                sqltabla.Fill(dataTable);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error de Busqueda", ex);
+            }
+            finally
+            {
+                ConneccionSql.CloseConneccion();
+            }
+
+            return dataTable;
+        }
 
 
 
