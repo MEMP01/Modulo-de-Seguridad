@@ -2,57 +2,90 @@
 using System.Data;
 
 namespace Control
-{
+{       /// <summary>
+/// Controladora de Grupo
+/// </summary>
     public class ControlGrupo
     {
-        DatosGrupo datosGrupo;
+        private DatosGrupo datosGrupo;
+         /// <summary>
+         /// Encapsulo un campo del tipo <see cref="DatosGrupo"/>
+         /// </summary>
+        public DatosGrupo DatosGrupo { get => datosGrupo; set => datosGrupo = value; }
 
+        /// <summary>
+        /// Controladora para ingresar registros de grupo
+        /// </summary>
+        /// <param name="NombreDelGrupo">Ingresar el nombre del grupo</param>
+        /// <param name="Estado">ingresar el estado del grupo</param>
+        /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string InsertGrupo(string NombreDelGrupo, string Estado)
         {
-            datosGrupo = new DatosGrupo
+            DatosGrupo = new DatosGrupo
             {
                 NombreGrupo = NombreDelGrupo    ,
                 EstadoGrupo=Estado
 
               
             };
-            return datosGrupo.IngresarGrupo(datosGrupo);
+            return DatosGrupo.IngresarGrupo(DatosGrupo);
 
         }
-         public string UpdateGrupo (int idGrupo,string nombredelGrupo, string estado)
+        /// <summary>
+        ///  Controladora para modificacion de registros de grupo
+        /// </summary>
+        /// <param name="idGrupo">ingresar la id del Grupo</param>
+        /// <param name="nombredelGrupo">Ingresar el nombre del grupo</param>
+        /// <param name="estado"> ingresar el estado del grupo</param>
+        /// <returns>respuesta Si o No fue exitosa la operacion</returns>
+        public string UpdateGrupo (int idGrupo,string nombredelGrupo, string estado)
         {
-            datosGrupo = new DatosGrupo
+            DatosGrupo = new DatosGrupo
             {
                 IdNombre1 = idGrupo,
                 NombreGrupo = nombredelGrupo,
                 EstadoGrupo = estado
             };
-            return datosGrupo.UpdateGrupos(datosGrupo);
+            return DatosGrupo.UpdateGrupos(DatosGrupo);
         }
 
+        /// <summary>
+        ///  Controladora para Eliminacion de registros de grupo
+        /// </summary>
+        /// <param name="id_grupo">ingresar la id del Grupo</param>
+        /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string EliminarGrupo(int id_grupo)
         {
-            datosGrupo = new DatosGrupo
+            DatosGrupo = new DatosGrupo
             {
                 IdNombre1 = id_grupo
             };
-            return datosGrupo.EliminarGrupo(datosGrupo);
+            return DatosGrupo.EliminarGrupo(DatosGrupo);
         }
 
-       public DataTable ListarGrupos()
+        /// <summary>
+        ///  Controladora para Listar de registros de grupo
+        /// </summary>
+        /// <returns>Devuelve todos los Grupos en el sistema</returns>
+        public DataTable ListarGrupos()
         {
-            datosGrupo = new DatosGrupo();
-            return datosGrupo.ListarGrupos();
+            DatosGrupo = new DatosGrupo();
+            return DatosGrupo.ListarGrupos();
 
         }
 
+        /// <summary>
+        ///  Controladora para Buscar un  grupo en el sistema mediante su ID
+        /// </summary>
+        /// <param name="id_grupo"></param>
+        /// <returns>Devuelve el grupo si existe</returns>
         public DataTable BuscarGrupo(int id_grupo)
         {
-            datosGrupo = new DatosGrupo
+            DatosGrupo = new DatosGrupo
             {
                 IdNombre1 = id_grupo
             };
-            return datosGrupo.BuscarGrupos(datosGrupo.IdNombre1);
+            return DatosGrupo.BuscarGrupos(DatosGrupo);
         }
     }
 }
