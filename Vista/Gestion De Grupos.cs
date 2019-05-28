@@ -12,41 +12,56 @@ namespace Vista
 {
     public partial class Gestion_De_Grupos : Form
     {
+        private static Gestion_De_Grupos Singleton;
         public Gestion_De_Grupos()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Implementacion del patron creacional Singleton para obtener una sola instacia del formulario  Gestion_De_Grupos
+        /// </summary>
+        public Gestion_De_Grupos InstanciaSingleton
+        {
+            get  {
+                if (Singleton == null)
+                {
+                    Singleton = new Gestion_De_Grupos();
+                }
+                return Singleton;
+            }
+            
+        }
         private void Gestion_De_Grupos_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
             Grupo grupo = new Grupo();
-            grupo.Show();
+            grupo.InstanciaSingleton.Show();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             Grupo grupo = new Grupo();
-            grupo.Show();
+            grupo.InstanciaSingleton.Show();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void BtnModificar_Click(object sender, EventArgs e)
         {
             Grupo grupo = new Grupo();
-            grupo.Show();
+            grupo.InstanciaSingleton.Show();
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
+        private void BtnFiltrar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
+            Singleton = null;
             Close();
         }
     }

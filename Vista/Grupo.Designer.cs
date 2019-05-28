@@ -28,54 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Agregar");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Modificar");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Eliminar");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Filtrar");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
-            treeNode31,
-            treeNode32,
-            treeNode33,
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Formulario Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
-            treeNode35});
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
-            treeNode36});
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Agregar");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Modificar");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Eliminar");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Filtrar");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Resetear Clave");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
-            treeNode38,
-            treeNode39,
-            treeNode40,
-            treeNode41,
-            treeNode42});
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Formulario Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
-            treeNode43});
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
-            treeNode44});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Agregar");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Modificar");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Eliminar");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Filtrar");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Formulario Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Gestionar Grupos", new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Agregar");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Modificar");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Eliminar");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Filtrar");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Resetear Clave");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Acciones", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Formulario Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Gestionar Usuarios", new System.Windows.Forms.TreeNode[] {
+            treeNode14});
             this.TABCdatos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.LbCodigo = new System.Windows.Forms.Label();
-            this.lbDescripcion = new System.Windows.Forms.Label();
-            this.lbEstado = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.chbEstado = new System.Windows.Forms.CheckBox();
-            this.dgvGrupoUsuarios = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbEstado = new System.Windows.Forms.Label();
+            this.lbDescripcion = new System.Windows.Forms.Label();
+            this.LbCodigo = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lbAsignar = new System.Windows.Forms.Label();
+            this.dgvGrupoUsuarios = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.TABCdatos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoUsuarios)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TABCdatos
@@ -105,6 +105,57 @@
             this.tabPage1.Text = "Datos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // chbEstado
+            // 
+            this.chbEstado.AutoSize = true;
+            this.chbEstado.Location = new System.Drawing.Point(76, 158);
+            this.chbEstado.Name = "chbEstado";
+            this.chbEstado.Size = new System.Drawing.Size(56, 17);
+            this.chbEstado.TabIndex = 5;
+            this.chbEstado.Text = "Activo";
+            this.chbEstado.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(76, 89);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(175, 20);
+            this.textBox2.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(76, 21);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // lbEstado
+            // 
+            this.lbEstado.AutoSize = true;
+            this.lbEstado.Location = new System.Drawing.Point(6, 163);
+            this.lbEstado.Name = "lbEstado";
+            this.lbEstado.Size = new System.Drawing.Size(40, 13);
+            this.lbEstado.TabIndex = 2;
+            this.lbEstado.Text = "Estado";
+            // 
+            // lbDescripcion
+            // 
+            this.lbDescripcion.AutoSize = true;
+            this.lbDescripcion.Location = new System.Drawing.Point(6, 96);
+            this.lbDescripcion.Name = "lbDescripcion";
+            this.lbDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lbDescripcion.TabIndex = 1;
+            this.lbDescripcion.Text = "Descripción";
+            // 
+            // LbCodigo
+            // 
+            this.LbCodigo.AutoSize = true;
+            this.LbCodigo.Location = new System.Drawing.Point(6, 24);
+            this.LbCodigo.Name = "LbCodigo";
+            this.LbCodigo.Size = new System.Drawing.Size(40, 13);
+            this.LbCodigo.TabIndex = 0;
+            this.LbCodigo.Text = "Código";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.lbAsignar);
@@ -116,69 +167,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Usuarios";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            this.tabPage2.Click += new System.EventHandler(this.TabPage2_Click);
             // 
-            // tabPage3
+            // lbAsignar
             // 
-            this.tabPage3.Controls.Add(this.treeView1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(382, 220);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Acciones";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // LbCodigo
-            // 
-            this.LbCodigo.AutoSize = true;
-            this.LbCodigo.Location = new System.Drawing.Point(6, 24);
-            this.LbCodigo.Name = "LbCodigo";
-            this.LbCodigo.Size = new System.Drawing.Size(40, 13);
-            this.LbCodigo.TabIndex = 0;
-            this.LbCodigo.Text = "Código";
-            // 
-            // lbDescripcion
-            // 
-            this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(6, 96);
-            this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(63, 13);
-            this.lbDescripcion.TabIndex = 1;
-            this.lbDescripcion.Text = "Descripción";
-            // 
-            // lbEstado
-            // 
-            this.lbEstado.AutoSize = true;
-            this.lbEstado.Location = new System.Drawing.Point(6, 163);
-            this.lbEstado.Name = "lbEstado";
-            this.lbEstado.Size = new System.Drawing.Size(40, 13);
-            this.lbEstado.TabIndex = 2;
-            this.lbEstado.Text = "Estado";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(76, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(76, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // chbEstado
-            // 
-            this.chbEstado.AutoSize = true;
-            this.chbEstado.Location = new System.Drawing.Point(76, 158);
-            this.chbEstado.Name = "chbEstado";
-            this.chbEstado.Size = new System.Drawing.Size(56, 17);
-            this.chbEstado.TabIndex = 5;
-            this.chbEstado.Text = "Activo";
-            this.chbEstado.UseVisualStyleBackColor = true;
+            this.lbAsignar.AutoSize = true;
+            this.lbAsignar.Location = new System.Drawing.Point(7, 4);
+            this.lbAsignar.Name = "lbAsignar";
+            this.lbAsignar.Size = new System.Drawing.Size(42, 13);
+            this.lbAsignar.TabIndex = 1;
+            this.lbAsignar.Text = "Asignar";
             // 
             // dgvGrupoUsuarios
             // 
@@ -191,52 +189,54 @@
             this.dgvGrupoUsuarios.Size = new System.Drawing.Size(310, 174);
             this.dgvGrupoUsuarios.TabIndex = 0;
             // 
-            // lbAsignar
+            // tabPage3
             // 
-            this.lbAsignar.AutoSize = true;
-            this.lbAsignar.Location = new System.Drawing.Point(7, 4);
-            this.lbAsignar.Name = "lbAsignar";
-            this.lbAsignar.Size = new System.Drawing.Size(42, 13);
-            this.lbAsignar.TabIndex = 1;
-            this.lbAsignar.Text = "Asignar";
+            this.tabPage3.Controls.Add(this.treeView1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(382, 220);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Acciones";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 28);
             this.treeView1.Name = "treeView1";
-            treeNode31.Name = "Agregar";
-            treeNode31.Text = "Agregar";
-            treeNode32.Name = "Modificar";
-            treeNode32.Text = "Modificar";
-            treeNode33.Name = "Eliminar";
-            treeNode33.Text = "Eliminar";
-            treeNode34.Name = "Filtar";
-            treeNode34.Text = "Filtrar";
-            treeNode35.Name = "Acciones";
-            treeNode35.Text = "Acciones";
-            treeNode36.Name = "FrmGestionarGrupos";
-            treeNode36.Text = "Formulario Gestionar Grupos";
-            treeNode37.Name = "GestionarGrupos";
-            treeNode37.Text = "Gestionar Grupos";
-            treeNode38.Name = "Agregar";
-            treeNode38.Text = "Agregar";
-            treeNode39.Name = "Modificar";
-            treeNode39.Text = "Modificar";
-            treeNode40.Name = "Eliminar";
-            treeNode40.Text = "Eliminar";
-            treeNode41.Name = "Filtrar";
-            treeNode41.Text = "Filtrar";
-            treeNode42.Name = "ResetearClave";
-            treeNode42.Text = "Resetear Clave";
-            treeNode43.Name = "Acciones";
-            treeNode43.Text = "Acciones";
-            treeNode44.Name = "FormularioGestionarUsuarios";
-            treeNode44.Text = "Formulario Gestionar Usuarios";
-            treeNode45.Name = "GestionarUsuarios";
-            treeNode45.Text = "Gestionar Usuarios";
+            treeNode1.Name = "Agregar";
+            treeNode1.Text = "Agregar";
+            treeNode2.Name = "Modificar";
+            treeNode2.Text = "Modificar";
+            treeNode3.Name = "Eliminar";
+            treeNode3.Text = "Eliminar";
+            treeNode4.Name = "Filtar";
+            treeNode4.Text = "Filtrar";
+            treeNode5.Name = "Acciones";
+            treeNode5.Text = "Acciones";
+            treeNode6.Name = "FrmGestionarGrupos";
+            treeNode6.Text = "Formulario Gestionar Grupos";
+            treeNode7.Name = "GestionarGrupos";
+            treeNode7.Text = "Gestionar Grupos";
+            treeNode8.Name = "Agregar";
+            treeNode8.Text = "Agregar";
+            treeNode9.Name = "Modificar";
+            treeNode9.Text = "Modificar";
+            treeNode10.Name = "Eliminar";
+            treeNode10.Text = "Eliminar";
+            treeNode11.Name = "Filtrar";
+            treeNode11.Text = "Filtrar";
+            treeNode12.Name = "ResetearClave";
+            treeNode12.Text = "Resetear Clave";
+            treeNode13.Name = "Acciones";
+            treeNode13.Text = "Acciones";
+            treeNode14.Name = "FormularioGestionarUsuarios";
+            treeNode14.Text = "Formulario Gestionar Usuarios";
+            treeNode15.Name = "GestionarUsuarios";
+            treeNode15.Text = "Gestionar Usuarios";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode37,
-            treeNode45});
+            treeNode7,
+            treeNode15});
             this.treeView1.Size = new System.Drawing.Size(340, 186);
             this.treeView1.TabIndex = 0;
             // 
@@ -248,7 +248,7 @@
             this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -258,7 +258,7 @@
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // Grupo
             // 
@@ -270,13 +270,14 @@
             this.Controls.Add(this.TABCdatos);
             this.Name = "Grupo";
             this.Text = "Grupo";
+            this.Load += new System.EventHandler(this.Grupo_Load);
             this.TABCdatos.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoUsuarios)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

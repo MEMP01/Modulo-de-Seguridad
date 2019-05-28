@@ -16,5 +16,25 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void Gestion_de_Usuarios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

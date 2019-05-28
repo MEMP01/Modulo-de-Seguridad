@@ -54,7 +54,7 @@ namespace Vista
         private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Gestion_De_Grupos gestion_De_Grupos = new Gestion_De_Grupos();
-            gestion_De_Grupos.Show();
+            gestion_De_Grupos.InstanciaSingleton.Show();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
