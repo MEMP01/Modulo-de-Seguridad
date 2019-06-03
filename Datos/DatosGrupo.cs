@@ -30,7 +30,9 @@ namespace Datos
 
         //campos auxiliares
         private SqlCommand SqlComando;
-        private ConneccionSql ConneccionSql;
+        private SqlConnection sqlConneccion;
+        private Coneccion Miconeccion;
+         
 
         /// <summary>
         /// Contructor de la clase DatosGrupos           
@@ -57,24 +59,37 @@ namespace Datos
         public string IngresarGrupo(DatosGrupo grupo)
         {
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+
+            SqlConnection sqlConneccion = new SqlConnection();
 
             try
             {
 
 
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+
+
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConnection,
+                    Connection = sqlConneccion,
                     CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
 
 
 
-                SqlParameter sqlparametersNombre = new SqlParameter
+                SqlParameter id = new SqlParameter
+                {
+                    ParameterName = "@idGrupo",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+
+                };
+
+                SqlComando.Parameters.Add(id);
+
+                 SqlParameter sqlparametersNombre = new SqlParameter
                 {
                     ParameterName = "@nombre",
                     SqlDbType = SqlDbType.VarChar,
@@ -113,7 +128,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+              if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
             return rta;
 
@@ -128,17 +146,18 @@ namespace Datos
         {
 
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+            Miconeccion = new Coneccion();
+            SqlConnection sqlConneccion = new SqlConnection();
 
             try
             {
 
 
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConnection,
+                    Connection = sqlConneccion,
                     CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
@@ -183,7 +202,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
             return rta;
 
@@ -201,17 +223,18 @@ namespace Datos
 
 
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+            Miconeccion = new Coneccion();
+            SqlConnection sqlConneccion = new SqlConnection();
 
             try
             {
 
 
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConnection,
+                    Connection = sqlConneccion,
                     CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
@@ -250,7 +273,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
             return rta;
 
@@ -263,33 +289,20 @@ namespace Datos
         /// <returns>Devuelve una lista de todos los grupos del tipo datatable</returns>
         public DataTable ListarGrupos()
         {
-            DataTable dataTable;
-            ConneccionSql = new ConneccionSql();
+            DataTable dataTablaResultado= new DataTable("Grupo");
+            SqlConnection sqlConneccion = new SqlConnection();
+            Miconeccion = new Coneccion();
             try
             {
 
-                ConneccionSql.OpenConneccion();
-                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
-                SqlComando = new SqlCommand
-                {
-                    Connection = sql,
-                    CommandText = "Sp_ABMC_Grupos",
-                    CommandType = CommandType.StoredProcedure
-                };
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "select"
-                };
+             
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
-
-                SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
-                dataTable = new DataTable();
-                sqltabla.Fill(dataTable);
+                SqlDataAdapter sqltabla = new SqlDataAdapter("Select * from VistaGrupo", sqlConneccion);
+            
+                sqltabla.Fill(dataTablaResultado);
 
             }
             catch (Exception ex)
@@ -298,9 +311,12 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
-            return dataTable;
+            return dataTablaResultado;
 
 
         }
@@ -312,14 +328,14 @@ namespace Datos
         public DataTable BuscarGrupos(DatosGrupo datosGrupo)
         {
             DataTable dataTable;
-            ConneccionSql = new ConneccionSql();
+            Miconeccion = new Coneccion();
             try
             {
-                ConneccionSql.OpenConneccion();
-                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sql,
+                    Connection = sqlConneccion,
                     CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
@@ -355,7 +371,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
 
             return dataTable;

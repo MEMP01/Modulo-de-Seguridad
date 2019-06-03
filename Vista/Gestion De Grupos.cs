@@ -38,22 +38,23 @@ namespace Vista
          /// <summary>
          /// encapsulo un campo del tipo controlGrupo
          /// </summary>
-        public ControlGrupo ControlGrupo1 { get => ControlGrupo; set => ControlGrupo = value; }
+       
 
         private void Gestion_De_Grupos_Load(object sender, EventArgs e)
         {
             Top = 0;
             Left = 0;
-           //lenarGrilla();
+            LlenarGrilla();
 
         }
-         /**
+         
         private void LlenarGrilla()
         {
-            DgvGrillaGrupos.DataSource = ControlGrupo1.ListarGrupos();
+            ControlGrupo = new ControlGrupo();
+            DgvGrillaGrupos.DataSource = ControlGrupo.ListarGrupos();
 
         }
-         **/
+        
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
 
@@ -85,6 +86,26 @@ namespace Vista
         {
             Singleton = null;
             Close();
+        }
+
+        private void groupB1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -26,13 +26,20 @@ namespace Vista
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            Gestion_De_Grupos gestion_De_Grupos = new Gestion_De_Grupos();
-            gestion_De_Grupos.Show();
+
+            PRINCIPALALGO frmPrincipal = new PRINCIPALALGO();
+            frmPrincipal.Show();
+            
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-
+            DialogResult respuesta = MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo);
+            if (respuesta == DialogResult.Yes)
+            {
+                MessageBox.Show("Hasta luego");
+                Close();
+            }
         }
 
         private void ChkBoxMostrarContraseña_CheckedChanged(object sender, EventArgs e)

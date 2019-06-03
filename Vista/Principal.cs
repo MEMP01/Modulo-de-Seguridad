@@ -16,6 +16,9 @@ namespace Vista
         {
             InitializeComponent();
         }
+        Gestion_De_Grupos GestionDeGrupos;
+        Gestion_de_Usuarios gestionDeUsuarios;
+       
 
         private void LoggInToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -53,14 +56,17 @@ namespace Vista
 
         private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Gestion_De_Grupos gestion_De_Grupos = new Gestion_De_Grupos();
-            gestion_De_Grupos.InstanciaSingleton.Show();
+            Gestion_De_Grupos GestionDeGrupos = new Gestion_De_Grupos();
+            GestionDeGrupos.MdiParent = this;
+            GestionDeGrupos.InstanciaSingleton.Show();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Gestion_de_Usuarios gestion_De_Usuarios = new Gestion_de_Usuarios();
-            gestion_De_Usuarios.Show();
+            Gestion_de_Usuarios gestionDeUsuarios = new Gestion_de_Usuarios();
+            gestionDeUsuarios.MdiParent = this;
+
+            gestionDeUsuarios.Show();
         }
     }
 }
