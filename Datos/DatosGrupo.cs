@@ -327,41 +327,32 @@ namespace Datos
         /// <returns>devuelve el grupo </returns>
         public DataTable BuscarGrupos(DatosGrupo datosGrupo)
         {
-            DataTable dataTable;
+            DataTable dataTable = new DataTable();
+            SqlConnection sqlConneccion = new SqlConnection();
             Miconeccion = new Coneccion();
             try
             {
+               
                 sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "Sp_ABMC_Grupos",
+                    CommandText = "SpBuscarGrupo",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter sqlParameter = new SqlParameter
-                {
-                    ParameterName = "@idGrupo",
-                    SqlDbType = SqlDbType.Int,
-                    Value = datosGrupo.IdNombre1
-                };
-                SqlComando.Parameters.Add(sqlParameter);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Buscar"
-                };
-
-                SqlComando.Parameters.Add(sqlparameterStatementType);
+             
+                SqlParameter sqlpnombre = new SqlParameter();
+                sqlpnombre.ParameterName = "@nombre";
+                sqlpnombre.SqlDbType = SqlDbType.VarChar;
+                sqlpnombre.Size = 120;
+                sqlpnombre.Value = datosGrupo.NombreGrupo;
+                SqlComando.Parameters.Add(sqlpnombre);
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
-                dataTable = new DataTable();
                 sqltabla.Fill(dataTable);
-
 
 
             }

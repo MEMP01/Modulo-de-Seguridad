@@ -1,7 +1,8 @@
 ﻿using Control;
 using System;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Vista
 {
@@ -10,7 +11,7 @@ namespace Vista
         private bool EsNuevo;
         private bool EsEditar;
 
-        private ControlGrupo ControlGrupo;
+        private ControlGrupo ControldeGrupo;
 
         private static Gestion_De_Grupos Singleton;
         /// <summary>
@@ -32,6 +33,8 @@ namespace Vista
             ttMensajeAyuda.SetToolTip(chkbEliminar, "Click aquí para habilitar el boton Eliminar");
             ttMensajeAyuda.SetToolTip(btnCancelar, "Click aquí para deshacer cambios");
             ttMensajeAyuda.SetToolTip(btnSalirGestioGrupo, "Click aquí para regresar al formulario principal");
+            ttMensajeAyuda.SetToolTip(rbFiltrarPoNombre, "Seleccione esta opcion para filtrar por Nombre");
+            ttMensajeAyuda.SetToolTip(rbfiltrarPorEstado, "Seleccione esta opcion para filtrar por Estado");
         }
         /// <summary>
         /// Implementacion del patron creacional Singleton para obtener una sola instacia del formulario  Gestion_De_Grupos
@@ -120,10 +123,24 @@ namespace Vista
         /// </summary>
         private void LlenarGrilla()
         {
-            ControlGrupo = new ControlGrupo();
-            DgvGrillaGrupos.DataSource = ControlGrupo.ListarGrupos(); 
+            ControldeGrupo = new ControlGrupo();
+            DgvGrillaGrupos.DataSource = ControldeGrupo.ListarGrupos();
+            lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaGrupos.Rows.Count);
         }
 
+
+        private void Filtrar()
+        {
+           
+          
+                DataTable dt = DgvGrillaGrupos.DataSource as DataTable;
+                string query = string.Format("Estadogrupo = '{0}'", cmbEstadoGrupo.Text);
+                dt.DefaultView.RowFilter = query;
+                lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaGrupos.Rows.Count);
+
+            
+            
+        }
 
 
 
@@ -132,7 +149,9 @@ namespace Vista
         {
             Top = 0;
             Left = 0;
+            Habilitar(false);
             LlenarGrilla();
+            Botones();
 
         }
 
@@ -162,7 +181,15 @@ namespace Vista
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-
+          
+            if (txtbBuscarGrupoPorNombre.Enabled == true)
+            {
+                string nombre = txtbBuscarGrupoPorNombre.Text;
+                ControldeGrupo = new ControlGrupo();
+                DgvGrillaGrupos.DataSource = ControldeGrupo.BuscarGrupo(nombre);
+                lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaGrupos.Rows.Count);
+            }
+            else Filtrar();
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -176,29 +203,47 @@ namespace Vista
 
         }
 
-        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        private void BtnGuardarCambios_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
+        {
+            txtbBuscarGrupoPorNombre.Enabled = false;
+            cmbEstadoGrupo.Enabled = true;
+        }
+
+        private void RbFiltrarPoNombre_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbEstadoGrupo.Enabled = false;
+            txtbBuscarGrupoPorNombre.Enabled = true;
+        }
+
+        private void BtnListar_Click(object sender, EventArgs e)
+        {
+            LimpiarTodo();
+            LlenarGrilla();
         }
     }
 }

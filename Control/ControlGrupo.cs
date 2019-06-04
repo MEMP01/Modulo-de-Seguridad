@@ -88,11 +88,11 @@ namespace Control
         /// </summary>
         /// <param name="id_grupo"></param>
         /// <returns>Devuelve el grupo si existe</returns>
-        public DataTable BuscarGrupo(int id_grupo)
+        public DataTable BuscarGrupo(string nombre)
         {
             DatosGrupo = new DatosGrupo
             {
-                IdNombre1 = id_grupo
+                NombreGrupo = nombre
             };
             return DatosGrupo.BuscarGrupos(DatosGrupo);
         }

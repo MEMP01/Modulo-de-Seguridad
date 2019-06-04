@@ -42,24 +42,27 @@
             this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabGrupo = new System.Windows.Forms.TabPage();
+            this.rbFiltrarPoNombre = new System.Windows.Forms.RadioButton();
+            this.rbfiltrarPorEstado = new System.Windows.Forms.RadioButton();
             this.lbnumeroDeRegistros = new System.Windows.Forms.Label();
             this.lbCantidadDeRegistros = new System.Windows.Forms.Label();
             this.tabGestionDeGrupos = new System.Windows.Forms.TabPage();
             this.groupB1 = new System.Windows.Forms.GroupBox();
+            this.RbGrupoInactivo = new System.Windows.Forms.RadioButton();
+            this.rbEstadoActivo = new System.Windows.Forms.RadioButton();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.LbCodigo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtbNombreDelGrupo = new System.Windows.Forms.TextBox();
             this.lbEstadoGrupo = new System.Windows.Forms.Label();
             this.txtbCodigo = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.rbEstadoActivo = new System.Windows.Forms.RadioButton();
-            this.RbGrupoInactivo = new System.Windows.Forms.RadioButton();
             this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
+            this.btnListar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaGrupos)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabGrupo.SuspendLayout();
@@ -82,7 +85,7 @@
             // 
             this.btnFiltrar.Location = new System.Drawing.Point(632, 32);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.Size = new System.Drawing.Size(105, 23);
             this.btnFiltrar.TabIndex = 4;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
@@ -184,6 +187,9 @@
             // tabGrupo
             // 
             this.tabGrupo.BackColor = System.Drawing.Color.Snow;
+            this.tabGrupo.Controls.Add(this.btnListar);
+            this.tabGrupo.Controls.Add(this.rbFiltrarPoNombre);
+            this.tabGrupo.Controls.Add(this.rbfiltrarPorEstado);
             this.tabGrupo.Controls.Add(this.lbnumeroDeRegistros);
             this.tabGrupo.Controls.Add(this.lbCantidadDeRegistros);
             this.tabGrupo.Controls.Add(this.lbNombreDelGrupo);
@@ -201,6 +207,30 @@
             this.tabGrupo.Size = new System.Drawing.Size(775, 425);
             this.tabGrupo.TabIndex = 0;
             this.tabGrupo.Text = "Grupos";
+            // 
+            // rbFiltrarPoNombre
+            // 
+            this.rbFiltrarPoNombre.AutoSize = true;
+            this.rbFiltrarPoNombre.Location = new System.Drawing.Point(632, 85);
+            this.rbFiltrarPoNombre.Name = "rbFiltrarPoNombre";
+            this.rbFiltrarPoNombre.Size = new System.Drawing.Size(109, 17);
+            this.rbFiltrarPoNombre.TabIndex = 15;
+            this.rbFiltrarPoNombre.Text = "Filtrar Por Nombre";
+            this.rbFiltrarPoNombre.UseVisualStyleBackColor = true;
+            this.rbFiltrarPoNombre.CheckedChanged += new System.EventHandler(this.RbFiltrarPoNombre_CheckedChanged);
+            // 
+            // rbfiltrarPorEstado
+            // 
+            this.rbfiltrarPorEstado.AutoSize = true;
+            this.rbfiltrarPorEstado.Checked = true;
+            this.rbfiltrarPorEstado.Location = new System.Drawing.Point(632, 62);
+            this.rbfiltrarPorEstado.Name = "rbfiltrarPorEstado";
+            this.rbfiltrarPorEstado.Size = new System.Drawing.Size(105, 17);
+            this.rbfiltrarPorEstado.TabIndex = 14;
+            this.rbfiltrarPorEstado.TabStop = true;
+            this.rbfiltrarPorEstado.Text = "Filtrar Por Estado";
+            this.rbfiltrarPorEstado.UseVisualStyleBackColor = true;
+            this.rbfiltrarPorEstado.CheckedChanged += new System.EventHandler(this.RbfiltrarPorEstado_CheckedChanged);
             // 
             // lbnumeroDeRegistros
             // 
@@ -250,6 +280,69 @@
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
             this.groupB1.Enter += new System.EventHandler(this.groupB1_Enter);
+            // 
+            // RbGrupoInactivo
+            // 
+            this.RbGrupoInactivo.AutoSize = true;
+            this.RbGrupoInactivo.Location = new System.Drawing.Point(180, 166);
+            this.RbGrupoInactivo.Name = "RbGrupoInactivo";
+            this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
+            this.RbGrupoInactivo.TabIndex = 17;
+            this.RbGrupoInactivo.TabStop = true;
+            this.RbGrupoInactivo.Text = "Grupo Inactivo";
+            this.RbGrupoInactivo.UseVisualStyleBackColor = true;
+            // 
+            // rbEstadoActivo
+            // 
+            this.rbEstadoActivo.AutoSize = true;
+            this.rbEstadoActivo.Location = new System.Drawing.Point(76, 166);
+            this.rbEstadoActivo.Name = "rbEstadoActivo";
+            this.rbEstadoActivo.Size = new System.Drawing.Size(87, 17);
+            this.rbEstadoActivo.TabIndex = 16;
+            this.rbEstadoActivo.TabStop = true;
+            this.rbEstadoActivo.Text = "Grupo Activo";
+            this.rbEstadoActivo.UseVisualStyleBackColor = true;
+            this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(664, 362);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // btnGuardarCambios
+            // 
+            this.btnGuardarCambios.Location = new System.Drawing.Point(583, 362);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(75, 34);
+            this.btnGuardarCambios.TabIndex = 14;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.BtnGuardarCambios_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(502, 362);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 34);
+            this.btnEditar.TabIndex = 13;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(421, 362);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 34);
+            this.btnNuevo.TabIndex = 12;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // LbCodigo
             // 
@@ -306,69 +399,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(421, 362);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 34);
-            this.btnNuevo.TabIndex = 12;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(502, 362);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 34);
-            this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnGuardarCambios
-            // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(583, 362);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(75, 34);
-            this.btnGuardarCambios.TabIndex = 14;
-            this.btnGuardarCambios.Text = "Guardar Cambios";
-            this.btnGuardarCambios.UseVisualStyleBackColor = true;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(664, 362);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // rbEstadoActivo
-            // 
-            this.rbEstadoActivo.AutoSize = true;
-            this.rbEstadoActivo.Location = new System.Drawing.Point(76, 166);
-            this.rbEstadoActivo.Name = "rbEstadoActivo";
-            this.rbEstadoActivo.Size = new System.Drawing.Size(87, 17);
-            this.rbEstadoActivo.TabIndex = 16;
-            this.rbEstadoActivo.TabStop = true;
-            this.rbEstadoActivo.Text = "Grupo Activo";
-            this.rbEstadoActivo.UseVisualStyleBackColor = true;
-            this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // RbGrupoInactivo
-            // 
-            this.RbGrupoInactivo.AutoSize = true;
-            this.RbGrupoInactivo.Location = new System.Drawing.Point(180, 166);
-            this.RbGrupoInactivo.Name = "RbGrupoInactivo";
-            this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
-            this.RbGrupoInactivo.TabIndex = 17;
-            this.RbGrupoInactivo.TabStop = true;
-            this.RbGrupoInactivo.Text = "Grupo Inactivo";
-            this.RbGrupoInactivo.UseVisualStyleBackColor = true;
-            // 
             // ErrorIcono
             // 
             this.ErrorIcono.ContainerControl = this;
@@ -376,6 +406,16 @@
             // ttMensajeAyuda
             // 
             this.ttMensajeAyuda.IsBalloon = true;
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(662, 394);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 16;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.BtnListar_Click);
             // 
             // Gestion_De_Grupos
             // 
@@ -433,5 +473,8 @@
         private System.Windows.Forms.RadioButton rbEstadoActivo;
         private System.Windows.Forms.ErrorProvider ErrorIcono;
         private System.Windows.Forms.ToolTip ttMensajeAyuda;
+        private System.Windows.Forms.RadioButton rbFiltrarPoNombre;
+        private System.Windows.Forms.RadioButton rbfiltrarPorEstado;
+        private System.Windows.Forms.Button btnListar;
     }
 }
