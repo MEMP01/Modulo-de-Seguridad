@@ -34,22 +34,21 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.cmbEstadoGrupo = new System.Windows.Forms.ComboBox();
             this.lbNombreDelGrupo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbBuscarGrupoPorNombre = new System.Windows.Forms.TextBox();
             this.lbEstado = new System.Windows.Forms.Label();
             this.DgvGrillaGrupos = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.chkbEliminar = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabGrupo = new System.Windows.Forms.TabPage();
             this.lbnumeroDeRegistros = new System.Windows.Forms.Label();
             this.lbCantidadDeRegistros = new System.Windows.Forms.Label();
-            this.btnDesactivarGrupo = new System.Windows.Forms.Button();
             this.tabGestionDeGrupos = new System.Windows.Forms.TabPage();
             this.groupB1 = new System.Windows.Forms.GroupBox();
             this.LbCodigo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtbDescripcion = new System.Windows.Forms.TextBox();
+            this.txtbNombreDelGrupo = new System.Windows.Forms.TextBox();
             this.lbEstadoGrupo = new System.Windows.Forms.Label();
             this.txtbCodigo = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -111,14 +110,14 @@
             this.lbNombreDelGrupo.TabIndex = 6;
             this.lbNombreDelGrupo.Text = "Descripcion";
             // 
-            // textBox1
+            // txtbBuscarGrupoPorNombre
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(144, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtbBuscarGrupoPorNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtbBuscarGrupoPorNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbBuscarGrupoPorNombre.Location = new System.Drawing.Point(144, 35);
+            this.txtbBuscarGrupoPorNombre.Name = "txtbBuscarGrupoPorNombre";
+            this.txtbBuscarGrupoPorNombre.Size = new System.Drawing.Size(207, 20);
+            this.txtbBuscarGrupoPorNombre.TabIndex = 7;
             // 
             // lbEstado
             // 
@@ -162,15 +161,15 @@
             this.chkbEliminar.Text = "Eliminar";
             this.chkbEliminar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSalirGestioGrupo
             // 
-            this.button1.Location = new System.Drawing.Point(711, 482);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.BtnSalir_Click);
+            this.btnSalirGestioGrupo.Location = new System.Drawing.Point(711, 482);
+            this.btnSalirGestioGrupo.Name = "btnSalirGestioGrupo";
+            this.btnSalirGestioGrupo.Size = new System.Drawing.Size(75, 23);
+            this.btnSalirGestioGrupo.TabIndex = 0;
+            this.btnSalirGestioGrupo.Text = "Salir";
+            this.btnSalirGestioGrupo.UseVisualStyleBackColor = true;
+            this.btnSalirGestioGrupo.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // tabControl2
             // 
@@ -187,7 +186,6 @@
             this.tabGrupo.BackColor = System.Drawing.Color.Snow;
             this.tabGrupo.Controls.Add(this.lbnumeroDeRegistros);
             this.tabGrupo.Controls.Add(this.lbCantidadDeRegistros);
-            this.tabGrupo.Controls.Add(this.btnDesactivarGrupo);
             this.tabGrupo.Controls.Add(this.lbNombreDelGrupo);
             this.tabGrupo.Controls.Add(this.btnEliminar);
             this.tabGrupo.Controls.Add(this.chkbEliminar);
@@ -195,7 +193,7 @@
             this.tabGrupo.Controls.Add(this.DgvGrillaGrupos);
             this.tabGrupo.Controls.Add(this.cmbEstadoGrupo);
             this.tabGrupo.Controls.Add(this.lbEstado);
-            this.tabGrupo.Controls.Add(this.textBox1);
+            this.tabGrupo.Controls.Add(this.txtbBuscarGrupoPorNombre);
             this.tabGrupo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.tabGrupo.Location = new System.Drawing.Point(4, 22);
             this.tabGrupo.Name = "tabGrupo";
@@ -221,15 +219,6 @@
             this.lbCantidadDeRegistros.TabIndex = 12;
             this.lbCantidadDeRegistros.Text = "Cantidad De Registros :";
             // 
-            // btnDesactivarGrupo
-            // 
-            this.btnDesactivarGrupo.Location = new System.Drawing.Point(241, 75);
-            this.btnDesactivarGrupo.Name = "btnDesactivarGrupo";
-            this.btnDesactivarGrupo.Size = new System.Drawing.Size(138, 23);
-            this.btnDesactivarGrupo.TabIndex = 11;
-            this.btnDesactivarGrupo.Text = "&Desactivar Grupo";
-            this.btnDesactivarGrupo.UseVisualStyleBackColor = true;
-            // 
             // tabGestionDeGrupos
             // 
             this.tabGestionDeGrupos.Controls.Add(this.groupB1);
@@ -251,7 +240,7 @@
             this.groupB1.Controls.Add(this.btnNuevo);
             this.groupB1.Controls.Add(this.LbCodigo);
             this.groupB1.Controls.Add(this.label2);
-            this.groupB1.Controls.Add(this.txtbDescripcion);
+            this.groupB1.Controls.Add(this.txtbNombreDelGrupo);
             this.groupB1.Controls.Add(this.lbEstadoGrupo);
             this.groupB1.Controls.Add(this.txtbCodigo);
             this.groupB1.Location = new System.Drawing.Point(7, 7);
@@ -265,7 +254,7 @@
             // LbCodigo
             // 
             this.LbCodigo.AutoSize = true;
-            this.LbCodigo.Location = new System.Drawing.Point(18, 37);
+            this.LbCodigo.Location = new System.Drawing.Point(66, 37);
             this.LbCodigo.Name = "LbCodigo";
             this.LbCodigo.Size = new System.Drawing.Size(40, 13);
             this.LbCodigo.TabIndex = 6;
@@ -276,18 +265,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 109);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Descripción";
+            this.label2.Text = "Nombre del grupo";
             // 
-            // txtbDescripcion
+            // txtbNombreDelGrupo
             // 
-            this.txtbDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtbDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbDescripcion.Location = new System.Drawing.Point(88, 102);
-            this.txtbDescripcion.Name = "txtbDescripcion";
-            this.txtbDescripcion.Size = new System.Drawing.Size(276, 20);
-            this.txtbDescripcion.TabIndex = 10;
+            this.txtbNombreDelGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtbNombreDelGrupo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbNombreDelGrupo.Location = new System.Drawing.Point(115, 102);
+            this.txtbNombreDelGrupo.Name = "txtbNombreDelGrupo";
+            this.txtbNombreDelGrupo.Size = new System.Drawing.Size(276, 20);
+            this.txtbNombreDelGrupo.TabIndex = 10;
             // 
             // lbEstadoGrupo
             // 
@@ -302,7 +291,7 @@
             // 
             this.txtbCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtbCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbCodigo.Location = new System.Drawing.Point(88, 34);
+            this.txtbCodigo.Location = new System.Drawing.Point(115, 30);
             this.txtbCodigo.Name = "txtbCodigo";
             this.txtbCodigo.Size = new System.Drawing.Size(276, 20);
             this.txtbCodigo.TabIndex = 9;
@@ -325,6 +314,7 @@
             this.btnNuevo.TabIndex = 12;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
@@ -334,6 +324,7 @@
             this.btnEditar.TabIndex = 13;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardarCambios
             // 
@@ -393,7 +384,7 @@
             this.ClientSize = new System.Drawing.Size(807, 517);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSalirGestioGrupo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Gestion_De_Grupos";
             this.Text = "Gestion De Grupos";
@@ -416,22 +407,21 @@
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.ComboBox cmbEstadoGrupo;
         private System.Windows.Forms.Label lbNombreDelGrupo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbBuscarGrupoPorNombre;
         private System.Windows.Forms.Label lbEstado;
         private System.Windows.Forms.DataGridView DgvGrillaGrupos;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.CheckBox chkbEliminar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalirGestioGrupo;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabGrupo;
         private System.Windows.Forms.TabPage tabGestionDeGrupos;
         private System.Windows.Forms.Button button2;
-        public System.Windows.Forms.TextBox txtbDescripcion;
+        public System.Windows.Forms.TextBox txtbNombreDelGrupo;
         public System.Windows.Forms.TextBox txtbCodigo;
         private System.Windows.Forms.Label lbEstadoGrupo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LbCodigo;
-        private System.Windows.Forms.Button btnDesactivarGrupo;
         private System.Windows.Forms.GroupBox groupB1;
         private System.Windows.Forms.Label lbnumeroDeRegistros;
         private System.Windows.Forms.Label lbCantidadDeRegistros;
