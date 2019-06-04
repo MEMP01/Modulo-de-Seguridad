@@ -56,7 +56,7 @@ namespace Vista
         ///    Muestra un mensaje de confirmacion de la operacion
         /// </summary>
         /// <param name="mensaje"></param>
-        private void MesanjeOK(string mensaje)
+        private void MensanjeOK(string mensaje)
         {
             MessageBox.Show(mensaje, "Modulo de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -64,7 +64,8 @@ namespace Vista
         ///     Muestra Un mensaje de Error
         /// </summary>
         /// <param name="mensaje"></param>
-        private void MesanjeError(string mensaje)
+        /// 
+        private void MensanjeError(string mensaje)
         {
             MessageBox.Show(mensaje, "Modulo de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -73,6 +74,7 @@ namespace Vista
           /// </summary>
         private void LimpiarTodo()
         {
+            txtbCodigo.Text = string.Empty;
             txtbBuscarGrupoPorNombre.Text = string.Empty;
             txtbCodigo.Text = string.Empty;
             txtbNombreDelGrupo.Text = string.Empty;    
@@ -205,7 +207,80 @@ namespace Vista
 
         private void BtnGuardarCambios_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rpta = "";
+                string estado = "";
+                ControldeGrupo = new ControlGrupo();
 
+                if (txtbNombreDelGrupo.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbNombreDelGrupo, "Ingrese un Nombre para el Grupo");
+                }else
+                {
+                    if (EsNuevo)
+                    {
+                        
+                        if (rbEstadoActivo.Enabled == true)
+                        {
+                            estado = "Activo";
+                        }
+                       if   (RbGrupoInactivo.Enabled==true)
+                        {
+                            estado = "Inactivo";
+                        }
+
+                        MessageBox.Show("aca bien");
+                        rpta = ControldeGrupo.InsertGrupo(txtbNombreDelGrupo.Text.Trim(), estado);
+                    }
+                    else
+                    {
+                        //MessageBox.Show("aca malllll ");
+
+                        if (rbEstadoActivo.Enabled == true)
+                        {
+                            estado = "Activo";
+                        }
+                        if (RbGrupoInactivo.Enabled == true)
+                        {
+                            estado = "Inactivo";
+                        }
+
+                        rpta = ControldeGrupo.UpdateGrupo(Convert.ToInt32(txtbCodigo.Text), txtbNombreDelGrupo.Text.Trim(), estado);
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (EsNuevo)
+                        {
+                            MensanjeOK("Se ingreso exitosamente un nuevo grupo al sistema");
+                        }
+                        else
+                        {
+                            MensanjeOK("Se Modifico exitosamente el grupo dado");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("aca pasa algo lpm");
+                        MensanjeError(rpta);
+                    }
+
+                    EsNuevo = false;
+                    EsEditar = false;
+                    Botones();
+                    LimpiarTodo();
+                    LlenarGrilla();
+
+                }                                                                              
+
+                
+            }   catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+           
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -220,7 +295,12 @@ namespace Vista
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-
+            EsNuevo = true;
+            EsEditar = false;
+            Botones();
+            LimpiarTodo();
+            Habilitar(true);
+            txtbNombreDelGrupo.Focus();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)

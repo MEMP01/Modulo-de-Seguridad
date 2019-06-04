@@ -42,6 +42,7 @@
             this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabGrupo = new System.Windows.Forms.TabPage();
+            this.btnListar = new System.Windows.Forms.Button();
             this.rbFiltrarPoNombre = new System.Windows.Forms.RadioButton();
             this.rbfiltrarPorEstado = new System.Windows.Forms.RadioButton();
             this.lbnumeroDeRegistros = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
-            this.btnListar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaGrupos)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabGrupo.SuspendLayout();
@@ -208,6 +208,16 @@
             this.tabGrupo.TabIndex = 0;
             this.tabGrupo.Text = "Grupos";
             // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(662, 394);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 16;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.BtnListar_Click);
+            // 
             // rbFiltrarPoNombre
             // 
             this.rbFiltrarPoNombre.AutoSize = true;
@@ -284,6 +294,7 @@
             // RbGrupoInactivo
             // 
             this.RbGrupoInactivo.AutoSize = true;
+            this.RbGrupoInactivo.Checked = true;
             this.RbGrupoInactivo.Location = new System.Drawing.Point(180, 166);
             this.RbGrupoInactivo.Name = "RbGrupoInactivo";
             this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
@@ -299,7 +310,6 @@
             this.rbEstadoActivo.Name = "rbEstadoActivo";
             this.rbEstadoActivo.Size = new System.Drawing.Size(87, 17);
             this.rbEstadoActivo.TabIndex = 16;
-            this.rbEstadoActivo.TabStop = true;
             this.rbEstadoActivo.Text = "Grupo Activo";
             this.rbEstadoActivo.UseVisualStyleBackColor = true;
             this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
@@ -406,16 +416,6 @@
             // ttMensajeAyuda
             // 
             this.ttMensajeAyuda.IsBalloon = true;
-            // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(662, 394);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(75, 23);
-            this.btnListar.TabIndex = 16;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.BtnListar_Click);
             // 
             // Gestion_De_Grupos
             // 

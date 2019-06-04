@@ -37,7 +37,7 @@ namespace Control
 
 
             };
-            return DatosGrupo.IngresarGrupo(grupo: DatosGrupo);
+            return DatosGrupo.IngresarGrupo(DatosGrupo);
 
         }
         /// <summary>

@@ -1,5 +1,4 @@
-﻿using Acceso_a_Datos;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -32,7 +31,7 @@ namespace Datos
         private SqlCommand SqlComando;
         private SqlConnection sqlConneccion;
         private Coneccion Miconeccion;
-         
+
 
         /// <summary>
         /// Contructor de la clase DatosGrupos           
@@ -58,16 +57,13 @@ namespace Datos
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string IngresarGrupo(DatosGrupo grupo)
         {
-            string rta = "";
+            
 
             SqlConnection sqlConneccion = new SqlConnection();
-
+            string rta = "";
             try
             {
-
-
-
-
+              
                 sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConneccion.Open();
                 SqlComando = new SqlCommand
@@ -89,7 +85,7 @@ namespace Datos
 
                 SqlComando.Parameters.Add(id);
 
-                 SqlParameter sqlparametersNombre = new SqlParameter
+                SqlParameter sqlparametersNombre = new SqlParameter
                 {
                     ParameterName = "@nombre",
                     SqlDbType = SqlDbType.VarChar,
@@ -119,7 +115,7 @@ namespace Datos
 
                 SqlComando.Parameters.Add(sqlparameterStatementType);
 
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "No se pudo Ingresar el registro ":"OK"  ;
 
             }
             catch (Exception ex)
@@ -128,7 +124,7 @@ namespace Datos
             }
             finally
             {
-              if (sqlConneccion.State == ConnectionState.Open)
+                if (sqlConneccion.State == ConnectionState.Open)
                 {
                     sqlConneccion.Close();
                 }
@@ -289,7 +285,7 @@ namespace Datos
         /// <returns>Devuelve una lista de todos los grupos del tipo datatable</returns>
         public DataTable ListarGrupos()
         {
-            DataTable dataTablaResultado= new DataTable("Grupo");
+            DataTable dataTablaResultado = new DataTable("Grupo");
             SqlConnection sqlConneccion = new SqlConnection();
             Miconeccion = new Coneccion();
             try
@@ -298,10 +294,10 @@ namespace Datos
                 sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConneccion.Open();
 
-             
+
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter("Select * from VistaGrupo", sqlConneccion);
-            
+
                 sqltabla.Fill(dataTablaResultado);
 
             }
@@ -332,7 +328,7 @@ namespace Datos
             Miconeccion = new Coneccion();
             try
             {
-               
+
                 sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConneccion.Open();
                 SqlComando = new SqlCommand
@@ -343,12 +339,14 @@ namespace Datos
                 };
 
 
-             
-                SqlParameter sqlpnombre = new SqlParameter();
-                sqlpnombre.ParameterName = "@nombre";
-                sqlpnombre.SqlDbType = SqlDbType.VarChar;
-                sqlpnombre.Size = 120;
-                sqlpnombre.Value = datosGrupo.NombreGrupo;
+
+                SqlParameter sqlpnombre = new SqlParameter
+                {
+                    ParameterName = "@nombre",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 120,
+                    Value = datosGrupo.NombreGrupo
+                };
                 SqlComando.Parameters.Add(sqlpnombre);
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
