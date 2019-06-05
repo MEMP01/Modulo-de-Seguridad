@@ -115,7 +115,7 @@ namespace Datos
 
                 SqlComando.Parameters.Add(sqlparameterStatementType);
 
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "No se pudo Ingresar el registro ":"OK"  ;
+                rta = SqlComando.ExecuteNonQuery() == -1 ? "OK" : "No se pudo Ingresar el registro";
 
             }
             catch (Exception ex)
@@ -189,7 +189,7 @@ namespace Datos
                 SqlComando.Parameters.Add(sqlparameterStatementType);
 
 
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == -1 ? "OK" : "No se pudo Ingresar el registro ";
 
             }
             catch (Exception ex)
@@ -260,7 +260,7 @@ namespace Datos
 
 
 
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == -1 ? "OK" : "No se pudo Ingresar el registro ";
 
             }
             catch (Exception ex)

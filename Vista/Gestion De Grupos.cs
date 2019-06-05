@@ -221,18 +221,18 @@ namespace Vista
                 {
                     if (EsNuevo)
                     {
-                        
+
                         if (rbEstadoActivo.Enabled == true)
                         {
                             estado = "Activo";
                         }
-                       if   (RbGrupoInactivo.Enabled==true)
+                        else
                         {
                             estado = "Inactivo";
                         }
 
                         MessageBox.Show("aca bien");
-                        rpta = ControldeGrupo.InsertGrupo(txtbNombreDelGrupo.Text.Trim(), estado);
+                        rpta = ControldeGrupo.InsertGrupo(txtbNombreDelGrupo.Text.Trim(), estado.Trim());
                     }
                     else
                     {
@@ -242,12 +242,12 @@ namespace Vista
                         {
                             estado = "Activo";
                         }
-                        if (RbGrupoInactivo.Enabled == true)
+                        else
                         {
                             estado = "Inactivo";
                         }
 
-                        rpta = ControldeGrupo.UpdateGrupo(Convert.ToInt32(txtbCodigo.Text), txtbNombreDelGrupo.Text.Trim(), estado);
+                        rpta = ControldeGrupo.UpdateGrupo(Convert.ToInt32(txtbCodigo.Text), txtbNombreDelGrupo.Text.Trim(), estado.Trim());
                     }
 
                     if (rpta.Equals("OK"))
@@ -256,12 +256,12 @@ namespace Vista
                         {
                             MensanjeOK("Se ingreso exitosamente un nuevo grupo al sistema");
                         }
-                        else
+                        else 
                         {
                             MensanjeOK("Se Modifico exitosamente el grupo dado");
                         }
                     }
-                    else
+                    else if (rpta.Equals("No se pudo Ingresar el registro"))
                     {
                         MessageBox.Show("aca pasa algo lpm");
                         MensanjeError(rpta);
