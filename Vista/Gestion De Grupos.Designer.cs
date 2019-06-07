@@ -40,7 +40,7 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.chkbEliminar = new System.Windows.Forms.CheckBox();
             this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabFrmGestionDegrupo = new System.Windows.Forms.TabControl();
             this.tabGrupo = new System.Windows.Forms.TabPage();
             this.btnListar = new System.Windows.Forms.Button();
             this.rbFiltrarPoNombre = new System.Windows.Forms.RadioButton();
@@ -64,7 +64,7 @@
             this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaGrupos)).BeginInit();
-            this.tabControl2.SuspendLayout();
+            this.tabFrmGestionDegrupo.SuspendLayout();
             this.tabGrupo.SuspendLayout();
             this.tabGestionDeGrupos.SuspendLayout();
             this.groupB1.SuspendLayout();
@@ -147,6 +147,7 @@
             this.DgvGrillaGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvGrillaGrupos.Size = new System.Drawing.Size(686, 268);
             this.DgvGrillaGrupos.TabIndex = 9;
+            this.DgvGrillaGrupos.DoubleClick += new System.EventHandler(this.DgvGrillaGrupos_DoubleClick);
             // 
             // Eliminar
             // 
@@ -174,15 +175,15 @@
             this.btnSalirGestioGrupo.UseVisualStyleBackColor = true;
             this.btnSalirGestioGrupo.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // tabControl2
+            // tabFrmGestionDegrupo
             // 
-            this.tabControl2.Controls.Add(this.tabGrupo);
-            this.tabControl2.Controls.Add(this.tabGestionDeGrupos);
-            this.tabControl2.Location = new System.Drawing.Point(12, 12);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(783, 451);
-            this.tabControl2.TabIndex = 11;
+            this.tabFrmGestionDegrupo.Controls.Add(this.tabGrupo);
+            this.tabFrmGestionDegrupo.Controls.Add(this.tabGestionDeGrupos);
+            this.tabFrmGestionDegrupo.Location = new System.Drawing.Point(12, 12);
+            this.tabFrmGestionDegrupo.Name = "tabFrmGestionDegrupo";
+            this.tabFrmGestionDegrupo.SelectedIndex = 0;
+            this.tabFrmGestionDegrupo.Size = new System.Drawing.Size(783, 451);
+            this.tabFrmGestionDegrupo.TabIndex = 11;
             // 
             // tabGrupo
             // 
@@ -289,7 +290,7 @@
             this.groupB1.TabIndex = 12;
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
-            this.groupB1.Enter += new System.EventHandler(this.groupB1_Enter);
+            this.groupB1.Enter += new System.EventHandler(this.GroupB1_Enter);
             // 
             // RbGrupoInactivo
             // 
@@ -422,7 +423,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 517);
-            this.Controls.Add(this.tabControl2);
+            this.Controls.Add(this.tabFrmGestionDegrupo);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSalirGestioGrupo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -431,7 +432,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Gestion_De_Grupos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaGrupos)).EndInit();
-            this.tabControl2.ResumeLayout(false);
+            this.tabFrmGestionDegrupo.ResumeLayout(false);
             this.tabGrupo.ResumeLayout(false);
             this.tabGrupo.PerformLayout();
             this.tabGestionDeGrupos.ResumeLayout(false);
@@ -453,7 +454,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.CheckBox chkbEliminar;
         private System.Windows.Forms.Button btnSalirGestioGrupo;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl tabFrmGestionDegrupo;
         private System.Windows.Forms.TabPage tabGrupo;
         private System.Windows.Forms.TabPage tabGestionDeGrupos;
         private System.Windows.Forms.Button button2;

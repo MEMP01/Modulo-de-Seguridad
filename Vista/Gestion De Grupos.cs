@@ -200,7 +200,7 @@ namespace Vista
             Close();
         }
 
-        private void groupB1_Enter(object sender, EventArgs e)
+        private void GroupB1_Enter(object sender, EventArgs e)
         {
 
         }
@@ -246,18 +246,20 @@ namespace Vista
                         {
                             estado = "Inactivo";
                         }
-
+                        MessageBox.Show("aca bien 1");
                         rpta = ControldeGrupo.UpdateGrupo(Convert.ToInt32(txtbCodigo.Text), txtbNombreDelGrupo.Text.Trim(), estado.Trim());
                     }
 
                     if (rpta.Equals("OK"))
                     {
+                        MessageBox.Show("aca bien2");
                         if (EsNuevo)
                         {
                             MensanjeOK("Se ingreso exitosamente un nuevo grupo al sistema");
                         }
-                        else 
+                        else
                         {
+                            MessageBox.Show("aca bien3");
                             MensanjeOK("Se Modifico exitosamente el grupo dado");
                         }
                     }
@@ -285,6 +287,11 @@ namespace Vista
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            EsNuevo = false;
+            EsEditar = false;
+            Botones();
+            LimpiarTodo();
+            Habilitar(false);
 
         }
 
@@ -305,7 +312,16 @@ namespace Vista
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-
+            if (!txtbNombreDelGrupo.Text.Equals(""))
+            {
+                EsEditar = true;
+                Botones();
+                Habilitar(true);
+                            }
+            else
+            {
+                MensanjeError("Debe selecciona primero el registro a modificar");
+            }
         }
 
         private void RbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
@@ -325,5 +341,21 @@ namespace Vista
             LimpiarTodo();
             LlenarGrilla();
         }
+
+        private void DgvGrillaGrupos_DoubleClick(object sender, EventArgs e)
+        {
+            txtbCodigo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["id_Grupo"].Value);
+            txtbNombreDelGrupo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["NombreGrupo"].Value);
+            if (DgvGrillaGrupos.CurrentRow.Cells["Estadogrupo"].Value.Equals("Activo")){
+                rbEstadoActivo.Checked = true;
+
+            }
+            else
+            {
+                RbGrupoInactivo.Checked = true;
+            }
+            this.tabFrmGestionDegrupo.SelectedIndex = 1;
+        }
+
     }
 }

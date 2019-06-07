@@ -21,7 +21,7 @@ namespace Datos
         /// <summary>
         /// Encapsulamiento del campo ID del Grupo
         /// </summary>
-        public int IdNombre1 { get => IdNombre; set => IdNombre = value; }
+        public int CodigoDeGrupo { get => IdNombre; set => IdNombre = value; }
         /// <summary>
         /// encapsulamiento del campo estado del grupo
         /// </summary>
@@ -46,7 +46,7 @@ namespace Datos
         public DatosGrupo(int id, string nombre, string estado)
         {
             NombreGrupo = nombre;
-            IdNombre1 = id;
+            CodigoDeGrupo = id;
             EstadoGrupo = estado;
         }
 
@@ -178,6 +178,17 @@ namespace Datos
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
 
+                SqlParameter id = new SqlParameter
+                {
+                    ParameterName = "@idGrupo",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Input,
+                    Value=grupo.CodigoDeGrupo
+
+                };
+
+                SqlComando.Parameters.Add(id);
+
                 SqlParameter sqlparameterStatementType = new SqlParameter
                 {
                     ParameterName = "@statementType",
@@ -240,7 +251,7 @@ namespace Datos
                     ParameterName = "@idGrupo",
                     SqlDbType = SqlDbType.Int,
 
-                    Value = grupo.IdNombre1
+                    Value = grupo.CodigoDeGrupo
 
                 };
 

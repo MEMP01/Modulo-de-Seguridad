@@ -51,7 +51,7 @@ namespace Control
         {
             DatosGrupo = new DatosGrupo
             {
-                IdNombre1 = idGrupo,
+                CodigoDeGrupo = idGrupo,
                 NombreGrupo = nombredelGrupo,
                 EstadoGrupo = estado
             };
@@ -67,7 +67,7 @@ namespace Control
         {
             DatosGrupo = new DatosGrupo
             {
-                IdNombre1 = id_grupo
+                CodigoDeGrupo = id_grupo
             };
             return DatosGrupo.EliminarGrupo(DatosGrupo);
         }
