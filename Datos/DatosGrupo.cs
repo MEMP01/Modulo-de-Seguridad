@@ -57,13 +57,13 @@ namespace Datos
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string IngresarGrupo(DatosGrupo grupo)
         {
-            
+
 
             SqlConnection sqlConneccion = new SqlConnection();
             string rta = "";
             try
             {
-              
+
                 sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConneccion.Open();
                 SqlComando = new SqlCommand
@@ -115,7 +115,7 @@ namespace Datos
 
                 SqlComando.Parameters.Add(sqlparameterStatementType);
 
-                rta = SqlComando.ExecuteNonQuery() == -1 ? "OK" : "No se pudo Ingresar el registro";
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro";
 
             }
             catch (Exception ex)
@@ -183,7 +183,7 @@ namespace Datos
                     ParameterName = "@idGrupo",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Input,
-                    Value=grupo.CodigoDeGrupo
+                    Value = grupo.CodigoDeGrupo
 
                 };
 
@@ -200,7 +200,7 @@ namespace Datos
                 SqlComando.Parameters.Add(sqlparameterStatementType);
 
 
-                rta = SqlComando.ExecuteNonQuery() == -1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
 
             }
             catch (Exception ex)
@@ -227,51 +227,35 @@ namespace Datos
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string EliminarGrupo(DatosGrupo grupo)
         {
-
-
             string rta = "";
             Miconeccion = new Coneccion();
             SqlConnection sqlConneccion = new SqlConnection();
 
             try
             {
-
-
                 sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "Sp_ABMC_Grupos",
+                    CommandText = "EliminarGrupo",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter sqlparametersIdnGrupo = new SqlParameter
+                SqlParameter id = new SqlParameter
                 {
-                    ParameterName = "@idGrupo",
-                    SqlDbType = SqlDbType.Int,
-
+                    ParameterName = "@id",
+                    SqlDbType = SqlDbType.Int,                  
                     Value = grupo.CodigoDeGrupo
 
                 };
 
+                SqlComando.Parameters.Add(id);
 
+            
+          
 
-                SqlComando.Parameters.Add(sqlparametersIdnGrupo);
-
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Delete"
-                };
-
-                SqlComando.Parameters.Add(sqlparameterStatementType);
-
-
-
-                rta = SqlComando.ExecuteNonQuery() == -1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
 
             }
             catch (Exception ex)

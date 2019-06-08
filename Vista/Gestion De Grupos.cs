@@ -1,8 +1,7 @@
 ﻿using Control;
 using System;
-using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Vista
 {
@@ -69,20 +68,20 @@ namespace Vista
         {
             MessageBox.Show(mensaje, "Modulo de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-          /// <summary>
-          /// Limpia todos los textbox
-          /// </summary>
+        /// <summary>
+        /// Limpia todos los textbox
+        /// </summary>
         private void LimpiarTodo()
         {
             txtbCodigo.Text = string.Empty;
             txtbBuscarGrupoPorNombre.Text = string.Empty;
             txtbCodigo.Text = string.Empty;
-            txtbNombreDelGrupo.Text = string.Empty;    
+            txtbNombreDelGrupo.Text = string.Empty;
         }
-          /// <summary>
-          /// habilita el textbox de nombre del grupo
-          /// </summary>
-          /// <param name="valor"></param>
+        /// <summary>
+        /// habilita el textbox de nombre del grupo
+        /// </summary>
+        /// <param name="valor"></param>
         private void Habilitar(bool valor)
         {
             txtbNombreDelGrupo.ReadOnly = !valor;
@@ -114,7 +113,7 @@ namespace Vista
         /// <summary>
         /// Sirve para ocultar columas en la panilla principal de grupos
         /// </summary>
-        private void OcultarColumnas    ()
+        private void OcultarColumnas()
         {
             DgvGrillaGrupos.Columns[0].Visible = false;
             DgvGrillaGrupos.Columns[1].Visible = false;
@@ -133,15 +132,15 @@ namespace Vista
 
         private void Filtrar()
         {
-           
-          
-                DataTable dt = DgvGrillaGrupos.DataSource as DataTable;
-                string query = string.Format("Estadogrupo = '{0}'", cmbEstadoGrupo.Text);
-                dt.DefaultView.RowFilter = query;
-                lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaGrupos.Rows.Count);
 
-            
-            
+
+            DataTable dt = DgvGrillaGrupos.DataSource as DataTable;
+            string query = string.Format("Estadogrupo = '{0}'", cmbEstadoGrupo.Text);
+            dt.DefaultView.RowFilter = query;
+            lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaGrupos.Rows.Count);
+
+
+
         }
 
 
@@ -154,10 +153,11 @@ namespace Vista
             Habilitar(false);
             LlenarGrilla();
             Botones();
+            chkbEliminar.Checked = false;
 
         }
 
-     
+
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
@@ -171,8 +171,47 @@ namespace Vista
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            Grupo grupo = new Grupo();
-            grupo.InstanciaSingleton.Show();
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("Realmente desea eliminar los registros", "Gestion de Grupos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    string Codigo = "";
+                    string rta = "";
+
+                    foreach (DataGridViewRow row in DgvGrillaGrupos.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+
+                            ControldeGrupo = new ControlGrupo();
+                            rta = ControldeGrupo.EliminarGrupo(Convert.ToInt32(Codigo));
+
+                            if (rta.Equals("OK"))
+                            {
+                                MensanjeOK("Se elimino correctamente el registro");
+                            }
+                            else
+                            {
+                                MensanjeError("No se pudo eliminar correctamente el registro" + rta);
+                            }
+
+                        }
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            LlenarGrilla();
+            chkbEliminar.Checked = false;
+
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
@@ -183,7 +222,7 @@ namespace Vista
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-          
+
             if (txtbBuscarGrupoPorNombre.Enabled == true)
             {
                 string nombre = txtbBuscarGrupoPorNombre.Text;
@@ -191,7 +230,10 @@ namespace Vista
                 DgvGrillaGrupos.DataSource = ControldeGrupo.BuscarGrupo(nombre);
                 lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaGrupos.Rows.Count);
             }
-            else Filtrar();
+            else
+            {
+                Filtrar();
+            }
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -210,62 +252,69 @@ namespace Vista
             try
             {
                 string rpta = "";
-                string estado = "";
+
                 ControldeGrupo = new ControlGrupo();
 
                 if (txtbNombreDelGrupo.Text == string.Empty)
                 {
                     MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
                     ErrorIcono.SetError(txtbNombreDelGrupo, "Ingrese un Nombre para el Grupo");
-                }else
+                }
+                else
                 {
                     if (EsNuevo)
                     {
-
-                        if (rbEstadoActivo.Enabled == true)
+                        string estado = "";
+                        if (rbEstadoActivo.Checked)
                         {
                             estado = "Activo";
+                            MessageBox.Show("aca bien" + estado);
                         }
-                        else
+                        else if (RbGrupoInactivo.Checked)
                         {
                             estado = "Inactivo";
+                            MessageBox.Show("aca bien" + estado);
                         }
 
-                        MessageBox.Show("aca bien");
+                        MessageBox.Show("aca bien" + estado);
                         rpta = ControldeGrupo.InsertGrupo(txtbNombreDelGrupo.Text.Trim(), estado.Trim());
                     }
                     else
                     {
-                        //MessageBox.Show("aca malllll ");
+                        string estado = "";
 
-                        if (rbEstadoActivo.Enabled == true)
-                        {
-                            estado = "Activo";
-                        }
-                        else
+                        if (RbGrupoInactivo.Checked)
                         {
                             estado = "Inactivo";
                         }
-                        MessageBox.Show("aca bien 1");
+                        else if (rbEstadoActivo.Checked)
+                        {
+                            estado = "Activo";
+                        }
+
+
                         rpta = ControldeGrupo.UpdateGrupo(Convert.ToInt32(txtbCodigo.Text), txtbNombreDelGrupo.Text.Trim(), estado.Trim());
+
+                        // tabFrmGestionDegrupo.SelectedIndex = 0;
+
                     }
 
                     if (rpta.Equals("OK"))
                     {
-                        MessageBox.Show("aca bien2");
+
                         if (EsNuevo)
                         {
                             MensanjeOK("Se ingreso exitosamente un nuevo grupo al sistema");
                         }
                         else
                         {
-                            MessageBox.Show("aca bien3");
+
                             MensanjeOK("Se Modifico exitosamente el grupo dado");
                         }
                     }
                     else if (rpta.Equals("No se pudo Ingresar el registro"))
                     {
-                        MessageBox.Show("aca pasa algo lpm");
+
                         MensanjeError(rpta);
                     }
 
@@ -275,14 +324,15 @@ namespace Vista
                     LimpiarTodo();
                     LlenarGrilla();
 
-                }                                                                              
+                }
 
-                
-            }   catch(Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-           
+
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -297,7 +347,7 @@ namespace Vista
 
         private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            RbGrupoInactivo.Checked = false;
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
@@ -317,7 +367,7 @@ namespace Vista
                 EsEditar = true;
                 Botones();
                 Habilitar(true);
-                            }
+            }
             else
             {
                 MensanjeError("Debe selecciona primero el registro a modificar");
@@ -346,7 +396,8 @@ namespace Vista
         {
             txtbCodigo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["id_Grupo"].Value);
             txtbNombreDelGrupo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["NombreGrupo"].Value);
-            if (DgvGrillaGrupos.CurrentRow.Cells["Estadogrupo"].Value.Equals("Activo")){
+            if (DgvGrillaGrupos.CurrentRow.Cells["Estadogrupo"].Value.Equals("Activo"))
+            {
                 rbEstadoActivo.Checked = true;
 
             }
@@ -354,8 +405,33 @@ namespace Vista
             {
                 RbGrupoInactivo.Checked = true;
             }
-            this.tabFrmGestionDegrupo.SelectedIndex = 1;
+            tabFrmGestionDegrupo.SelectedIndex = 1;
         }
 
+        private void ChkbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkbEliminar.Checked)
+            {
+                DgvGrillaGrupos.Columns[0].Visible = true;
+            }
+            else
+            {
+                DgvGrillaGrupos.Columns[0].Visible = false;
+            }
+        }
+
+        private void DgvGrillaGrupos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DgvGrillaGrupos.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkboxEliminar = (DataGridViewCheckBoxCell)DgvGrillaGrupos.Rows[e.RowIndex].Cells["Eliminar"];
+                chkboxEliminar.Value = !Convert.ToBoolean(chkboxEliminar.Value);
+            }
+        }
+
+        private void RbGrupoInactivo_CheckedChanged(object sender, EventArgs e)
+        {
+            rbEstadoActivo.Checked = false;
+        }
     }
 }

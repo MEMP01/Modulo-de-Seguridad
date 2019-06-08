@@ -147,6 +147,7 @@
             this.DgvGrillaGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvGrillaGrupos.Size = new System.Drawing.Size(686, 268);
             this.DgvGrillaGrupos.TabIndex = 9;
+            this.DgvGrillaGrupos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaGrupos_CellContentClick);
             this.DgvGrillaGrupos.DoubleClick += new System.EventHandler(this.DgvGrillaGrupos_DoubleClick);
             // 
             // Eliminar
@@ -164,6 +165,7 @@
             this.chkbEliminar.TabIndex = 10;
             this.chkbEliminar.Text = "Eliminar";
             this.chkbEliminar.UseVisualStyleBackColor = true;
+            this.chkbEliminar.CheckedChanged += new System.EventHandler(this.ChkbEliminar_CheckedChanged);
             // 
             // btnSalirGestioGrupo
             // 
@@ -295,14 +297,13 @@
             // RbGrupoInactivo
             // 
             this.RbGrupoInactivo.AutoSize = true;
-            this.RbGrupoInactivo.Checked = true;
             this.RbGrupoInactivo.Location = new System.Drawing.Point(180, 166);
             this.RbGrupoInactivo.Name = "RbGrupoInactivo";
             this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
             this.RbGrupoInactivo.TabIndex = 17;
-            this.RbGrupoInactivo.TabStop = true;
             this.RbGrupoInactivo.Text = "Grupo Inactivo";
             this.RbGrupoInactivo.UseVisualStyleBackColor = true;
+            this.RbGrupoInactivo.CheckedChanged += new System.EventHandler(this.RbGrupoInactivo_CheckedChanged);
             // 
             // rbEstadoActivo
             // 
