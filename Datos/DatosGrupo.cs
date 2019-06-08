@@ -1,5 +1,4 @@
-﻿using Acceso_a_Datos;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -22,7 +21,7 @@ namespace Datos
         /// <summary>
         /// Encapsulamiento del campo ID del Grupo
         /// </summary>
-        public int IdNombre1 { get => IdNombre; set => IdNombre = value; }
+        public int CodigoDeGrupo { get => IdNombre; set => IdNombre = value; }
         /// <summary>
         /// encapsulamiento del campo estado del grupo
         /// </summary>
@@ -30,7 +29,9 @@ namespace Datos
 
         //campos auxiliares
         private SqlCommand SqlComando;
-        private ConneccionSql ConneccionSql;
+        private SqlConnection sqlConneccion;
+        private Coneccion Miconeccion;
+
 
         /// <summary>
         /// Contructor de la clase DatosGrupos           
@@ -45,7 +46,7 @@ namespace Datos
         public DatosGrupo(int id, string nombre, string estado)
         {
             NombreGrupo = nombre;
-            IdNombre1 = id;
+            CodigoDeGrupo = id;
             EstadoGrupo = estado;
         }
 
@@ -56,23 +57,33 @@ namespace Datos
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string IngresarGrupo(DatosGrupo grupo)
         {
-            string rta = "";
-            ConneccionSql = new ConneccionSql();
 
+
+            SqlConnection sqlConneccion = new SqlConnection();
+            string rta = "";
             try
             {
 
-
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConnection,
+                    Connection = sqlConneccion,
                     CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
 
 
+
+                SqlParameter id = new SqlParameter
+                {
+                    ParameterName = "@idGrupo",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+
+                };
+
+                SqlComando.Parameters.Add(id);
 
                 SqlParameter sqlparametersNombre = new SqlParameter
                 {
@@ -104,7 +115,7 @@ namespace Datos
 
                 SqlComando.Parameters.Add(sqlparameterStatementType);
 
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro";
 
             }
             catch (Exception ex)
@@ -113,7 +124,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
             return rta;
 
@@ -128,17 +142,18 @@ namespace Datos
         {
 
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+            Miconeccion = new Coneccion();
+            SqlConnection sqlConneccion = new SqlConnection();
 
             try
             {
 
 
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConnection,
+                    Connection = sqlConneccion,
                     CommandText = "Sp_ABMC_Grupos",
                     CommandType = CommandType.StoredProcedure
                 };
@@ -163,6 +178,17 @@ namespace Datos
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
 
+                SqlParameter id = new SqlParameter
+                {
+                    ParameterName = "@idGrupo",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Input,
+                    Value = grupo.CodigoDeGrupo
+
+                };
+
+                SqlComando.Parameters.Add(id);
+
                 SqlParameter sqlparameterStatementType = new SqlParameter
                 {
                     ParameterName = "@statementType",
@@ -183,7 +209,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
             return rta;
 
@@ -198,48 +227,33 @@ namespace Datos
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string EliminarGrupo(DatosGrupo grupo)
         {
-
-
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+            Miconeccion = new Coneccion();
+            SqlConnection sqlConneccion = new SqlConnection();
 
             try
             {
-
-
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConnection,
-                    CommandText = "Sp_ABMC_Grupos",
+                    Connection = sqlConneccion,
+                    CommandText = "EliminarGrupo",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter sqlparametersIdnGrupo = new SqlParameter
+                SqlParameter id = new SqlParameter
                 {
-                    ParameterName = "@idGrupo",
-                    SqlDbType = SqlDbType.Int,
-
-                    Value = grupo.IdNombre1
+                    ParameterName = "@id",
+                    SqlDbType = SqlDbType.Int,                  
+                    Value = grupo.CodigoDeGrupo
 
                 };
 
+                SqlComando.Parameters.Add(id);
 
-
-                SqlComando.Parameters.Add(sqlparametersIdnGrupo);
-
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Delete"
-                };
-
-                SqlComando.Parameters.Add(sqlparameterStatementType);
-
-
+            
+          
 
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
 
@@ -250,7 +264,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
             return rta;
 
@@ -263,33 +280,20 @@ namespace Datos
         /// <returns>Devuelve una lista de todos los grupos del tipo datatable</returns>
         public DataTable ListarGrupos()
         {
-            DataTable dataTable;
-            ConneccionSql = new ConneccionSql();
+            DataTable dataTablaResultado = new DataTable("Grupo");
+            SqlConnection sqlConneccion = new SqlConnection();
+            Miconeccion = new Coneccion();
             try
             {
 
-                ConneccionSql.OpenConneccion();
-                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
-                SqlComando = new SqlCommand
-                {
-                    Connection = sql,
-                    CommandText = "Sp_ABMC_Grupos",
-                    CommandType = CommandType.StoredProcedure
-                };
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "select"
-                };
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
 
-                SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
-                dataTable = new DataTable();
-                sqltabla.Fill(dataTable);
+                SqlDataAdapter sqltabla = new SqlDataAdapter("Select * from VistaGrupo", sqlConneccion);
+
+                sqltabla.Fill(dataTablaResultado);
 
             }
             catch (Exception ex)
@@ -298,9 +302,12 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
-            return dataTable;
+            return dataTablaResultado;
 
 
         }
@@ -311,41 +318,34 @@ namespace Datos
         /// <returns>devuelve el grupo </returns>
         public DataTable BuscarGrupos(DatosGrupo datosGrupo)
         {
-            DataTable dataTable;
-            ConneccionSql = new ConneccionSql();
+            DataTable dataTable = new DataTable();
+            SqlConnection sqlConneccion = new SqlConnection();
+            Miconeccion = new Coneccion();
             try
             {
-                ConneccionSql.OpenConneccion();
-                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
+
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
-                    Connection = sql,
-                    CommandText = "Sp_ABMC_Grupos",
+                    Connection = sqlConneccion,
+                    CommandText = "SpBuscarGrupo",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter sqlParameter = new SqlParameter
-                {
-                    ParameterName = "@idGrupo",
-                    SqlDbType = SqlDbType.Int,
-                    Value = datosGrupo.IdNombre1
-                };
-                SqlComando.Parameters.Add(sqlParameter);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Buscar"
-                };
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
+                SqlParameter sqlpnombre = new SqlParameter
+                {
+                    ParameterName = "@nombre",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 120,
+                    Value = datosGrupo.NombreGrupo
+                };
+                SqlComando.Parameters.Add(sqlpnombre);
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
-                dataTable = new DataTable();
                 sqltabla.Fill(dataTable);
-
 
 
             }
@@ -355,7 +355,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                if (sqlConneccion.State == ConnectionState.Open)
+                {
+                    sqlConneccion.Close();
+                }
             }
 
             return dataTable;

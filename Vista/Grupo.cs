@@ -78,6 +78,7 @@ namespace Vista
             }
             ControlGrupo controlGrupo = new ControlGrupo();
             controlGrupo.InsertGrupo(txtbDescripcion.Text, estados);
+
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

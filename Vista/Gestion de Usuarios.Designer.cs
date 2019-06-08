@@ -150,6 +150,7 @@
             this.Controls.Add(this.btnSalir);
             this.Name = "Gestion_de_Usuarios";
             this.Text = "Gestion_de_Usuarios";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Gestion_de_Usuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

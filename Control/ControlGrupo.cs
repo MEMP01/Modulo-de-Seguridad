@@ -37,7 +37,7 @@ namespace Control
 
 
             };
-            return DatosGrupo.IngresarGrupo(grupo: DatosGrupo);
+            return DatosGrupo.IngresarGrupo(DatosGrupo);
 
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Control
         {
             DatosGrupo = new DatosGrupo
             {
-                IdNombre1 = idGrupo,
+                CodigoDeGrupo = idGrupo,
                 NombreGrupo = nombredelGrupo,
                 EstadoGrupo = estado
             };
@@ -67,7 +67,7 @@ namespace Control
         {
             DatosGrupo = new DatosGrupo
             {
-                IdNombre1 = id_grupo
+                CodigoDeGrupo = id_grupo
             };
             return DatosGrupo.EliminarGrupo(DatosGrupo);
         }
@@ -88,11 +88,11 @@ namespace Control
         /// </summary>
         /// <param name="id_grupo"></param>
         /// <returns>Devuelve el grupo si existe</returns>
-        public DataTable BuscarGrupo(int id_grupo)
+        public DataTable BuscarGrupo(string nombre)
         {
             DatosGrupo = new DatosGrupo
             {
-                IdNombre1 = id_grupo
+                NombreGrupo = nombre
             };
             return DatosGrupo.BuscarGrupos(DatosGrupo);
         }
