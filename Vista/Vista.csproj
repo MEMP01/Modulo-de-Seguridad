@@ -99,6 +99,18 @@
     <Compile Include="Gestion De Grupos.Designer.cs">
       <DependentUpon>Gestion De Grupos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Permisos para Formulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos para Formulario.Designer.cs">
+      <DependentUpon>Permisos para Formulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos.Designer.cs">
+      <DependentUpon>Permisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarSesion.resx">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos para Formulario.resx">
+      <DependentUpon>Permisos para Formulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos.resx">
+      <DependentUpon>Permisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
