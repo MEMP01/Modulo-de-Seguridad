@@ -5,18 +5,18 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Gestion_De_Grupos : Form
+    public partial class FrmGestion_De_Grupos : Form
     {
         private bool EsNuevo;
         private bool EsEditar;
 
         private ControlGrupo ControldeGrupo;
 
-        private static Gestion_De_Grupos Singleton;
+        private static FrmGestion_De_Grupos Singleton;
         /// <summary>
         /// Contructor del Formulario
         /// </summary>
-        public Gestion_De_Grupos()
+        public FrmGestion_De_Grupos()
         {
             InitializeComponent();
             ttMensajeAyuda.SetToolTip(txtbNombreDelGrupo, "Ingrese el nombre del Grupo");
@@ -38,13 +38,13 @@ namespace Vista
         /// <summary>
         /// Implementacion del patron creacional Singleton para obtener una sola instacia del formulario  Gestion_De_Grupos
         /// </summary>
-        public Gestion_De_Grupos InstanciaSingleton
+        public FrmGestion_De_Grupos InstanciaSingleton
         {
             get
             {
                 if (Singleton == null)
                 {
-                    Singleton = new Gestion_De_Grupos();
+                    Singleton = new FrmGestion_De_Grupos();
                 }
                 return Singleton;
             }

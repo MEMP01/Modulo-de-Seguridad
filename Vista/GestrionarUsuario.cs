@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class GestrionarUsuario : Form
+    public partial class FrmGestrionarUsuario : Form
     {
-        public GestrionarUsuario()
+        public FrmGestrionarUsuario()
         {
             InitializeComponent();
+        }
+
+        private void GestrionarUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

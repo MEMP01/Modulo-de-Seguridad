@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Cambiar_Clave : Form
+    public partial class FrmCambiar_Clave : Form
     {
-        public Cambiar_Clave()
+        public FrmCambiar_Clave()
         {
             InitializeComponent();
         }

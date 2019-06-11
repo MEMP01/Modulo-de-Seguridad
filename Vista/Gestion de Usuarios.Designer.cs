@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Gestion_de_Usuarios
+    partial class FrmGestion_de_Usuarios_de_Empresa
     {
         /// <summary>
         /// Required designer variable.
@@ -273,7 +273,7 @@
             this.tabGestionDeUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabGestionDeUsuarios.Name = "tabGestionDeUsuarios";
             this.tabGestionDeUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGestionDeUsuarios.Size = new System.Drawing.Size(718, 484);
+            this.tabGestionDeUsuarios.Size = new System.Drawing.Size(772, 486);
             this.tabGestionDeUsuarios.TabIndex = 1;
             this.tabGestionDeUsuarios.Text = "Gestion de Usuarios";
             this.tabGestionDeUsuarios.UseVisualStyleBackColor = true;
@@ -578,15 +578,15 @@
             // 
             this.ErrorIcono.ContainerControl = this;
             // 
-            // Gestion_de_Usuarios
+            // FrmGestion_de_Usuarios_de_Empresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 560);
             this.Controls.Add(this.tabFrmGestionDeUsuarios);
             this.Controls.Add(this.btnSalirGestioGrupo);
-            this.Name = "Gestion_de_Usuarios";
-            this.Text = "Gestion_de_Usuarios";
+            this.Name = "FrmGestion_de_Usuarios_de_Empresa";
+            this.Text = "Gestion de Usuarios de Empresa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Gestion_de_Usuarios_Load);
             this.tabFrmGestionDeUsuarios.ResumeLayout(false);

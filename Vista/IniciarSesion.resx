@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LBUSUARIO.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="LBPASSword.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -171,9 +171,9 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LBPASSword.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
-  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ErrorIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -183,7 +183,62 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>473, 195</value>
+    <value>598, 307</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnCambiarContraseña.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCambiarContraseña.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 245</value>
+  </data>
+  <data name="btnCambiarContraseña.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 50</value>
+  </data>
+  <data name="btnCambiarContraseña.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnCambiarContraseña.Text" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="&gt;&gt;btnCambiarContraseña.Name" xml:space="preserve">
+    <value>btnCambiarContraseña</value>
+  </data>
+  <data name="&gt;&gt;btnCambiarContraseña.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCambiarContraseña.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCambiarContraseña.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnRecuperarContraseña.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRecuperarContraseña.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 245</value>
+  </data>
+  <data name="btnRecuperarContraseña.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 50</value>
+  </data>
+  <data name="btnRecuperarContraseña.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnRecuperarContraseña.Text" xml:space="preserve">
+    <value>Recuperar Contraseña</value>
+  </data>
+  <data name="&gt;&gt;btnRecuperarContraseña.Name" xml:space="preserve">
+    <value>btnRecuperarContraseña</value>
+  </data>
+  <data name="&gt;&gt;btnRecuperarContraseña.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRecuperarContraseña.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnRecuperarContraseña.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -872,12 +927,11 @@
 </value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 9</value>
+    <value>431, 9</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 174</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
@@ -894,13 +948,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="chkBoxMostrarContraseña.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="chkBoxMostrarContraseña.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 111</value>
+    <value>109, 107</value>
   </data>
   <data name="chkBoxMostrarContraseña.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 17</value>
@@ -921,16 +975,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkBoxMostrarContraseña.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="btnCancelar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnCancelar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 160</value>
+    <value>505, 245</value>
   </data>
   <data name="btnCancelar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>75, 50</value>
   </data>
   <data name="btnCancelar.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -948,13 +1002,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCancelar.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="btnAceptar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 160</value>
+    <value>325, 245</value>
   </data>
   <data name="btnAceptar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>75, 50</value>
   </data>
   <data name="btnAceptar.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -972,8 +1026,11 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnAceptar.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
+  <metadata name="ttMensajeAyuda.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>147, 17</value>
+  </metadata>
   <data name="txtbContraseña.Location" type="System.Drawing.Point, System.Drawing">
     <value>109, 64</value>
   </data>
@@ -981,14 +1038,11 @@
     <value>*</value>
   </data>
   <data name="txtbContraseña.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 20</value>
+    <value>291, 20</value>
   </data>
   <data name="txtbContraseña.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>147, 17</value>
-  </metadata>
   <data name="txtbContraseña.ToolTip" xml:space="preserve">
     <value>Ingrese aqui su contraseña</value>
   </data>
@@ -1002,13 +1056,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtbContraseña.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="txtbUsuario.Location" type="System.Drawing.Point, System.Drawing">
     <value>109, 9</value>
   </data>
   <data name="txtbUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 20</value>
+    <value>291, 20</value>
   </data>
   <data name="txtbUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1027,7 +1081,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtbUsuario.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2167,16 +2221,16 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Iniciar Sesion</value>
   </data>
-  <data name="&gt;&gt;errorProvider1.Name" xml:space="preserve">
-    <value>errorProvider1</value>
+  <data name="&gt;&gt;ErrorIcon.Name" xml:space="preserve">
+    <value>ErrorIcon</value>
   </data>
-  <data name="&gt;&gt;errorProvider1.Type" xml:space="preserve">
+  <data name="&gt;&gt;ErrorIcon.Type" xml:space="preserve">
     <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
-    <value>toolTip1</value>
+  <data name="&gt;&gt;ttMensajeAyuda.Name" xml:space="preserve">
+    <value>ttMensajeAyuda</value>
   </data>
-  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+  <data name="&gt;&gt;ttMensajeAyuda.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
@@ -2185,4 +2239,7 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <metadata name="ttMensajeAyuda.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>147, 17</value>
+  </metadata>
 </root>

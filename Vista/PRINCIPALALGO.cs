@@ -121,7 +121,7 @@ namespace Vista
 
         private void GruposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Gestion_De_Grupos gestion_De_Grupos = new Gestion_De_Grupos();
+            FrmGestion_De_Grupos gestion_De_Grupos = new FrmGestion_De_Grupos();
             gestion_De_Grupos.Show();
         }
 

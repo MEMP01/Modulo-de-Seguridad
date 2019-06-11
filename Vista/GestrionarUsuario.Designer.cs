@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class GestrionarUsuario
+    partial class FrmGestrionarUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -484,14 +484,15 @@
             this.radioButton4.Text = "Grupo Activo";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // GestrionarUsuario
+            // FrmGestrionarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 481);
             this.Controls.Add(this.tabFrmGestionDegrupo);
-            this.Name = "GestrionarUsuario";
-            this.Text = "Usuario";
+            this.Name = "FrmGestrionarUsuario";
+            this.Text = "Gestion de Usuario de Sistema";
+            this.Load += new System.EventHandler(this.GestrionarUsuario_Load);
             this.tabFrmGestionDegrupo.ResumeLayout(false);
             this.tabGrupo.ResumeLayout(false);
             this.tabGrupo.PerformLayout();

@@ -32,15 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IniciarSesion));
             this.LBUSUARIO = new System.Windows.Forms.Label();
             this.LBPASSword = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.ErrorIcon = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.txtbUsuario = new System.Windows.Forms.TextBox();
             this.txtbContraseña = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.chkBoxMostrarContraseña = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.btnRecuperarContraseña = new System.Windows.Forms.Button();
+            this.btnCambiarContraseña = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,21 +56,21 @@
             resources.ApplyResources(this.LBPASSword, "LBPASSword");
             this.LBPASSword.Name = "LBPASSword";
             // 
-            // errorProvider1
+            // ErrorIcon
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.ErrorIcon.ContainerControl = this;
             // 
             // txtbUsuario
             // 
             resources.ApplyResources(this.txtbUsuario, "txtbUsuario");
             this.txtbUsuario.Name = "txtbUsuario";
-            this.toolTip1.SetToolTip(this.txtbUsuario, resources.GetString("txtbUsuario.ToolTip"));
+            this.ttMensajeAyuda.SetToolTip(this.txtbUsuario, resources.GetString("txtbUsuario.ToolTip"));
             // 
             // txtbContraseña
             // 
             resources.ApplyResources(this.txtbContraseña, "txtbContraseña");
             this.txtbContraseña.Name = "txtbContraseña";
-            this.toolTip1.SetToolTip(this.txtbContraseña, resources.GetString("txtbContraseña.ToolTip"));
+            this.ttMensajeAyuda.SetToolTip(this.txtbContraseña, resources.GetString("txtbContraseña.ToolTip"));
             // 
             // btnAceptar
             // 
@@ -97,11 +99,27 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // btnRecuperarContraseña
+            // 
+            resources.ApplyResources(this.btnRecuperarContraseña, "btnRecuperarContraseña");
+            this.btnRecuperarContraseña.Name = "btnRecuperarContraseña";
+            this.btnRecuperarContraseña.UseVisualStyleBackColor = true;
+            this.btnRecuperarContraseña.Click += new System.EventHandler(this.btnRecuperarContraseña_Click);
+            // 
+            // btnCambiarContraseña
+            // 
+            resources.ApplyResources(this.btnCambiarContraseña, "btnCambiarContraseña");
+            this.btnCambiarContraseña.Name = "btnCambiarContraseña";
+            this.btnCambiarContraseña.UseVisualStyleBackColor = true;
+            this.btnCambiarContraseña.Click += new System.EventHandler(this.btnCambiarContraseña_Click);
+            // 
             // IniciarSesion
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnCambiarContraseña);
+            this.Controls.Add(this.btnRecuperarContraseña);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chkBoxMostrarContraseña);
             this.Controls.Add(this.btnCancelar);
@@ -114,7 +132,7 @@
             this.Name = "IniciarSesion";
             this.Opacity = 0.6D;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -125,14 +143,16 @@
 
         private System.Windows.Forms.Label LBUSUARIO;
         private System.Windows.Forms.Label LBPASSword;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider ErrorIcon;
         private System.Windows.Forms.TextBox txtbContraseña;
         private System.Windows.Forms.TextBox txtbUsuario;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip ttMensajeAyuda;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.CheckBox chkBoxMostrarContraseña;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnCambiarContraseña;
+        private System.Windows.Forms.Button btnRecuperarContraseña;
     }
 }
 

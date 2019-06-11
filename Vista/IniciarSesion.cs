@@ -46,5 +46,15 @@ namespace Vista
         {
 
         }
+
+        private void btnRecuperarContraseña_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCambiarContraseña_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

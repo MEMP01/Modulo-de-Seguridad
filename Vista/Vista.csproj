@@ -134,6 +134,9 @@
     <EmbeddedResource Include="Auditoria.resx">
       <DependentUpon>Auditoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cambiar Clave.resx">
+      <DependentUpon>Cambiar Clave.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion De Grupos.resx">
       <DependentUpon>Gestion De Grupos.cs</DependentUpon>
     </EmbeddedResource>

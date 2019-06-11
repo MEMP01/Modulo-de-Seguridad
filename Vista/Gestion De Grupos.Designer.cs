@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Gestion_De_Grupos
+    partial class FrmGestion_De_Grupos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestion_De_Grupos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestion_De_Grupos));
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.cmbEstadoGrupo = new System.Windows.Forms.ComboBox();
@@ -408,7 +408,7 @@
             // 
             this.ttMensajeAyuda.IsBalloon = true;
             // 
-            // Gestion_De_Grupos
+            // FrmGestion_De_Grupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -416,7 +416,7 @@
             this.Controls.Add(this.tabFrmGestionDegrupo);
             this.Controls.Add(this.btnSalirGestioGrupo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Gestion_De_Grupos";
+            this.Name = "FrmGestion_De_Grupos";
             this.Text = "Gestion De Grupos";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Gestion_De_Grupos_Load);
