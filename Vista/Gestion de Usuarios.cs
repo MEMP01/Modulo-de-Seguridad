@@ -36,5 +36,90 @@ namespace Vista
         {
 
         }
+
+        private void groupB1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbEstadoActivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RbGrupoInactivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbNombredeGrupos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbFiltrarPoNombre_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbEstadoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DgvGrillaUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void chkbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalirGestioGrupo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

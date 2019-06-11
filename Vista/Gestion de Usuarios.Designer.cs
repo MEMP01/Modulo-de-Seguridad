@@ -28,147 +28,704 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbEstado = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbDescripcion = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.tabFrmGestionDeUsuarios = new System.Windows.Forms.TabControl();
+            this.tabUsuarios = new System.Windows.Forms.TabPage();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.rbFiltrarPoNombre = new System.Windows.Forms.RadioButton();
+            this.rbfiltrarPorEstado = new System.Windows.Forms.RadioButton();
+            this.lbnumeroDeRegistros = new System.Windows.Forms.Label();
+            this.lbCantidadDeRegistros = new System.Windows.Forms.Label();
+            this.lbNombreDelGrupo = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.chkbEliminar = new System.Windows.Forms.CheckBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.DgvGrillaUsuarios = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cmbEstadoUsuario = new System.Windows.Forms.ComboBox();
+            this.lbEstado = new System.Windows.Forms.Label();
+            this.txtbBuscarGrupoPorDNI = new System.Windows.Forms.TextBox();
+            this.tabGestionDeUsuarios = new System.Windows.Forms.TabPage();
+            this.groupB1 = new System.Windows.Forms.GroupBox();
+            this.RbGrupoInactivo = new System.Windows.Forms.RadioButton();
+            this.rbEstadoActivo = new System.Windows.Forms.RadioButton();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.LbCodigo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbEstadoGrupo = new System.Windows.Forms.Label();
+            this.txtbCodigo = new System.Windows.Forms.TextBox();
+            this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
+            this.txtbCodigoPostal = new System.Windows.Forms.TextBox();
+            this.txtbDireccion = new System.Windows.Forms.TextBox();
+            this.txtbProvincia = new System.Windows.Forms.TextBox();
+            this.txtbPais = new System.Windows.Forms.TextBox();
+            this.txtbTelefono = new System.Windows.Forms.TextBox();
+            this.txtbEmail = new System.Windows.Forms.TextBox();
+            this.txtbEdad = new System.Windows.Forms.TextBox();
+            this.txtbSexo = new System.Windows.Forms.TextBox();
+            this.txtbNombre = new System.Windows.Forms.TextBox();
+            this.txtbApellido = new System.Windows.Forms.TextBox();
+            this.txtbDNI = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbCodigoPostal = new System.Windows.Forms.Label();
+            this.lbDireccion = new System.Windows.Forms.Label();
+            this.lbProvincia = new System.Windows.Forms.Label();
+            this.lbPais = new System.Windows.Forms.Label();
+            this.lbTelefono = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbEdad = new System.Windows.Forms.Label();
+            this.lbSexo = new System.Windows.Forms.Label();
+            this.lbNombre = new System.Windows.Forms.Label();
+            this.lbApellido = new System.Windows.Forms.Label();
+            this.lbDNI = new System.Windows.Forms.Label();
+            this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
+            this.cmbNombredeGrupos = new System.Windows.Forms.ComboBox();
+            this.lbEstadoDelGrupo = new System.Windows.Forms.Label();
+            this.tabFrmGestionDeUsuarios.SuspendLayout();
+            this.tabUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaUsuarios)).BeginInit();
+            this.tabGestionDeUsuarios.SuspendLayout();
+            this.groupB1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // tabFrmGestionDeUsuarios
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 120);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(686, 268);
-            this.dataGridView1.TabIndex = 19;
+            this.tabFrmGestionDeUsuarios.Controls.Add(this.tabUsuarios);
+            this.tabFrmGestionDeUsuarios.Controls.Add(this.tabGestionDeUsuarios);
+            this.tabFrmGestionDeUsuarios.Location = new System.Drawing.Point(12, 12);
+            this.tabFrmGestionDeUsuarios.Name = "tabFrmGestionDeUsuarios";
+            this.tabFrmGestionDeUsuarios.SelectedIndex = 0;
+            this.tabFrmGestionDeUsuarios.Size = new System.Drawing.Size(954, 503);
+            this.tabFrmGestionDeUsuarios.TabIndex = 14;
+            // 
+            // tabUsuarios
+            // 
+            this.tabUsuarios.BackColor = System.Drawing.Color.Snow;
+            this.tabUsuarios.Controls.Add(this.btnListar);
+            this.tabUsuarios.Controls.Add(this.rbFiltrarPoNombre);
+            this.tabUsuarios.Controls.Add(this.rbfiltrarPorEstado);
+            this.tabUsuarios.Controls.Add(this.lbnumeroDeRegistros);
+            this.tabUsuarios.Controls.Add(this.lbCantidadDeRegistros);
+            this.tabUsuarios.Controls.Add(this.lbNombreDelGrupo);
+            this.tabUsuarios.Controls.Add(this.btnEliminar);
+            this.tabUsuarios.Controls.Add(this.chkbEliminar);
+            this.tabUsuarios.Controls.Add(this.btnFiltrar);
+            this.tabUsuarios.Controls.Add(this.DgvGrillaUsuarios);
+            this.tabUsuarios.Controls.Add(this.cmbEstadoUsuario);
+            this.tabUsuarios.Controls.Add(this.lbEstado);
+            this.tabUsuarios.Controls.Add(this.txtbBuscarGrupoPorDNI);
+            this.tabUsuarios.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tabUsuarios.Location = new System.Drawing.Point(4, 22);
+            this.tabUsuarios.Name = "tabUsuarios";
+            this.tabUsuarios.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUsuarios.Size = new System.Drawing.Size(946, 477);
+            this.tabUsuarios.TabIndex = 0;
+            this.tabUsuarios.Text = "Usuarios";
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(662, 394);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 16;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // rbFiltrarPoNombre
+            // 
+            this.rbFiltrarPoNombre.AutoSize = true;
+            this.rbFiltrarPoNombre.Location = new System.Drawing.Point(632, 85);
+            this.rbFiltrarPoNombre.Name = "rbFiltrarPoNombre";
+            this.rbFiltrarPoNombre.Size = new System.Drawing.Size(109, 17);
+            this.rbFiltrarPoNombre.TabIndex = 15;
+            this.rbFiltrarPoNombre.Text = "Filtrar Por Nombre";
+            this.rbFiltrarPoNombre.UseVisualStyleBackColor = true;
+            this.rbFiltrarPoNombre.CheckedChanged += new System.EventHandler(this.rbFiltrarPoNombre_CheckedChanged);
+            // 
+            // rbfiltrarPorEstado
+            // 
+            this.rbfiltrarPorEstado.AutoSize = true;
+            this.rbfiltrarPorEstado.Checked = true;
+            this.rbfiltrarPorEstado.Location = new System.Drawing.Point(632, 62);
+            this.rbfiltrarPorEstado.Name = "rbfiltrarPorEstado";
+            this.rbfiltrarPorEstado.Size = new System.Drawing.Size(105, 17);
+            this.rbfiltrarPorEstado.TabIndex = 14;
+            this.rbfiltrarPorEstado.TabStop = true;
+            this.rbfiltrarPorEstado.Text = "Filtrar Por Estado";
+            this.rbfiltrarPorEstado.UseVisualStyleBackColor = true;
+            this.rbfiltrarPorEstado.CheckedChanged += new System.EventHandler(this.rbfiltrarPorEstado_CheckedChanged);
+            // 
+            // lbnumeroDeRegistros
+            // 
+            this.lbnumeroDeRegistros.AutoSize = true;
+            this.lbnumeroDeRegistros.Location = new System.Drawing.Point(170, 399);
+            this.lbnumeroDeRegistros.Name = "lbnumeroDeRegistros";
+            this.lbnumeroDeRegistros.Size = new System.Drawing.Size(0, 13);
+            this.lbnumeroDeRegistros.TabIndex = 13;
+            // 
+            // lbCantidadDeRegistros
+            // 
+            this.lbCantidadDeRegistros.AutoSize = true;
+            this.lbCantidadDeRegistros.Location = new System.Drawing.Point(50, 399);
+            this.lbCantidadDeRegistros.Name = "lbCantidadDeRegistros";
+            this.lbCantidadDeRegistros.Size = new System.Drawing.Size(119, 13);
+            this.lbCantidadDeRegistros.TabIndex = 12;
+            this.lbCantidadDeRegistros.Text = "Cantidad De Registros :";
+            // 
+            // lbNombreDelGrupo
+            // 
+            this.lbNombreDelGrupo.AutoSize = true;
+            this.lbNombreDelGrupo.Location = new System.Drawing.Point(50, 37);
+            this.lbNombreDelGrupo.Name = "lbNombreDelGrupo";
+            this.lbNombreDelGrupo.Size = new System.Drawing.Size(63, 13);
+            this.lbNombreDelGrupo.TabIndex = 6;
+            this.lbNombreDelGrupo.Text = "Descripcion";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(144, 75);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // chkbEliminar
+            // 
+            this.chkbEliminar.AutoSize = true;
+            this.chkbEliminar.Location = new System.Drawing.Point(53, 79);
+            this.chkbEliminar.Name = "chkbEliminar";
+            this.chkbEliminar.Size = new System.Drawing.Size(62, 17);
+            this.chkbEliminar.TabIndex = 10;
+            this.chkbEliminar.Text = "Eliminar";
+            this.chkbEliminar.UseVisualStyleBackColor = true;
+            this.chkbEliminar.CheckedChanged += new System.EventHandler(this.chkbEliminar_CheckedChanged);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(632, 32);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(105, 23);
+            this.btnFiltrar.TabIndex = 4;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // DgvGrillaUsuarios
+            // 
+            this.DgvGrillaUsuarios.AllowUserToAddRows = false;
+            this.DgvGrillaUsuarios.AllowUserToDeleteRows = false;
+            this.DgvGrillaUsuarios.AllowUserToOrderColumns = true;
+            this.DgvGrillaUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DgvGrillaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvGrillaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar});
+            this.DgvGrillaUsuarios.Location = new System.Drawing.Point(53, 120);
+            this.DgvGrillaUsuarios.MultiSelect = false;
+            this.DgvGrillaUsuarios.Name = "DgvGrillaUsuarios";
+            this.DgvGrillaUsuarios.ReadOnly = true;
+            this.DgvGrillaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvGrillaUsuarios.Size = new System.Drawing.Size(686, 268);
+            this.DgvGrillaUsuarios.TabIndex = 9;
+            this.DgvGrillaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaUsuarios_CellContentClick);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            // 
+            // cmbEstadoUsuario
+            // 
+            this.cmbEstadoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.cmbEstadoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbEstadoUsuario.FormattingEnabled = true;
+            this.cmbEstadoUsuario.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cmbEstadoUsuario.Location = new System.Drawing.Point(463, 34);
+            this.cmbEstadoUsuario.Name = "cmbEstadoUsuario";
+            this.cmbEstadoUsuario.Size = new System.Drawing.Size(121, 21);
+            this.cmbEstadoUsuario.TabIndex = 5;
+            this.cmbEstadoUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoUsuario_SelectedIndexChanged);
             // 
             // lbEstado
             // 
             this.lbEstado.AutoSize = true;
-            this.lbEstado.Location = new System.Drawing.Point(385, 40);
+            this.lbEstado.Location = new System.Drawing.Point(379, 40);
             this.lbEstado.Name = "lbEstado";
             this.lbEstado.Size = new System.Drawing.Size(40, 13);
-            this.lbEstado.TabIndex = 18;
+            this.lbEstado.TabIndex = 8;
             this.lbEstado.Text = "Estado";
             // 
-            // textBox1
+            // txtbBuscarGrupoPorDNI
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtbBuscarGrupoPorDNI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtbBuscarGrupoPorDNI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbBuscarGrupoPorDNI.Location = new System.Drawing.Point(144, 35);
+            this.txtbBuscarGrupoPorDNI.Name = "txtbBuscarGrupoPorDNI";
+            this.txtbBuscarGrupoPorDNI.Size = new System.Drawing.Size(207, 20);
+            this.txtbBuscarGrupoPorDNI.TabIndex = 7;
             // 
-            // lbDescripcion
+            // tabGestionDeUsuarios
             // 
-            this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Location = new System.Drawing.Point(56, 37);
-            this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(63, 13);
-            this.lbDescripcion.TabIndex = 16;
-            this.lbDescripcion.Text = "Descripcion";
+            this.tabGestionDeUsuarios.Controls.Add(this.groupB1);
+            this.tabGestionDeUsuarios.Location = new System.Drawing.Point(4, 22);
+            this.tabGestionDeUsuarios.Name = "tabGestionDeUsuarios";
+            this.tabGestionDeUsuarios.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGestionDeUsuarios.Size = new System.Drawing.Size(946, 477);
+            this.tabGestionDeUsuarios.TabIndex = 1;
+            this.tabGestionDeUsuarios.Text = "Gestion de Usuarios";
+            this.tabGestionDeUsuarios.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // groupB1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(469, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 15;
+            this.groupB1.Controls.Add(this.lbEstadoDelGrupo);
+            this.groupB1.Controls.Add(this.cmbNombredeGrupos);
+            this.groupB1.Controls.Add(this.txtbCodigoPostal);
+            this.groupB1.Controls.Add(this.txtbDireccion);
+            this.groupB1.Controls.Add(this.txtbProvincia);
+            this.groupB1.Controls.Add(this.txtbPais);
+            this.groupB1.Controls.Add(this.txtbTelefono);
+            this.groupB1.Controls.Add(this.txtbEmail);
+            this.groupB1.Controls.Add(this.txtbEdad);
+            this.groupB1.Controls.Add(this.txtbSexo);
+            this.groupB1.Controls.Add(this.txtbNombre);
+            this.groupB1.Controls.Add(this.txtbApellido);
+            this.groupB1.Controls.Add(this.txtbDNI);
+            this.groupB1.Controls.Add(this.label1);
+            this.groupB1.Controls.Add(this.lbCodigoPostal);
+            this.groupB1.Controls.Add(this.lbDireccion);
+            this.groupB1.Controls.Add(this.lbProvincia);
+            this.groupB1.Controls.Add(this.lbPais);
+            this.groupB1.Controls.Add(this.lbTelefono);
+            this.groupB1.Controls.Add(this.lbEmail);
+            this.groupB1.Controls.Add(this.lbEdad);
+            this.groupB1.Controls.Add(this.lbSexo);
+            this.groupB1.Controls.Add(this.lbNombre);
+            this.groupB1.Controls.Add(this.lbApellido);
+            this.groupB1.Controls.Add(this.lbDNI);
+            this.groupB1.Controls.Add(this.RbGrupoInactivo);
+            this.groupB1.Controls.Add(this.rbEstadoActivo);
+            this.groupB1.Controls.Add(this.btnCancelar);
+            this.groupB1.Controls.Add(this.btnGuardarCambios);
+            this.groupB1.Controls.Add(this.btnEditar);
+            this.groupB1.Controls.Add(this.btnNuevo);
+            this.groupB1.Controls.Add(this.LbCodigo);
+            this.groupB1.Controls.Add(this.label2);
+            this.groupB1.Controls.Add(this.lbEstadoGrupo);
+            this.groupB1.Controls.Add(this.txtbCodigo);
+            this.groupB1.Location = new System.Drawing.Point(7, 7);
+            this.groupB1.Name = "groupB1";
+            this.groupB1.Size = new System.Drawing.Size(927, 464);
+            this.groupB1.TabIndex = 12;
+            this.groupB1.TabStop = false;
+            this.groupB1.Text = "Gu";
+            this.groupB1.Enter += new System.EventHandler(this.groupB1_Enter);
             // 
-            // btnFiltrar
+            // RbGrupoInactivo
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(661, 34);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltrar.TabIndex = 14;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.RbGrupoInactivo.AutoSize = true;
+            this.RbGrupoInactivo.Location = new System.Drawing.Point(184, 335);
+            this.RbGrupoInactivo.Name = "RbGrupoInactivo";
+            this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
+            this.RbGrupoInactivo.TabIndex = 17;
+            this.RbGrupoInactivo.Text = "Grupo Inactivo";
+            this.RbGrupoInactivo.UseVisualStyleBackColor = true;
+            this.RbGrupoInactivo.CheckedChanged += new System.EventHandler(this.RbGrupoInactivo_CheckedChanged);
             // 
-            // btnModificar
+            // rbEstadoActivo
             // 
-            this.btnModificar.Location = new System.Drawing.Point(247, 394);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 13;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.rbEstadoActivo.AutoSize = true;
+            this.rbEstadoActivo.Location = new System.Drawing.Point(84, 335);
+            this.rbEstadoActivo.Name = "rbEstadoActivo";
+            this.rbEstadoActivo.Size = new System.Drawing.Size(87, 17);
+            this.rbEstadoActivo.TabIndex = 16;
+            this.rbEstadoActivo.Text = "Grupo Activo";
+            this.rbEstadoActivo.UseVisualStyleBackColor = true;
+            this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.rbEstadoActivo_CheckedChanged);
             // 
-            // btnEliminar
+            // btnCancelar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(150, 394);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 12;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(775, 424);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnAgregar
+            // btnGuardarCambios
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(56, 394);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(694, 424);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(75, 34);
+            this.btnGuardarCambios.TabIndex = 14;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
-            // btnSalir
+            // btnEditar
             // 
-            this.btnSalir.Location = new System.Drawing.Point(670, 394);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 10;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            this.btnEditar.Location = new System.Drawing.Point(613, 424);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 34);
+            this.btnEditar.TabIndex = 13;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(532, 424);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 34);
+            this.btnNuevo.TabIndex = 12;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // LbCodigo
+            // 
+            this.LbCodigo.AutoSize = true;
+            this.LbCodigo.Location = new System.Drawing.Point(529, 36);
+            this.LbCodigo.Name = "LbCodigo";
+            this.LbCodigo.Size = new System.Drawing.Size(40, 13);
+            this.LbCodigo.TabIndex = 6;
+            this.LbCodigo.Text = "Código";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(529, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Nombre del grupo";
+            // 
+            // lbEstadoGrupo
+            // 
+            this.lbEstadoGrupo.AutoSize = true;
+            this.lbEstadoGrupo.Location = new System.Drawing.Point(529, 116);
+            this.lbEstadoGrupo.Name = "lbEstadoGrupo";
+            this.lbEstadoGrupo.Size = new System.Drawing.Size(46, 13);
+            this.lbEstadoGrupo.TabIndex = 8;
+            this.lbEstadoGrupo.Text = "Estado :";
+            // 
+            // txtbCodigo
+            // 
+            this.txtbCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtbCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbCodigo.Location = new System.Drawing.Point(633, 33);
+            this.txtbCodigo.Name = "txtbCodigo";
+            this.txtbCodigo.Size = new System.Drawing.Size(276, 20);
+            this.txtbCodigo.TabIndex = 9;
+            this.txtbCodigo.TextChanged += new System.EventHandler(this.txtbCodigo_TextChanged);
+            // 
+            // btnSalirGestioGrupo
+            // 
+            this.btnSalirGestioGrupo.Location = new System.Drawing.Point(887, 531);
+            this.btnSalirGestioGrupo.Name = "btnSalirGestioGrupo";
+            this.btnSalirGestioGrupo.Size = new System.Drawing.Size(75, 23);
+            this.btnSalirGestioGrupo.TabIndex = 12;
+            this.btnSalirGestioGrupo.Text = "Salir";
+            this.btnSalirGestioGrupo.UseVisualStyleBackColor = true;
+            this.btnSalirGestioGrupo.Click += new System.EventHandler(this.btnSalirGestioGrupo_Click);
+            // 
+            // txtbCodigoPostal
+            // 
+            this.txtbCodigoPostal.Location = new System.Drawing.Point(84, 305);
+            this.txtbCodigoPostal.Name = "txtbCodigoPostal";
+            this.txtbCodigoPostal.Size = new System.Drawing.Size(195, 20);
+            this.txtbCodigoPostal.TabIndex = 48;
+            // 
+            // txtbDireccion
+            // 
+            this.txtbDireccion.Location = new System.Drawing.Point(84, 279);
+            this.txtbDireccion.Name = "txtbDireccion";
+            this.txtbDireccion.Size = new System.Drawing.Size(195, 20);
+            this.txtbDireccion.TabIndex = 47;
+            // 
+            // txtbProvincia
+            // 
+            this.txtbProvincia.Location = new System.Drawing.Point(84, 255);
+            this.txtbProvincia.Name = "txtbProvincia";
+            this.txtbProvincia.Size = new System.Drawing.Size(195, 20);
+            this.txtbProvincia.TabIndex = 46;
+            // 
+            // txtbPais
+            // 
+            this.txtbPais.Location = new System.Drawing.Point(84, 226);
+            this.txtbPais.Name = "txtbPais";
+            this.txtbPais.Size = new System.Drawing.Size(195, 20);
+            this.txtbPais.TabIndex = 45;
+            // 
+            // txtbTelefono
+            // 
+            this.txtbTelefono.Location = new System.Drawing.Point(84, 199);
+            this.txtbTelefono.Name = "txtbTelefono";
+            this.txtbTelefono.Size = new System.Drawing.Size(195, 20);
+            this.txtbTelefono.TabIndex = 44;
+            // 
+            // txtbEmail
+            // 
+            this.txtbEmail.Location = new System.Drawing.Point(84, 176);
+            this.txtbEmail.Name = "txtbEmail";
+            this.txtbEmail.Size = new System.Drawing.Size(195, 20);
+            this.txtbEmail.TabIndex = 43;
+            // 
+            // txtbEdad
+            // 
+            this.txtbEdad.Location = new System.Drawing.Point(84, 150);
+            this.txtbEdad.Name = "txtbEdad";
+            this.txtbEdad.Size = new System.Drawing.Size(195, 20);
+            this.txtbEdad.TabIndex = 42;
+            // 
+            // txtbSexo
+            // 
+            this.txtbSexo.Location = new System.Drawing.Point(84, 113);
+            this.txtbSexo.Name = "txtbSexo";
+            this.txtbSexo.Size = new System.Drawing.Size(195, 20);
+            this.txtbSexo.TabIndex = 41;
+            // 
+            // txtbNombre
+            // 
+            this.txtbNombre.Location = new System.Drawing.Point(84, 84);
+            this.txtbNombre.Name = "txtbNombre";
+            this.txtbNombre.Size = new System.Drawing.Size(195, 20);
+            this.txtbNombre.TabIndex = 40;
+            // 
+            // txtbApellido
+            // 
+            this.txtbApellido.Location = new System.Drawing.Point(84, 59);
+            this.txtbApellido.Name = "txtbApellido";
+            this.txtbApellido.Size = new System.Drawing.Size(195, 20);
+            this.txtbApellido.TabIndex = 39;
+            // 
+            // txtbDNI
+            // 
+            this.txtbDNI.Location = new System.Drawing.Point(84, 33);
+            this.txtbDNI.Name = "txtbDNI";
+            this.txtbDNI.Size = new System.Drawing.Size(195, 20);
+            this.txtbDNI.TabIndex = 38;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 335);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Estado";
+            // 
+            // lbCodigoPostal
+            // 
+            this.lbCodigoPostal.AutoSize = true;
+            this.lbCodigoPostal.Location = new System.Drawing.Point(6, 308);
+            this.lbCodigoPostal.Name = "lbCodigoPostal";
+            this.lbCodigoPostal.Size = new System.Drawing.Size(72, 13);
+            this.lbCodigoPostal.TabIndex = 36;
+            this.lbCodigoPostal.Text = "Codigo Postal";
+            // 
+            // lbDireccion
+            // 
+            this.lbDireccion.AutoSize = true;
+            this.lbDireccion.Location = new System.Drawing.Point(6, 282);
+            this.lbDireccion.Name = "lbDireccion";
+            this.lbDireccion.Size = new System.Drawing.Size(52, 13);
+            this.lbDireccion.TabIndex = 35;
+            this.lbDireccion.Text = "Dirección";
+            // 
+            // lbProvincia
+            // 
+            this.lbProvincia.AutoSize = true;
+            this.lbProvincia.Location = new System.Drawing.Point(6, 258);
+            this.lbProvincia.Name = "lbProvincia";
+            this.lbProvincia.Size = new System.Drawing.Size(51, 13);
+            this.lbProvincia.TabIndex = 34;
+            this.lbProvincia.Text = "Provincia";
+            // 
+            // lbPais
+            // 
+            this.lbPais.AutoSize = true;
+            this.lbPais.Location = new System.Drawing.Point(6, 229);
+            this.lbPais.Name = "lbPais";
+            this.lbPais.Size = new System.Drawing.Size(27, 13);
+            this.lbPais.TabIndex = 33;
+            this.lbPais.Text = "Pais";
+            // 
+            // lbTelefono
+            // 
+            this.lbTelefono.AutoSize = true;
+            this.lbTelefono.Location = new System.Drawing.Point(6, 202);
+            this.lbTelefono.Name = "lbTelefono";
+            this.lbTelefono.Size = new System.Drawing.Size(49, 13);
+            this.lbTelefono.TabIndex = 32;
+            this.lbTelefono.Text = "Telefono";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(6, 183);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(32, 13);
+            this.lbEmail.TabIndex = 31;
+            this.lbEmail.Text = "Email";
+            // 
+            // lbEdad
+            // 
+            this.lbEdad.AutoSize = true;
+            this.lbEdad.Location = new System.Drawing.Point(6, 153);
+            this.lbEdad.Name = "lbEdad";
+            this.lbEdad.Size = new System.Drawing.Size(32, 13);
+            this.lbEdad.TabIndex = 30;
+            this.lbEdad.Text = "Edad";
+            // 
+            // lbSexo
+            // 
+            this.lbSexo.AutoSize = true;
+            this.lbSexo.Location = new System.Drawing.Point(6, 120);
+            this.lbSexo.Name = "lbSexo";
+            this.lbSexo.Size = new System.Drawing.Size(31, 13);
+            this.lbSexo.TabIndex = 29;
+            this.lbSexo.Text = "Sexo";
+            // 
+            // lbNombre
+            // 
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Location = new System.Drawing.Point(6, 87);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(44, 13);
+            this.lbNombre.TabIndex = 28;
+            this.lbNombre.Text = "Nombre";
+            // 
+            // lbApellido
+            // 
+            this.lbApellido.AutoSize = true;
+            this.lbApellido.Location = new System.Drawing.Point(6, 62);
+            this.lbApellido.Name = "lbApellido";
+            this.lbApellido.Size = new System.Drawing.Size(44, 13);
+            this.lbApellido.TabIndex = 27;
+            this.lbApellido.Text = "Apellido";
+            // 
+            // lbDNI
+            // 
+            this.lbDNI.AutoSize = true;
+            this.lbDNI.Location = new System.Drawing.Point(6, 36);
+            this.lbDNI.Name = "lbDNI";
+            this.lbDNI.Size = new System.Drawing.Size(26, 13);
+            this.lbDNI.TabIndex = 26;
+            this.lbDNI.Text = "DNI";
+            // 
+            // ErrorIcono
+            // 
+            this.ErrorIcono.ContainerControl = this;
+            // 
+            // cmbNombredeGrupos
+            // 
+            this.cmbNombredeGrupos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbNombredeGrupos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbNombredeGrupos.FormattingEnabled = true;
+            this.cmbNombredeGrupos.Location = new System.Drawing.Point(633, 66);
+            this.cmbNombredeGrupos.Name = "cmbNombredeGrupos";
+            this.cmbNombredeGrupos.Size = new System.Drawing.Size(276, 21);
+            this.cmbNombredeGrupos.TabIndex = 50;
+            this.cmbNombredeGrupos.SelectedIndexChanged += new System.EventHandler(this.cmbNombredeGrupos_SelectedIndexChanged);
+            // 
+            // lbEstadoDelGrupo
+            // 
+            this.lbEstadoDelGrupo.AutoSize = true;
+            this.lbEstadoDelGrupo.Location = new System.Drawing.Point(633, 115);
+            this.lbEstadoDelGrupo.Name = "lbEstadoDelGrupo";
+            this.lbEstadoDelGrupo.Size = new System.Drawing.Size(0, 13);
+            this.lbEstadoDelGrupo.TabIndex = 51;
             // 
             // Gestion_de_Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.lbEstado);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lbDescripcion);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.btnFiltrar);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnSalir);
+            this.ClientSize = new System.Drawing.Size(993, 569);
+            this.Controls.Add(this.tabFrmGestionDeUsuarios);
+            this.Controls.Add(this.btnSalirGestioGrupo);
             this.Name = "Gestion_de_Usuarios";
             this.Text = "Gestion_de_Usuarios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Gestion_de_Usuarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabFrmGestionDeUsuarios.ResumeLayout(false);
+            this.tabUsuarios.ResumeLayout(false);
+            this.tabUsuarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaUsuarios)).EndInit();
+            this.tabGestionDeUsuarios.ResumeLayout(false);
+            this.groupB1.ResumeLayout(false);
+            this.groupB1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcono)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lbEstado;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lbDescripcion;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.TabControl tabFrmGestionDeUsuarios;
+        private System.Windows.Forms.TabPage tabUsuarios;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.RadioButton rbFiltrarPoNombre;
+        private System.Windows.Forms.RadioButton rbfiltrarPorEstado;
+        private System.Windows.Forms.Label lbnumeroDeRegistros;
+        private System.Windows.Forms.Label lbCantidadDeRegistros;
+        private System.Windows.Forms.Label lbNombreDelGrupo;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.CheckBox chkbEliminar;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.DataGridView DgvGrillaUsuarios;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
+        private System.Windows.Forms.ComboBox cmbEstadoUsuario;
+        private System.Windows.Forms.Label lbEstado;
+        private System.Windows.Forms.TextBox txtbBuscarGrupoPorDNI;
+        private System.Windows.Forms.TabPage tabGestionDeUsuarios;
+        private System.Windows.Forms.GroupBox groupB1;
+        private System.Windows.Forms.RadioButton RbGrupoInactivo;
+        private System.Windows.Forms.RadioButton rbEstadoActivo;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGuardarCambios;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Label LbCodigo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbEstadoGrupo;
+        public System.Windows.Forms.TextBox txtbCodigo;
+        private System.Windows.Forms.Button btnSalirGestioGrupo;
+        private System.Windows.Forms.TextBox txtbCodigoPostal;
+        private System.Windows.Forms.TextBox txtbDireccion;
+        private System.Windows.Forms.TextBox txtbProvincia;
+        private System.Windows.Forms.TextBox txtbPais;
+        private System.Windows.Forms.TextBox txtbTelefono;
+        private System.Windows.Forms.TextBox txtbEmail;
+        private System.Windows.Forms.TextBox txtbEdad;
+        private System.Windows.Forms.TextBox txtbSexo;
+        private System.Windows.Forms.TextBox txtbNombre;
+        private System.Windows.Forms.TextBox txtbApellido;
+        private System.Windows.Forms.TextBox txtbDNI;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbCodigoPostal;
+        private System.Windows.Forms.Label lbDireccion;
+        private System.Windows.Forms.Label lbProvincia;
+        private System.Windows.Forms.Label lbPais;
+        private System.Windows.Forms.Label lbTelefono;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Label lbEdad;
+        private System.Windows.Forms.Label lbSexo;
+        private System.Windows.Forms.Label lbNombre;
+        private System.Windows.Forms.Label lbApellido;
+        private System.Windows.Forms.Label lbDNI;
+        private System.Windows.Forms.ComboBox cmbNombredeGrupos;
+        private System.Windows.Forms.ErrorProvider ErrorIcono;
+        private System.Windows.Forms.ToolTip ttMensajeAyuda;
+        private System.Windows.Forms.Label lbEstadoDelGrupo;
     }
 }
