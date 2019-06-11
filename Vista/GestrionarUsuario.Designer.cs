@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabFrmGestionDegrupo = new System.Windows.Forms.TabControl();
             this.tabGrupo = new System.Windows.Forms.TabPage();
             this.btnListar = new System.Windows.Forms.Button();
@@ -68,11 +69,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
+            this.ErrorIcon = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabFrmGestionDegrupo.SuspendLayout();
             this.tabGrupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaGrupos)).BeginInit();
             this.tabGestionDeGrupos.SuspendLayout();
             this.groupB1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFrmGestionDegrupo
@@ -484,6 +488,10 @@
             this.radioButton4.Text = "Grupo Activo";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
+            // ErrorIcon
+            // 
+            this.ErrorIcon.ContainerControl = this;
+            // 
             // FrmGestrionarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,6 +508,7 @@
             this.tabGestionDeGrupos.ResumeLayout(false);
             this.groupB1.ResumeLayout(false);
             this.groupB1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -546,5 +555,7 @@
         private System.Windows.Forms.Label lbPrimeraClave;
         private System.Windows.Forms.TextBox txtbLegajo;
         private System.Windows.Forms.Label lbLegajo;
+        private System.Windows.Forms.ToolTip ttMensajeAyuda;
+        private System.Windows.Forms.ErrorProvider ErrorIcon;
     }
 }
