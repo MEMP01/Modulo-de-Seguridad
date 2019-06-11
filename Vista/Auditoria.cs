@@ -16,5 +16,10 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void Auditoria_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

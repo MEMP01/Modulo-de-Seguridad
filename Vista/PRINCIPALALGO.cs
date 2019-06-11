@@ -109,12 +109,12 @@ namespace Vista
 
         }
 
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void windowsMenu_Click(object sender, EventArgs e)
+        private void WindowsMenu_Click(object sender, EventArgs e)
         {
 
         }
@@ -125,22 +125,22 @@ namespace Vista
             gestion_De_Grupos.Show();
         }
 
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void auditoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AuditoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void cambiarClaveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CambiarClaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void recuperarClaveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RecuperarClaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

@@ -32,6 +32,8 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.CalendarioInicio = new System.Windows.Forms.MonthCalendar();
             this.CalendarioFin = new System.Windows.Forms.MonthCalendar();
+            this.BtnSalir = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvauditoria)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,17 +66,38 @@
             this.CalendarioFin.Name = "CalendarioFin";
             this.CalendarioFin.TabIndex = 3;
             // 
+            // BtnSalir
+            // 
+            this.BtnSalir.Location = new System.Drawing.Point(560, 564);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(237, 23);
+            this.BtnSalir.TabIndex = 4;
+            this.BtnSalir.Text = "Salir";
+            this.BtnSalir.UseVisualStyleBackColor = true;
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(560, 168);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(237, 27);
+            this.btnExportar.TabIndex = 5;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            // 
             // Auditoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 568);
+            this.ClientSize = new System.Drawing.Size(881, 599);
+            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.CalendarioFin);
             this.Controls.Add(this.CalendarioInicio);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.dgvauditoria);
             this.Name = "Auditoria";
             this.Text = "Auditoria";
+            this.Load += new System.EventHandler(this.Auditoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvauditoria)).EndInit();
             this.ResumeLayout(false);
 
@@ -86,5 +109,7 @@
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.MonthCalendar CalendarioInicio;
         private System.Windows.Forms.MonthCalendar CalendarioFin;
+        private System.Windows.Forms.Button BtnSalir;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

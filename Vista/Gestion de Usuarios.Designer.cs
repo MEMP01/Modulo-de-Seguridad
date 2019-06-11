@@ -53,10 +53,6 @@
             this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.LbCodigo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbEstadoGrupo = new System.Windows.Forms.Label();
-            this.txtbCodigo = new System.Windows.Forms.TextBox();
             this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
             this.txtbCodigoPostal = new System.Windows.Forms.TextBox();
             this.txtbDireccion = new System.Windows.Forms.TextBox();
@@ -83,8 +79,6 @@
             this.lbDNI = new System.Windows.Forms.Label();
             this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
-            this.cmbNombredeGrupos = new System.Windows.Forms.ComboBox();
-            this.lbEstadoDelGrupo = new System.Windows.Forms.Label();
             this.tabFrmGestionDeUsuarios.SuspendLayout();
             this.tabUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaUsuarios)).BeginInit();
@@ -100,7 +94,7 @@
             this.tabFrmGestionDeUsuarios.Location = new System.Drawing.Point(12, 12);
             this.tabFrmGestionDeUsuarios.Name = "tabFrmGestionDeUsuarios";
             this.tabFrmGestionDeUsuarios.SelectedIndex = 0;
-            this.tabFrmGestionDeUsuarios.Size = new System.Drawing.Size(954, 503);
+            this.tabFrmGestionDeUsuarios.Size = new System.Drawing.Size(780, 512);
             this.tabFrmGestionDeUsuarios.TabIndex = 14;
             // 
             // tabUsuarios
@@ -123,7 +117,7 @@
             this.tabUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabUsuarios.Name = "tabUsuarios";
             this.tabUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUsuarios.Size = new System.Drawing.Size(946, 477);
+            this.tabUsuarios.Size = new System.Drawing.Size(772, 486);
             this.tabUsuarios.TabIndex = 0;
             this.tabUsuarios.Text = "Usuarios";
             // 
@@ -279,15 +273,13 @@
             this.tabGestionDeUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabGestionDeUsuarios.Name = "tabGestionDeUsuarios";
             this.tabGestionDeUsuarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGestionDeUsuarios.Size = new System.Drawing.Size(946, 477);
+            this.tabGestionDeUsuarios.Size = new System.Drawing.Size(718, 484);
             this.tabGestionDeUsuarios.TabIndex = 1;
             this.tabGestionDeUsuarios.Text = "Gestion de Usuarios";
             this.tabGestionDeUsuarios.UseVisualStyleBackColor = true;
             // 
             // groupB1
             // 
-            this.groupB1.Controls.Add(this.lbEstadoDelGrupo);
-            this.groupB1.Controls.Add(this.cmbNombredeGrupos);
             this.groupB1.Controls.Add(this.txtbCodigoPostal);
             this.groupB1.Controls.Add(this.txtbDireccion);
             this.groupB1.Controls.Add(this.txtbProvincia);
@@ -317,13 +309,9 @@
             this.groupB1.Controls.Add(this.btnGuardarCambios);
             this.groupB1.Controls.Add(this.btnEditar);
             this.groupB1.Controls.Add(this.btnNuevo);
-            this.groupB1.Controls.Add(this.LbCodigo);
-            this.groupB1.Controls.Add(this.label2);
-            this.groupB1.Controls.Add(this.lbEstadoGrupo);
-            this.groupB1.Controls.Add(this.txtbCodigo);
             this.groupB1.Location = new System.Drawing.Point(7, 7);
             this.groupB1.Name = "groupB1";
-            this.groupB1.Size = new System.Drawing.Size(927, 464);
+            this.groupB1.Size = new System.Drawing.Size(657, 467);
             this.groupB1.TabIndex = 12;
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
@@ -353,7 +341,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(775, 424);
+            this.btnCancelar.Location = new System.Drawing.Point(557, 424);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 34);
             this.btnCancelar.TabIndex = 15;
@@ -363,7 +351,7 @@
             // 
             // btnGuardarCambios
             // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(694, 424);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(476, 424);
             this.btnGuardarCambios.Name = "btnGuardarCambios";
             this.btnGuardarCambios.Size = new System.Drawing.Size(75, 34);
             this.btnGuardarCambios.TabIndex = 14;
@@ -373,7 +361,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(613, 424);
+            this.btnEditar.Location = new System.Drawing.Point(395, 424);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 34);
             this.btnEditar.TabIndex = 13;
@@ -383,7 +371,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(532, 424);
+            this.btnNuevo.Location = new System.Drawing.Point(314, 424);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 34);
             this.btnNuevo.TabIndex = 12;
@@ -391,46 +379,9 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // LbCodigo
-            // 
-            this.LbCodigo.AutoSize = true;
-            this.LbCodigo.Location = new System.Drawing.Point(529, 36);
-            this.LbCodigo.Name = "LbCodigo";
-            this.LbCodigo.Size = new System.Drawing.Size(40, 13);
-            this.LbCodigo.TabIndex = 6;
-            this.LbCodigo.Text = "Código";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(529, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Nombre del grupo";
-            // 
-            // lbEstadoGrupo
-            // 
-            this.lbEstadoGrupo.AutoSize = true;
-            this.lbEstadoGrupo.Location = new System.Drawing.Point(529, 116);
-            this.lbEstadoGrupo.Name = "lbEstadoGrupo";
-            this.lbEstadoGrupo.Size = new System.Drawing.Size(46, 13);
-            this.lbEstadoGrupo.TabIndex = 8;
-            this.lbEstadoGrupo.Text = "Estado :";
-            // 
-            // txtbCodigo
-            // 
-            this.txtbCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtbCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbCodigo.Location = new System.Drawing.Point(633, 33);
-            this.txtbCodigo.Name = "txtbCodigo";
-            this.txtbCodigo.Size = new System.Drawing.Size(276, 20);
-            this.txtbCodigo.TabIndex = 9;
-            this.txtbCodigo.TextChanged += new System.EventHandler(this.txtbCodigo_TextChanged);
-            // 
             // btnSalirGestioGrupo
             // 
-            this.btnSalirGestioGrupo.Location = new System.Drawing.Point(887, 531);
+            this.btnSalirGestioGrupo.Location = new System.Drawing.Point(717, 534);
             this.btnSalirGestioGrupo.Name = "btnSalirGestioGrupo";
             this.btnSalirGestioGrupo.Size = new System.Drawing.Size(75, 23);
             this.btnSalirGestioGrupo.TabIndex = 12;
@@ -627,30 +578,11 @@
             // 
             this.ErrorIcono.ContainerControl = this;
             // 
-            // cmbNombredeGrupos
-            // 
-            this.cmbNombredeGrupos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbNombredeGrupos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbNombredeGrupos.FormattingEnabled = true;
-            this.cmbNombredeGrupos.Location = new System.Drawing.Point(633, 66);
-            this.cmbNombredeGrupos.Name = "cmbNombredeGrupos";
-            this.cmbNombredeGrupos.Size = new System.Drawing.Size(276, 21);
-            this.cmbNombredeGrupos.TabIndex = 50;
-            this.cmbNombredeGrupos.SelectedIndexChanged += new System.EventHandler(this.cmbNombredeGrupos_SelectedIndexChanged);
-            // 
-            // lbEstadoDelGrupo
-            // 
-            this.lbEstadoDelGrupo.AutoSize = true;
-            this.lbEstadoDelGrupo.Location = new System.Drawing.Point(633, 115);
-            this.lbEstadoDelGrupo.Name = "lbEstadoDelGrupo";
-            this.lbEstadoDelGrupo.Size = new System.Drawing.Size(0, 13);
-            this.lbEstadoDelGrupo.TabIndex = 51;
-            // 
             // Gestion_de_Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 569);
+            this.ClientSize = new System.Drawing.Size(813, 560);
             this.Controls.Add(this.tabFrmGestionDeUsuarios);
             this.Controls.Add(this.btnSalirGestioGrupo);
             this.Name = "Gestion_de_Usuarios";
@@ -695,10 +627,6 @@
         private System.Windows.Forms.Button btnGuardarCambios;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Label LbCodigo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbEstadoGrupo;
-        public System.Windows.Forms.TextBox txtbCodigo;
         private System.Windows.Forms.Button btnSalirGestioGrupo;
         private System.Windows.Forms.TextBox txtbCodigoPostal;
         private System.Windows.Forms.TextBox txtbDireccion;
@@ -723,9 +651,7 @@
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.Label lbApellido;
         private System.Windows.Forms.Label lbDNI;
-        private System.Windows.Forms.ComboBox cmbNombredeGrupos;
         private System.Windows.Forms.ErrorProvider ErrorIcono;
         private System.Windows.Forms.ToolTip ttMensajeAyuda;
-        private System.Windows.Forms.Label lbEstadoDelGrupo;
     }
 }

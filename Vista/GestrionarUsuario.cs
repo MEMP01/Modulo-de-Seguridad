@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Usuario : Form
+    public partial class GestrionarUsuario : Form
     {
-        public Usuario()
+        public GestrionarUsuario()
         {
             InitializeComponent();
         }

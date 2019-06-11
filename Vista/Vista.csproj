@@ -119,11 +119,11 @@
     <Compile Include="Recuperar Clave.Designer.cs">
       <DependentUpon>Recuperar Clave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs">
+    <Compile Include="GestrionarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario.Designer.cs">
-      <DependentUpon>Usuario.cs</DependentUpon>
+    <Compile Include="GestrionarUsuario.Designer.cs">
+      <DependentUpon>GestrionarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.cs">
       <SubType>Form</SubType>
@@ -139,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Usuarios.resx">
       <DependentUpon>Gestion de Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestrionarUsuario.resx">
+      <DependentUpon>GestrionarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Grupo.resx">
       <DependentUpon>Grupo.cs</DependentUpon>
