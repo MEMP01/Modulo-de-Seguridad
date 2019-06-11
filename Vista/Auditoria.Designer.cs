@@ -28,63 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvauditoria = new System.Windows.Forms.DataGridView();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.CalendarioInicio = new System.Windows.Forms.MonthCalendar();
+            this.CalendarioFin = new System.Windows.Forms.MonthCalendar();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvauditoria)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvauditoria
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 207);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(784, 346);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvauditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvauditoria.Location = new System.Drawing.Point(13, 207);
+            this.dgvauditoria.Name = "dgvauditoria";
+            this.dgvauditoria.Size = new System.Drawing.Size(784, 346);
+            this.dgvauditoria.TabIndex = 0;
             // 
-            // button1
+            // btnFiltrar
             // 
-            this.button1.Location = new System.Drawing.Point(560, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(237, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Location = new System.Drawing.Point(560, 33);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(237, 23);
+            this.btnFiltrar.TabIndex = 1;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
             // 
-            // monthCalendar1
+            // CalendarioInicio
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(13, 33);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 2;
+            this.CalendarioInicio.Location = new System.Drawing.Point(13, 33);
+            this.CalendarioInicio.Name = "CalendarioInicio";
+            this.CalendarioInicio.TabIndex = 2;
             // 
-            // monthCalendar2
+            // CalendarioFin
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(279, 33);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.TabIndex = 3;
+            this.CalendarioFin.Location = new System.Drawing.Point(279, 33);
+            this.CalendarioFin.Name = "CalendarioFin";
+            this.CalendarioFin.TabIndex = 3;
             // 
             // Auditoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 568);
-            this.Controls.Add(this.monthCalendar2);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.CalendarioFin);
+            this.Controls.Add(this.CalendarioInicio);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.dgvauditoria);
             this.Name = "Auditoria";
             this.Text = "Auditoria";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvauditoria)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.MonthCalendar monthCalendar2;
+        private System.Windows.Forms.DataGridView dgvauditoria;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.MonthCalendar CalendarioInicio;
+        private System.Windows.Forms.MonthCalendar CalendarioFin;
     }
 }
