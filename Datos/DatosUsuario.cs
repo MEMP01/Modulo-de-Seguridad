@@ -70,7 +70,7 @@ namespace Datos
                     ParameterName = "@nombre",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 120,
-                    Value = grupo.NombreGrupo
+                    Value = datosUsuario.NombreDeUsuarioDeSistema1
 
                 };
 
@@ -81,7 +81,7 @@ namespace Datos
                     ParameterName = "@estado",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 60,
-                    Value = grupo.EstadoGrupo
+                    Value = datosUsuario.EstadoDelUsuarioDelSistema
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
 
