@@ -44,16 +44,9 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cmbEstadoUsuario = new System.Windows.Forms.ComboBox();
             this.lbEstado = new System.Windows.Forms.Label();
-            this.txtbBuscarGrupoPorDNI = new System.Windows.Forms.TextBox();
+            this.txtbBuscarUsuarioPorDNI = new System.Windows.Forms.TextBox();
             this.tabGestionDeUsuarios = new System.Windows.Forms.TabPage();
             this.groupB1 = new System.Windows.Forms.GroupBox();
-            this.RbGrupoInactivo = new System.Windows.Forms.RadioButton();
-            this.rbEstadoActivo = new System.Windows.Forms.RadioButton();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
             this.txtbCodigoPostal = new System.Windows.Forms.TextBox();
             this.txtbDireccion = new System.Windows.Forms.TextBox();
             this.txtbProvincia = new System.Windows.Forms.TextBox();
@@ -77,6 +70,13 @@
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbApellido = new System.Windows.Forms.Label();
             this.lbDNI = new System.Windows.Forms.Label();
+            this.RbGrupoInactivo = new System.Windows.Forms.RadioButton();
+            this.rbEstadoActivo = new System.Windows.Forms.RadioButton();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnSalirGestioGrupo = new System.Windows.Forms.Button();
             this.ErrorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.tabFrmGestionDeUsuarios.SuspendLayout();
@@ -112,7 +112,7 @@
             this.tabUsuarios.Controls.Add(this.DgvGrillaUsuarios);
             this.tabUsuarios.Controls.Add(this.cmbEstadoUsuario);
             this.tabUsuarios.Controls.Add(this.lbEstado);
-            this.tabUsuarios.Controls.Add(this.txtbBuscarGrupoPorDNI);
+            this.tabUsuarios.Controls.Add(this.txtbBuscarUsuarioPorDNI);
             this.tabUsuarios.ForeColor = System.Drawing.SystemColors.WindowText;
             this.tabUsuarios.Location = new System.Drawing.Point(4, 22);
             this.tabUsuarios.Name = "tabUsuarios";
@@ -129,7 +129,7 @@
             this.btnListar.TabIndex = 16;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            this.btnListar.Click += new System.EventHandler(this.BtnListar_Click);
             // 
             // rbFiltrarPoNombre
             // 
@@ -140,7 +140,7 @@
             this.rbFiltrarPoNombre.TabIndex = 15;
             this.rbFiltrarPoNombre.Text = "Filtrar Por Nombre";
             this.rbFiltrarPoNombre.UseVisualStyleBackColor = true;
-            this.rbFiltrarPoNombre.CheckedChanged += new System.EventHandler(this.rbFiltrarPoNombre_CheckedChanged);
+            this.rbFiltrarPoNombre.CheckedChanged += new System.EventHandler(this.RbFiltrarPoNombre_CheckedChanged);
             // 
             // rbfiltrarPorEstado
             // 
@@ -153,7 +153,7 @@
             this.rbfiltrarPorEstado.TabStop = true;
             this.rbfiltrarPorEstado.Text = "Filtrar Por Estado";
             this.rbfiltrarPorEstado.UseVisualStyleBackColor = true;
-            this.rbfiltrarPorEstado.CheckedChanged += new System.EventHandler(this.rbfiltrarPorEstado_CheckedChanged);
+            this.rbfiltrarPorEstado.CheckedChanged += new System.EventHandler(this.RbfiltrarPorEstado_CheckedChanged);
             // 
             // lbnumeroDeRegistros
             // 
@@ -199,7 +199,7 @@
             this.chkbEliminar.TabIndex = 10;
             this.chkbEliminar.Text = "Eliminar";
             this.chkbEliminar.UseVisualStyleBackColor = true;
-            this.chkbEliminar.CheckedChanged += new System.EventHandler(this.chkbEliminar_CheckedChanged);
+            this.chkbEliminar.CheckedChanged += new System.EventHandler(this.ChkbEliminar_CheckedChanged);
             // 
             // btnFiltrar
             // 
@@ -209,7 +209,7 @@
             this.btnFiltrar.TabIndex = 4;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            this.btnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // DgvGrillaUsuarios
             // 
@@ -228,6 +228,7 @@
             this.DgvGrillaUsuarios.Size = new System.Drawing.Size(686, 268);
             this.DgvGrillaUsuarios.TabIndex = 9;
             this.DgvGrillaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaUsuarios_CellContentClick);
+            this.DgvGrillaUsuarios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaUsuarios_CellContentDoubleClick);
             // 
             // Eliminar
             // 
@@ -247,7 +248,7 @@
             this.cmbEstadoUsuario.Name = "cmbEstadoUsuario";
             this.cmbEstadoUsuario.Size = new System.Drawing.Size(121, 21);
             this.cmbEstadoUsuario.TabIndex = 5;
-            this.cmbEstadoUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoUsuario_SelectedIndexChanged);
+            this.cmbEstadoUsuario.SelectedIndexChanged += new System.EventHandler(this.CmbEstadoUsuario_SelectedIndexChanged);
             // 
             // lbEstado
             // 
@@ -258,14 +259,14 @@
             this.lbEstado.TabIndex = 8;
             this.lbEstado.Text = "Estado";
             // 
-            // txtbBuscarGrupoPorDNI
+            // txtbBuscarUsuarioPorDNI
             // 
-            this.txtbBuscarGrupoPorDNI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtbBuscarGrupoPorDNI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbBuscarGrupoPorDNI.Location = new System.Drawing.Point(144, 35);
-            this.txtbBuscarGrupoPorDNI.Name = "txtbBuscarGrupoPorDNI";
-            this.txtbBuscarGrupoPorDNI.Size = new System.Drawing.Size(207, 20);
-            this.txtbBuscarGrupoPorDNI.TabIndex = 7;
+            this.txtbBuscarUsuarioPorDNI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtbBuscarUsuarioPorDNI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbBuscarUsuarioPorDNI.Location = new System.Drawing.Point(144, 35);
+            this.txtbBuscarUsuarioPorDNI.Name = "txtbBuscarUsuarioPorDNI";
+            this.txtbBuscarUsuarioPorDNI.Size = new System.Drawing.Size(207, 20);
+            this.txtbBuscarUsuarioPorDNI.TabIndex = 7;
             // 
             // tabGestionDeUsuarios
             // 
@@ -316,78 +317,6 @@
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
             this.groupB1.Enter += new System.EventHandler(this.groupB1_Enter);
-            // 
-            // RbGrupoInactivo
-            // 
-            this.RbGrupoInactivo.AutoSize = true;
-            this.RbGrupoInactivo.Location = new System.Drawing.Point(184, 335);
-            this.RbGrupoInactivo.Name = "RbGrupoInactivo";
-            this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
-            this.RbGrupoInactivo.TabIndex = 17;
-            this.RbGrupoInactivo.Text = "Grupo Inactivo";
-            this.RbGrupoInactivo.UseVisualStyleBackColor = true;
-            this.RbGrupoInactivo.CheckedChanged += new System.EventHandler(this.RbGrupoInactivo_CheckedChanged);
-            // 
-            // rbEstadoActivo
-            // 
-            this.rbEstadoActivo.AutoSize = true;
-            this.rbEstadoActivo.Location = new System.Drawing.Point(84, 335);
-            this.rbEstadoActivo.Name = "rbEstadoActivo";
-            this.rbEstadoActivo.Size = new System.Drawing.Size(87, 17);
-            this.rbEstadoActivo.TabIndex = 16;
-            this.rbEstadoActivo.Text = "Grupo Activo";
-            this.rbEstadoActivo.UseVisualStyleBackColor = true;
-            this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.rbEstadoActivo_CheckedChanged);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(557, 424);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnGuardarCambios
-            // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(476, 424);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(75, 34);
-            this.btnGuardarCambios.TabIndex = 14;
-            this.btnGuardarCambios.Text = "Guardar Cambios";
-            this.btnGuardarCambios.UseVisualStyleBackColor = true;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(395, 424);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 34);
-            this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(314, 424);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 34);
-            this.btnNuevo.TabIndex = 12;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnSalirGestioGrupo
-            // 
-            this.btnSalirGestioGrupo.Location = new System.Drawing.Point(717, 534);
-            this.btnSalirGestioGrupo.Name = "btnSalirGestioGrupo";
-            this.btnSalirGestioGrupo.Size = new System.Drawing.Size(75, 23);
-            this.btnSalirGestioGrupo.TabIndex = 12;
-            this.btnSalirGestioGrupo.Text = "Salir";
-            this.btnSalirGestioGrupo.UseVisualStyleBackColor = true;
-            this.btnSalirGestioGrupo.Click += new System.EventHandler(this.btnSalirGestioGrupo_Click);
             // 
             // txtbCodigoPostal
             // 
@@ -574,6 +503,78 @@
             this.lbDNI.TabIndex = 26;
             this.lbDNI.Text = "DNI";
             // 
+            // RbGrupoInactivo
+            // 
+            this.RbGrupoInactivo.AutoSize = true;
+            this.RbGrupoInactivo.Location = new System.Drawing.Point(184, 335);
+            this.RbGrupoInactivo.Name = "RbGrupoInactivo";
+            this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
+            this.RbGrupoInactivo.TabIndex = 17;
+            this.RbGrupoInactivo.Text = "Grupo Inactivo";
+            this.RbGrupoInactivo.UseVisualStyleBackColor = true;
+            this.RbGrupoInactivo.CheckedChanged += new System.EventHandler(this.RbGrupoInactivo_CheckedChanged);
+            // 
+            // rbEstadoActivo
+            // 
+            this.rbEstadoActivo.AutoSize = true;
+            this.rbEstadoActivo.Location = new System.Drawing.Point(84, 335);
+            this.rbEstadoActivo.Name = "rbEstadoActivo";
+            this.rbEstadoActivo.Size = new System.Drawing.Size(87, 17);
+            this.rbEstadoActivo.TabIndex = 16;
+            this.rbEstadoActivo.Text = "Grupo Activo";
+            this.rbEstadoActivo.UseVisualStyleBackColor = true;
+            this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.rbEstadoActivo_CheckedChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(557, 424);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 34);
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnGuardarCambios
+            // 
+            this.btnGuardarCambios.Location = new System.Drawing.Point(476, 424);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(75, 34);
+            this.btnGuardarCambios.TabIndex = 14;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(395, 424);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 34);
+            this.btnEditar.TabIndex = 13;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(314, 424);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 34);
+            this.btnNuevo.TabIndex = 12;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnSalirGestioGrupo
+            // 
+            this.btnSalirGestioGrupo.Location = new System.Drawing.Point(717, 534);
+            this.btnSalirGestioGrupo.Name = "btnSalirGestioGrupo";
+            this.btnSalirGestioGrupo.Size = new System.Drawing.Size(75, 23);
+            this.btnSalirGestioGrupo.TabIndex = 12;
+            this.btnSalirGestioGrupo.Text = "Salir";
+            this.btnSalirGestioGrupo.UseVisualStyleBackColor = true;
+            this.btnSalirGestioGrupo.Click += new System.EventHandler(this.btnSalirGestioGrupo_Click);
+            // 
             // ErrorIcono
             // 
             this.ErrorIcono.ContainerControl = this;
@@ -618,7 +619,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.ComboBox cmbEstadoUsuario;
         private System.Windows.Forms.Label lbEstado;
-        private System.Windows.Forms.TextBox txtbBuscarGrupoPorDNI;
+        private System.Windows.Forms.TextBox txtbBuscarUsuarioPorDNI;
         private System.Windows.Forms.TabPage tabGestionDeUsuarios;
         private System.Windows.Forms.GroupBox groupB1;
         private System.Windows.Forms.RadioButton RbGrupoInactivo;
