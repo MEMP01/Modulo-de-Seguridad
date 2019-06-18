@@ -29,7 +29,7 @@ namespace Vista
             ttMensajeAyuda.SetToolTip(txtbDireccion, "Ingrese la direccion de recidencia actual del Usuario");
             ttMensajeAyuda.SetToolTip(txtbCodigoPostal, "Ingrese el codigo postal actual del Usuario");
             ttMensajeAyuda.SetToolTip(rbEstadoActivo, "Seleccione esta opcion para setear el estado del Usuario como Activo");
-            ttMensajeAyuda.SetToolTip(RbGrupoInactivo, "Seleccione esta opcion para setear el estado del Usuario como Inactivo ");
+            ttMensajeAyuda.SetToolTip(RbUsuarioInactivo, "Seleccione esta opcion para setear el estado del Usuario como Inactivo ");
             ttMensajeAyuda.SetToolTip(txtbDNI, "Aqui Aparece el DNI del Usuario");
             ttMensajeAyuda.SetToolTip(cmbEstadoUsuario, "Seleccione un estado de Usuario como filtro de busqueda");
             ttMensajeAyuda.SetToolTip(txtbBuscarUsuarioPorDNI, "Ingrese un DNI de Usuario como filtro de busqueda");
@@ -197,17 +197,18 @@ namespace Vista
 
         }
 
-        private void BtnSalir_Click(object sender, EventArgs e)
+      //  private void BtnSalir_Click(object sender, EventArgs e)
+      //  {
+      //      Singleton = null;
+      //      Close();
+      //  }
+
+        private void GroupB1_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void groupB1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbEstadoActivo_CheckedChanged(object sender, EventArgs e)
+        private void RbEstadoActivo_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -217,12 +218,12 @@ namespace Vista
 
         }
 
-        private void cmbNombredeGrupos_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbNombredeGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtbCodigo_TextChanged(object sender, EventArgs e)
+        private void TxtbCodigo_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -274,33 +275,72 @@ namespace Vista
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            EsNuevo = true;
+            EsEditar = false;
+            Botones();
+            LimpiarTodo();
+            Habilitar(true);
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            if (!txtbDNI.Text.Equals(""))
+            {
+                EsEditar = true;
+                Botones();
+                Habilitar(true);
+            }
+            else
+            {
+                MensanjeError("Debe selecciona primero el registro a modificar");
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            EsNuevo = false;
+            EsEditar = false;
+            Botones();
+            LimpiarTodo();
+            Habilitar(false);
+        }
+
+        private void BtnGuardarCambios_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnSalirGestioGrupo_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnGuardarCambios_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalirGestioGrupo_Click(object sender, EventArgs e)
-        {
-
+            Singleton = null;
+            Close();
         }
 
         private void DgvGrillaUsuarios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["DNI"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Apellido"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Nombre"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Sexo"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Edad"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Email"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Telefono"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Pais"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Provincia"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Direccion"].Value);
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["CodigoPostal"].Value);            
+            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Estado"].Value);
+            if (DgvGrillaUsuarios.CurrentRow.Cells["Estado"].Value.Equals("Activo"))
+            {
+                rbEstadoActivo.Checked = true;
+            }
+            else
+            {
+                RbUsuarioInactivo.Checked = true;
+            }
+            tabFrmGestionDeUsuarios.SelectedIndex = 1;
 
         }
     }

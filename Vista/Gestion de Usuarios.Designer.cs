@@ -70,7 +70,7 @@
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbApellido = new System.Windows.Forms.Label();
             this.lbDNI = new System.Windows.Forms.Label();
-            this.RbGrupoInactivo = new System.Windows.Forms.RadioButton();
+            this.RbUsuarioInactivo = new System.Windows.Forms.RadioButton();
             this.rbEstadoActivo = new System.Windows.Forms.RadioButton();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardarCambios = new System.Windows.Forms.Button();
@@ -304,7 +304,7 @@
             this.groupB1.Controls.Add(this.lbNombre);
             this.groupB1.Controls.Add(this.lbApellido);
             this.groupB1.Controls.Add(this.lbDNI);
-            this.groupB1.Controls.Add(this.RbGrupoInactivo);
+            this.groupB1.Controls.Add(this.RbUsuarioInactivo);
             this.groupB1.Controls.Add(this.rbEstadoActivo);
             this.groupB1.Controls.Add(this.btnCancelar);
             this.groupB1.Controls.Add(this.btnGuardarCambios);
@@ -316,7 +316,7 @@
             this.groupB1.TabIndex = 12;
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
-            this.groupB1.Enter += new System.EventHandler(this.groupB1_Enter);
+            this.groupB1.Enter += new System.EventHandler(this.GroupB1_Enter);
             // 
             // txtbCodigoPostal
             // 
@@ -503,27 +503,27 @@
             this.lbDNI.TabIndex = 26;
             this.lbDNI.Text = "DNI";
             // 
-            // RbGrupoInactivo
+            // RbUsuarioInactivo
             // 
-            this.RbGrupoInactivo.AutoSize = true;
-            this.RbGrupoInactivo.Location = new System.Drawing.Point(184, 335);
-            this.RbGrupoInactivo.Name = "RbGrupoInactivo";
-            this.RbGrupoInactivo.Size = new System.Drawing.Size(95, 17);
-            this.RbGrupoInactivo.TabIndex = 17;
-            this.RbGrupoInactivo.Text = "Grupo Inactivo";
-            this.RbGrupoInactivo.UseVisualStyleBackColor = true;
-            this.RbGrupoInactivo.CheckedChanged += new System.EventHandler(this.RbGrupoInactivo_CheckedChanged);
+            this.RbUsuarioInactivo.AutoSize = true;
+            this.RbUsuarioInactivo.Location = new System.Drawing.Point(184, 335);
+            this.RbUsuarioInactivo.Name = "RbUsuarioInactivo";
+            this.RbUsuarioInactivo.Size = new System.Drawing.Size(102, 17);
+            this.RbUsuarioInactivo.TabIndex = 17;
+            this.RbUsuarioInactivo.Text = "Usuario Inactivo";
+            this.RbUsuarioInactivo.UseVisualStyleBackColor = true;
+            this.RbUsuarioInactivo.CheckedChanged += new System.EventHandler(this.RbGrupoInactivo_CheckedChanged);
             // 
             // rbEstadoActivo
             // 
             this.rbEstadoActivo.AutoSize = true;
             this.rbEstadoActivo.Location = new System.Drawing.Point(84, 335);
             this.rbEstadoActivo.Name = "rbEstadoActivo";
-            this.rbEstadoActivo.Size = new System.Drawing.Size(87, 17);
+            this.rbEstadoActivo.Size = new System.Drawing.Size(97, 17);
             this.rbEstadoActivo.TabIndex = 16;
-            this.rbEstadoActivo.Text = "Grupo Activo";
+            this.rbEstadoActivo.Text = "Usuario  Activo";
             this.rbEstadoActivo.UseVisualStyleBackColor = true;
-            this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.rbEstadoActivo_CheckedChanged);
+            this.rbEstadoActivo.CheckedChanged += new System.EventHandler(this.RbEstadoActivo_CheckedChanged);
             // 
             // btnCancelar
             // 
@@ -533,7 +533,7 @@
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnGuardarCambios
             // 
@@ -543,7 +543,7 @@
             this.btnGuardarCambios.TabIndex = 14;
             this.btnGuardarCambios.Text = "Guardar Cambios";
             this.btnGuardarCambios.UseVisualStyleBackColor = true;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
+            this.btnGuardarCambios.Click += new System.EventHandler(this.BtnGuardarCambios_Click);
             // 
             // btnEditar
             // 
@@ -553,7 +553,7 @@
             this.btnEditar.TabIndex = 13;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -563,7 +563,7 @@
             this.btnNuevo.TabIndex = 12;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // btnSalirGestioGrupo
             // 
@@ -573,7 +573,7 @@
             this.btnSalirGestioGrupo.TabIndex = 12;
             this.btnSalirGestioGrupo.Text = "Salir";
             this.btnSalirGestioGrupo.UseVisualStyleBackColor = true;
-            this.btnSalirGestioGrupo.Click += new System.EventHandler(this.btnSalirGestioGrupo_Click);
+            this.btnSalirGestioGrupo.Click += new System.EventHandler(this.BtnSalirGestioGrupo_Click);
             // 
             // ErrorIcono
             // 
@@ -622,7 +622,7 @@
         private System.Windows.Forms.TextBox txtbBuscarUsuarioPorDNI;
         private System.Windows.Forms.TabPage tabGestionDeUsuarios;
         private System.Windows.Forms.GroupBox groupB1;
-        private System.Windows.Forms.RadioButton RbGrupoInactivo;
+        private System.Windows.Forms.RadioButton RbUsuarioInactivo;
         private System.Windows.Forms.RadioButton rbEstadoActivo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardarCambios;
