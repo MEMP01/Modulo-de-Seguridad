@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAuditoria.cs" />
     <Compile Include="ControlGrupo.cs" />
     <Compile Include="ControlUsuario.cs" />
     <Compile Include="ControlUsuarios.cs" />

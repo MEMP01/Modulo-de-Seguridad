@@ -21,5 +21,25 @@ namespace Vista
         {
 
         }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

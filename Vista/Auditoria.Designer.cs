@@ -34,13 +34,14 @@
             this.CalendarioFin = new System.Windows.Forms.MonthCalendar();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvauditoria)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvauditoria
             // 
             this.dgvauditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvauditoria.Location = new System.Drawing.Point(13, 207);
+            this.dgvauditoria.Location = new System.Drawing.Point(44, 212);
             this.dgvauditoria.Name = "dgvauditoria";
             this.dgvauditoria.Size = new System.Drawing.Size(784, 346);
             this.dgvauditoria.TabIndex = 0;
@@ -53,6 +54,7 @@
             this.btnFiltrar.TabIndex = 1;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // CalendarioInicio
             // 
@@ -74,6 +76,7 @@
             this.BtnSalir.TabIndex = 4;
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // btnExportar
             // 
@@ -83,12 +86,24 @@
             this.btnExportar.TabIndex = 5;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(560, 62);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(237, 27);
+            this.btnListar.TabIndex = 6;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // Auditoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 599);
+            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.CalendarioFin);
@@ -111,5 +126,6 @@
         private System.Windows.Forms.MonthCalendar CalendarioFin;
         private System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnListar;
     }
 }

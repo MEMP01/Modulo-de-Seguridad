@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Coneccion.cs" />
+    <Compile Include="DatosAuditoria.cs" />
     <Compile Include="DatosGrupo.cs" />
     <Compile Include="DatosUsuario.cs" />
     <Compile Include="DatosUsuarios.cs" />
