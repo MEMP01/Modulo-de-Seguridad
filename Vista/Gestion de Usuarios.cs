@@ -240,7 +240,16 @@ namespace Vista
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-
+            if (txtbBuscarUsuarioPorDNI.Enabled == true)
+            {
+                string DNI = txtbBuscarUsuarioPorDNI.Text;
+                ControlDeUsuarios = new ControlUsuarios();
+                DgvGrillaUsuarios.DataSource = ControlDeUsuarios.CBuscarUsuario(Convert.ToInt32(DNI));
+            }
+            else
+            {
+                Filtrar();
+            }
         }
 
         private void BtnListar_Click(object sender, EventArgs e)
@@ -309,6 +318,156 @@ namespace Vista
 
         private void BtnGuardarCambios_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rpta = "";
+                int estadodelusuario = 0;
+                string estado;
+
+                ControlDeUsuarios = new ControlUsuarios();
+
+                if (txtbDNI.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbDNI, "Ingrese un DNI para el Usuario");
+                }
+                if (txtbNombre.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbNombre, "Ingrese un nombre para el Usuario");
+                }
+                if (txtbApellido.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbApellido, "Ingrese un apellido para el Usuario");
+                }
+                if (txtbSexo.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbSexo, "Ingrese el sexo del Usuario");
+                }
+                if (txtbEdad.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbEdad, "Ingrese la edad del Usuario");
+                }
+                if (txtbEmail.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbEmail, "Ingrese un Email para el Usuario");
+                }
+                if (txtbTelefono.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbTelefono, "Ingrese un telefono para el Usuario");
+                }
+                if (txtbPais.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbPais, "Ingrese un DNI para el Usuario");
+                }
+                if (txtbProvincia.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbProvincia, "Ingrese un provincia para el Usuario");
+                }
+                if (txtbDireccion.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbDireccion, "Ingrese un DNI para el Usuario");
+                }
+                if (txtbCodigoPostal.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcono.SetError(txtbCodigoPostal, "Ingrese un DNI para el Usuario");
+                }
+
+                else
+                {
+                    if (EsNuevo)
+                    {
+                        estado = "";
+                        if (rbEstadoActivo.Checked)
+                        {
+                            estado = "Activo";
+                            estadodelusuario = 1;
+                            MessageBox.Show("aca bien" + estado);
+
+                        }
+                        else if (RbUsuarioInactivo.Checked)
+                        {
+                            estado = "Inactivo";
+                            estadodelusuario = 2;
+                            MessageBox.Show("aca bien" + estado);
+                        }
+
+                        MessageBox.Show("aca bien" + estado);
+                        rpta = ControlDeUsuarios.CAltaUsuario(Convert.ToInt32(txtbDNI.Text),
+                            txtbApellido.Text.Trim(),txtbNombre.Text.Trim(),Convert.ToChar(txtbSexo.Text),Convert.ToInt32(txtbEdad.Text),
+                            txtbEmail.Text.Trim(),Convert.ToInt32(txtbTelefono.Text),txtbPais.Text.Trim(),txtbProvincia.Text.Trim(),
+                           txtbDireccion.Text,Convert.ToInt32(txtbCodigoPostal.Text), estadodelusuario);
+                    }
+                    else
+                    {
+                        estado = "";
+
+                       
+                        if (rbEstadoActivo.Checked)
+                        {
+                            estado = "Activo";
+                            estadodelusuario = 1;
+                            MessageBox.Show("aca bien" + estado);
+                        }
+                        else if (RbUsuarioInactivo.Checked)
+                        {
+                            estado = "Inactivo";
+                            estadodelusuario = 2;
+                            MessageBox.Show("aca bien" + estado);
+                        }
+
+
+                        rpta = ControlDeUsuarios.CModificacionUsuario(Convert.ToInt32(txtbDNI.Text),
+                            txtbApellido.Text.Trim(), txtbNombre.Text.Trim(), Convert.ToChar(txtbSexo.Text), Convert.ToInt32(txtbEdad.Text),
+                            txtbEmail.Text.Trim(), Convert.ToInt32(txtbTelefono.Text), txtbPais.Text.Trim(), txtbProvincia.Text.Trim(),
+                           txtbDireccion.Text, Convert.ToInt32(txtbCodigoPostal.Text), estadodelusuario);
+                        // tabFrmGestionDegrupo.SelectedIndex = 0;
+
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+
+                        if (EsNuevo)
+                        {
+                            MensanjeOK("Se ingreso exitosamente un nuevo grupo al sistema");
+                        }
+                        else
+                        {
+
+                            MensanjeOK("Se Modifico exitosamente el grupo dado");
+                        }
+                    }
+                    else if (rpta.Equals("No se pudo Ingresar el registro"))
+                    {
+
+                        MensanjeError(rpta);
+                    }
+
+                    EsNuevo = false;
+                    EsEditar = false;
+                    Botones();
+                    LimpiarTodo();
+                    LlenarGrilla();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
 
         }
 
