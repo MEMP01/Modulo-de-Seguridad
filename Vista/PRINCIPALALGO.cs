@@ -132,7 +132,8 @@ namespace Vista
 
         private void AuditoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Auditoria auditoria = new Auditoria();
+            auditoria.Show();
         }
 
         private void CambiarClaveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,6 +144,18 @@ namespace Vista
         private void RecuperarClaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmGestion_de_Usuarios_de_Empresa frmGestion_De_Usuarios_De_ = new FrmGestion_de_Usuarios_de_Empresa();
+            frmGestion_De_Usuarios_De_.Show();
+        }
+
+        private void usuariosDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestrionarUsuario gestrionarUsuario = new FrmGestrionarUsuario();
+            gestrionarUsuario.Show();
         }
     }
 }

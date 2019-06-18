@@ -80,6 +80,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -337,7 +339,9 @@
             // 
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cambiarClaveToolStripMenuItem,
-            this.recuperarClaveToolStripMenuItem});
+            this.recuperarClaveToolStripMenuItem,
+            this.usuariosToolStripMenuItem1,
+            this.usuariosDelSistemaToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
@@ -346,14 +350,14 @@
             // cambiarClaveToolStripMenuItem
             // 
             this.cambiarClaveToolStripMenuItem.Name = "cambiarClaveToolStripMenuItem";
-            this.cambiarClaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarClaveToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.cambiarClaveToolStripMenuItem.Text = "Cambiar Clave";
             this.cambiarClaveToolStripMenuItem.Click += new System.EventHandler(this.CambiarClaveToolStripMenuItem_Click);
             // 
             // recuperarClaveToolStripMenuItem
             // 
             this.recuperarClaveToolStripMenuItem.Name = "recuperarClaveToolStripMenuItem";
-            this.recuperarClaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recuperarClaveToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.recuperarClaveToolStripMenuItem.Text = "Recuperar Clave";
             this.recuperarClaveToolStripMenuItem.Click += new System.EventHandler(this.RecuperarClaveToolStripMenuItem_Click);
             // 
@@ -509,6 +513,20 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // usuariosToolStripMenuItem1
+            // 
+            this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
+            this.usuariosToolStripMenuItem1.Text = "Usuarios de la Empresa";
+            this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
+            // 
+            // usuariosDelSistemaToolStripMenuItem
+            // 
+            this.usuariosDelSistemaToolStripMenuItem.Name = "usuariosDelSistemaToolStripMenuItem";
+            this.usuariosDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.usuariosDelSistemaToolStripMenuItem.Text = "Usuarios del Sistema";
+            this.usuariosDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.usuariosDelSistemaToolStripMenuItem_Click);
+            // 
             // PRINCIPALALGO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,6 +603,8 @@
         private System.Windows.Forms.ToolStripMenuItem cambiarClaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recuperarClaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditoriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem usuariosDelSistemaToolStripMenuItem;
     }
 }
 
