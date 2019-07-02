@@ -3,10 +3,13 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
-{
+{       /// <summary>
+/// Esta clase se utiliza para realizar ABM de Usuario del Sistema
+/// </summary>
     class DatosUsuario
     {
-        private string PrimeraClave;
+        //private string PrimeraClave;
+        private int legajo;
         private string Clave;
         private string NombreDeUsuarioDeSistema;
         private int DNI;
@@ -16,25 +19,41 @@ namespace Datos
         private Coneccion Miconeccion;
 
 
-
-        public DatosUsuario(string primeraClave1, string clave1, string nombreDeUsuarioDeSistema1, int dNI1, string estadoDelUsuarioDelSistema)
+           /// <summary>
+           /// Constructor de la clase Datos Usuario
+           /// </summary>
+          
+           /// <param name="clave1"></param>
+           /// <param name="nombreDeUsuarioDeSistema1"></param>
+           /// <param name="dNI1"></param>
+           /// <param name="estadoDelUsuarioDelSistema"></param>
+        public DatosUsuario(string clave1, string nombreDeUsuarioDeSistema1, int dNI1, string estadoDelUsuarioDelSistema)
         {
-            PrimeraClave1 = primeraClave1;
+            //PrimeraClave1 = primeraClave1;
             Clave1 = clave1;
             NombreDeUsuarioDeSistema1 = nombreDeUsuarioDeSistema1;
             DNI1 = dNI1;
             EstadoDelUsuarioDelSistema = estadoDelUsuarioDelSistema;
         }
-
+               /// <summary>
+               /// Constructor vacio
+               /// </summary>
         public DatosUsuario() { }
-
-        public string PrimeraClave1 { get => PrimeraClave; set => PrimeraClave = value; }
+            /// <summary>
+            /// encapsulamientos de campos
+            /// </summary>
+        //public string PrimeraClave1 { get => PrimeraClave; set => PrimeraClave = value; }
         public string Clave1 { get => Clave; set => Clave = value; }
         public string NombreDeUsuarioDeSistema1 { get => NombreDeUsuarioDeSistema; set => NombreDeUsuarioDeSistema = value; }
         public int DNI1 { get => DNI; set => DNI = value; }
         public string EstadoDelUsuarioDelSistema { get => estadoDelUsuarioDelSistema; set => estadoDelUsuarioDelSistema = value; }
+        public int Legajo { get => legajo; set => legajo = value; }
 
-
+        /// <summary>
+        /// Insert de Usuario Nuevo
+        /// </summary>
+        /// <param name="datosUsuario"></param>
+        /// <returns>devuelve un OK si la operacion se completo exitosamente</returns>
         public string IngresarUsuario(DatosUsuario  datosUsuario)
         {
 
@@ -49,28 +68,48 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "Sp_ABMC_Grupos",
+                    CommandText = "SP_ABM_Usuario",
                     CommandType = CommandType.StoredProcedure
                 };
 
 
 
-                SqlParameter id = new SqlParameter
+                SqlParameter idlegajo = new SqlParameter
                 {
-                    ParameterName = "@idGrupo",
+                    ParameterName = "@legajo",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Output
 
                 };
 
-                SqlComando.Parameters.Add(id);
+                SqlComando.Parameters.Add(idlegajo);
+
+                SqlParameter Clave = new SqlParameter
+                {
+                    ParameterName = "@clave",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 1024,
+                    Value = datosUsuario.Clave1
+                };
+
+                SqlComando.Parameters.Add(Clave);
+
+                SqlParameter NombreDelsuario = new SqlParameter()
+                {
+                    ParameterName = "@nombredeUsuario",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 60,
+                    Value=  datosUsuario.NombreDeUsuarioDeSistema1
+                };
+
+                SqlComando.Parameters.Add(NombreDelsuario);
 
                 SqlParameter sqlparametersNombre = new SqlParameter
                 {
-                    ParameterName = "@nombre",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 120,
-                    Value = datosUsuario.NombreDeUsuarioDeSistema1
+                    ParameterName = "@DNI",
+                    SqlDbType = SqlDbType.Int,
+                   
+                    Value = datosUsuario.DNI1
 
                 };
 
@@ -78,7 +117,7 @@ namespace Datos
 
                 SqlParameter sqlparametreEstado = new SqlParameter
                 {
-                    ParameterName = "@estado",
+                    ParameterName = "@EstadoDelUsuario",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 60,
                     Value = datosUsuario.EstadoDelUsuarioDelSistema
@@ -114,11 +153,11 @@ namespace Datos
         }
 
         /// <summary>
-        /// metodo para  modificar un grupo existente
+        /// metodo para  modificar un Usuario existente
         /// </summary>
-        /// <param name="grupo">ingresar objeto del tipo grupo</param>
+        /// <param name="datosUsuario">ingresar objeto del tipo grupo</param>
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
-        public string UpdateGrupos(DatosGrupo grupo)
+        public string UpdateUsuario(DatosUsuario datosUsuario)
         {
 
             string rta = "";
@@ -134,16 +173,48 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "Sp_ABMC_Grupos",
+                    CommandText = "SP_ABM_Usuario",
                     CommandType = CommandType.StoredProcedure
                 };
 
+
+
+                SqlParameter idlegajo = new SqlParameter
+                {
+                    ParameterName = "@legajo",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Input
+
+                };
+
+                SqlComando.Parameters.Add(idlegajo);
+
+                SqlParameter Clave = new SqlParameter
+                {
+                    ParameterName = "@clave",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 1024,
+                    Value = datosUsuario.Clave1
+                };
+
+                SqlComando.Parameters.Add(Clave);
+
+                SqlParameter NombreDelsuario = new SqlParameter()
+                {
+                    ParameterName = "@nombredeUsuario",
+                    SqlDbType = SqlDbType.VarChar,
+                    Size = 60,
+                    Value = datosUsuario.NombreDeUsuarioDeSistema1
+                };
+
+                SqlComando.Parameters.Add(NombreDelsuario);
+
                 SqlParameter sqlparametersNombre = new SqlParameter
                 {
-                    ParameterName = "@nombre",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 120,
-                    Value = grupo.NombreGrupo
+                    ParameterName = "@DNI",
+                    SqlDbType = SqlDbType.Int,
+               
+                    Value = datosUsuario.DNI1
 
                 };
 
@@ -151,23 +222,12 @@ namespace Datos
 
                 SqlParameter sqlparametreEstado = new SqlParameter
                 {
-                    ParameterName = "@estado",
+                    ParameterName = "@EstadoDelUsuario",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 60,
-                    Value = grupo.EstadoGrupo
+                    Value = datosUsuario.EstadoDelUsuarioDelSistema
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
-
-                SqlParameter id = new SqlParameter
-                {
-                    ParameterName = "@idGrupo",
-                    SqlDbType = SqlDbType.Int,
-                    Direction = ParameterDirection.Input,
-                    Value = grupo.CodigoDeGrupo
-
-                };
-
-                SqlComando.Parameters.Add(id);
 
                 SqlParameter sqlparameterStatementType = new SqlParameter
                 {
@@ -179,8 +239,7 @@ namespace Datos
 
                 SqlComando.Parameters.Add(sqlparameterStatementType);
 
-
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Modificar el registro ";
 
             }
             catch (Exception ex)
@@ -201,11 +260,11 @@ namespace Datos
 
 
         /// <summary>
-        /// Elimina un grupo existente
+        /// Elimina un Usuario existente
         /// </summary>
-        /// <param name="grupo"></param>
+        /// <param name="datosUsuario"></param>
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
-        public string EliminarGrupo(DatosGrupo grupo)
+        public string EliminarUsuario(DatosUsuario datosUsuario)
         {
             string rta = "";
             Miconeccion = new Coneccion();
@@ -218,24 +277,33 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "EliminarGrupo",
+                    CommandText = "SP_ABM_Usuario",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter id = new SqlParameter
+
+                SqlParameter Legajo = new SqlParameter
                 {
-                    ParameterName = "@id",
+                    ParameterName = "@legajo",
                     SqlDbType = SqlDbType.Int,
-                    Value = grupo.CodigoDeGrupo
+                    Value = datosUsuario.Legajo
 
                 };
 
-                SqlComando.Parameters.Add(id);
+                SqlComando.Parameters.Add(Legajo);
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Delete"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
 
 
-
-
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Eliminar el registro ";
 
             }
             catch (Exception ex)
@@ -255,12 +323,12 @@ namespace Datos
 
 
         /// <summary>
-        /// lista todos los grupos existentes en el sistema
+        /// lista todos los Usuarios del sistema existentes en el sistema
         /// </summary>
-        /// <returns>Devuelve una lista de todos los grupos del tipo datatable</returns>
-        public DataTable ListarGrupos()
+        /// <returns>Devuelve una lista de todos los usuarios del sistema del tipo datatable</returns>
+        public DataTable ListarUsuario()
         {
-            DataTable dataTablaResultado = new DataTable("Grupo");
+            DataTable dataTablaResultado = new DataTable("Usuario");
             SqlConnection sqlConneccion = new SqlConnection();
             Miconeccion = new Coneccion();
             try
@@ -271,7 +339,7 @@ namespace Datos
 
 
 
-                SqlDataAdapter sqltabla = new SqlDataAdapter("Select * from VistaGrupo", sqlConneccion);
+                SqlDataAdapter sqltabla = new SqlDataAdapter("Select * from VistaUsuario", sqlConneccion);
 
                 sqltabla.Fill(dataTablaResultado);
 
@@ -296,7 +364,7 @@ namespace Datos
         /// </summary>
         /// <param name="datosGrupo">Ingrese el Id del grupo a encontrar</param>
         /// <returns>devuelve el grupo </returns>
-        public DataTable BuscarGrupos(DatosGrupo datosGrupo)
+        public DataTable BuscarGrupos(DatosUsuario datosUsuario)
         {
             DataTable dataTable = new DataTable();
             SqlConnection sqlConneccion = new SqlConnection();
@@ -309,20 +377,30 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "SpBuscarGrupo",
+                    CommandText = "SP_ABM_Usuario",
                     CommandType = CommandType.StoredProcedure
                 };
 
 
 
-                SqlParameter sqlpnombre = new SqlParameter
+                SqlParameter sqlLegajo = new SqlParameter
                 {
-                    ParameterName = "@nombre",
-                    SqlDbType = SqlDbType.VarChar,
-                    Size = 120,
-                    Value = datosGrupo.NombreGrupo
+                    ParameterName = "@legajo",
+                    SqlDbType = SqlDbType.Int,
+                    
+                    Value = datosUsuario.Legajo
                 };
-                SqlComando.Parameters.Add(sqlpnombre);
+                SqlComando.Parameters.Add(sqlLegajo);
+
+                SqlParameter sqlparameterStatementType = new SqlParameter
+                {
+                    ParameterName = "@statementType",
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 20,
+                    Value = "Buscar"
+                };
+
+                SqlComando.Parameters.Add(sqlparameterStatementType);
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
                 sqltabla.Fill(dataTable);

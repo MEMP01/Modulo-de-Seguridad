@@ -49,11 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acciones.cs" />
     <Compile Include="Coneccion.cs" />
     <Compile Include="DatosAuditoria.cs" />
     <Compile Include="DatosGrupo.cs" />
     <Compile Include="DatosUsuario.cs" />
     <Compile Include="DatosUsuarios.cs" />
+    <Compile Include="Formularios.cs" />
+    <Compile Include="GrupoUsuario.cs" />
+    <Compile Include="Permisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
