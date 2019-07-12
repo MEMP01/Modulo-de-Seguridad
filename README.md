@@ -14,6 +14,8 @@ Realizado para la materia TC de la UAI.
 * Gestionar Usuarios.
 * Gestionar Claves.
 * Gestionar Permisos.
+* Gestionar Formularios.
+* Gestionar Gestionar Modulos del Sistema de Información.
 
 ## Realizado con:
 ---------------------------
