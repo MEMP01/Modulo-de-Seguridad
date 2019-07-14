@@ -154,6 +154,7 @@ namespace Vista
             LlenarGrilla();
             Botones();
             chkbEliminar.Checked = false;
+            DgvGrillaGrupos.Columns[0].Visible = false;
 
         }
 
@@ -394,9 +395,9 @@ namespace Vista
 
         private void DgvGrillaGrupos_DoubleClick(object sender, EventArgs e)
         {
-            txtbCodigo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["id_Grupo"].Value);
-            txtbNombreDelGrupo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["NombreGrupo"].Value);
-            if (DgvGrillaGrupos.CurrentRow.Cells["Estadogrupo"].Value.Equals("Activo"))
+            txtbCodigo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["ID Grupo"].Value);
+            txtbNombreDelGrupo.Text = Convert.ToString(DgvGrillaGrupos.CurrentRow.Cells["Nombre Del Grupo"].Value);
+            if (DgvGrillaGrupos.CurrentRow.Cells["Estado Del Grupo"].Value.Equals("Activo"))
             {
                 rbEstadoActivo.Checked = true;
 

@@ -183,6 +183,7 @@ namespace Datos
                     ParameterName = "@idGrupo",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Input,
+
                     Value = grupo.CodigoDeGrupo
 
                 };

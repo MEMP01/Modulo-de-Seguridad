@@ -6,7 +6,11 @@ using System.Windows.Forms;
 
 
 namespace Vista
+
 {
+    /// <summary>
+    ///       Clase FrmGestion_de_Usuarios_de_Empresa
+    /// </summary>
     public partial class FrmGestion_de_Usuarios_de_Empresa : Form
     {
 
@@ -15,6 +19,9 @@ namespace Vista
         private ControlUsuarios ControlDeUsuarios;
         private static FrmGestion_de_Usuarios_de_Empresa Singleton;
 
+        /// <summary>
+        /// Constructor de la clase FrmGestion_de_Usuarios_de_Empresa
+        /// </summary>
         public FrmGestion_de_Usuarios_de_Empresa()
         {
             InitializeComponent();
@@ -43,6 +50,9 @@ namespace Vista
             ttMensajeAyuda.SetToolTip(rbFiltrarPoNombre, "Seleccione esta opcion para filtrar por Nombre");
             ttMensajeAyuda.SetToolTip(rbfiltrarPorEstado, "Seleccione esta opcion para filtrar por DNI");
         }
+        /// <summary>
+        /// Singleton de FrmGestion_de_Usuarios_de_Empresa
+        /// </summary>
         public FrmGestion_de_Usuarios_de_Empresa InstanciaSingleton
         {
             get
@@ -83,6 +93,7 @@ namespace Vista
             txtbDNI.ReadOnly = !valor;
             txtbNombre.ReadOnly = !valor;
             txtbApellido.ReadOnly = !valor;
+            txtbTelefono.ReadOnly = !valor;
             txtbSexo.ReadOnly = !valor;
             txtbEdad.ReadOnly = !valor;
             txtbEmail.ReadOnly = !valor;
@@ -116,6 +127,9 @@ namespace Vista
             DgvGrillaUsuarios.Columns[0].Visible = false;
             DgvGrillaUsuarios.Columns[1].Visible = false;
         }
+        /// <summary>
+        /// Metodo para llenar la grilla
+        /// </summary>
         public void LlenarGrilla()
         {
             ControlDeUsuarios = new ControlUsuarios();
@@ -140,6 +154,7 @@ namespace Vista
             LlenarGrilla();
             Botones();
             chkbEliminar.Checked = false;
+            DgvGrillaUsuarios.Columns[0].Visible = false;
 
         }
 

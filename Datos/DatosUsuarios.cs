@@ -76,6 +76,7 @@ namespace Datos
         //campos auxiliares
         private SqlCommand SqlComando;
         private ConneccionSql ConneccionSql;
+        private Coneccion miConeccion;
 
         /// <summary>
         /// Constructor datos usuario sin parametros
@@ -515,32 +516,22 @@ namespace Datos
         /// <returns>devuelve todos los usuarios con objeto de tipo datatable</returns>
         public DataTable ListarUsuarios()
         {
-            DataTable dataTable;
-            ConneccionSql = new ConneccionSql();
+            DataTable dataTable = new DataTable ("Usuarios");
+            SqlConnection sqlConnection = new SqlConnection();
+            miConeccion = new Coneccion();
             try
             {
 
-                ConneccionSql.OpenConneccion();
-                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
-                SqlComando = new SqlCommand
-                {
-                    Connection = sql,
-                    CommandText = "Sp_ABMC_Usuarios",
-                    CommandType = CommandType.StoredProcedure
-                };
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
+               
+            
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "select"
-                };
+              
+         
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
-
-                SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
-                dataTable = new DataTable();
+                SqlDataAdapter sqltabla = new SqlDataAdapter("select * from VistaUsuarios", sqlConnection);
+           
                 sqltabla.Fill(dataTable);
 
             }
@@ -550,7 +541,7 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                sqlConnection.Close();
             }
             return dataTable;
 

@@ -66,52 +66,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auditoria.cs">
+    <Compile Include="Auditoria\Auditoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Auditoria.Designer.cs">
+    <Compile Include="Auditoria\Auditoria.Designer.cs">
       <DependentUpon>Auditoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cambiar Clave.cs">
+    <Compile Include="Sesion\Claves de Usuario\Cambiar Clave.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cambiar Clave.Designer.cs">
+    <Compile Include="Sesion\Claves de Usuario\Cambiar Clave.Designer.cs">
       <DependentUpon>Cambiar Clave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Usuarios.cs">
+    <Compile Include="Gestion de usuario\Usuario de la Empresa\Gestion de Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Usuarios.Designer.cs">
+    <Compile Include="Gestion de usuario\Usuario de la Empresa\Gestion de Usuarios.Designer.cs">
       <DependentUpon>Gestion de Usuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Grupo.cs">
+    <Compile Include="Gestion de Grupo\Grupo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Grupo.Designer.cs">
+    <Compile Include="Gestion de Grupo\Grupo.Designer.cs">
       <DependentUpon>Grupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="IniciarSesion.cs">
+    <Compile Include="Sesion\IniciarSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IniciarSesion.Designer.cs">
+    <Compile Include="Sesion\IniciarSesion.Designer.cs">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion De Grupos.cs">
+    <Compile Include="Gestion de Grupo\Gestion De Grupos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion De Grupos.Designer.cs">
+    <Compile Include="Gestion de Grupo\Gestion De Grupos.Designer.cs">
       <DependentUpon>Gestion De Grupos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Permisos para Formulario.cs">
+    <Compile Include="Permisos\Permisos para Formulario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Permisos para Formulario.Designer.cs">
+    <Compile Include="Permisos\Permisos para Formulario.Designer.cs">
       <DependentUpon>Permisos para Formulario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Permisos.cs">
+    <Compile Include="Permisos\Permisos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Permisos.Designer.cs">
+    <Compile Include="Permisos\Permisos.Designer.cs">
       <DependentUpon>Permisos.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
@@ -128,52 +128,52 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recuperar Clave.cs">
+    <Compile Include="Sesion\Claves de Usuario\Recuperar Clave.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recuperar Clave.Designer.cs">
+    <Compile Include="Sesion\Claves de Usuario\Recuperar Clave.Designer.cs">
       <DependentUpon>Recuperar Clave.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestrionarUsuario.cs">
+    <Compile Include="Gestion de usuario\Usuario de Sistema\GestrionarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestrionarUsuario.Designer.cs">
+    <Compile Include="Gestion de usuario\Usuario de Sistema\GestrionarUsuario.Designer.cs">
       <DependentUpon>GestrionarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios.cs">
+    <Compile Include="Gestion de usuario\Usuario de la Empresa\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuarios.Designer.cs">
+    <Compile Include="Gestion de usuario\Usuario de la Empresa\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Auditoria.resx">
+    <EmbeddedResource Include="Auditoria\Auditoria.resx">
       <DependentUpon>Auditoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cambiar Clave.resx">
+    <EmbeddedResource Include="Sesion\Claves de Usuario\Cambiar Clave.resx">
       <DependentUpon>Cambiar Clave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion De Grupos.resx">
+    <EmbeddedResource Include="Gestion de Grupo\Gestion De Grupos.resx">
       <DependentUpon>Gestion De Grupos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Usuarios.resx">
+    <EmbeddedResource Include="Gestion de usuario\Usuario de la Empresa\Gestion de Usuarios.resx">
       <DependentUpon>Gestion de Usuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestrionarUsuario.resx">
+    <EmbeddedResource Include="Gestion de usuario\Usuario de Sistema\GestrionarUsuario.resx">
       <DependentUpon>GestrionarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Grupo.resx">
+    <EmbeddedResource Include="Gestion de Grupo\Grupo.resx">
       <DependentUpon>Grupo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IniciarSesion.es-AR.resx">
+    <EmbeddedResource Include="Sesion\IniciarSesion.es-AR.resx">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IniciarSesion.resx">
+    <EmbeddedResource Include="Sesion\IniciarSesion.resx">
       <DependentUpon>IniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Permisos para Formulario.resx">
+    <EmbeddedResource Include="Permisos\Permisos para Formulario.resx">
       <DependentUpon>Permisos para Formulario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Permisos.resx">
+    <EmbeddedResource Include="Permisos\Permisos.resx">
       <DependentUpon>Permisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
@@ -191,7 +191,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Usuarios.resx">
+    <EmbeddedResource Include="Gestion de usuario\Usuario de la Empresa\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -225,5 +225,6 @@
       <Name>Control</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
