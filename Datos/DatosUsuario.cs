@@ -68,7 +68,7 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "SP_ABM_Usuario",
+                    CommandText = "insertUsuarios",
                     CommandType = CommandType.StoredProcedure
                 };
 

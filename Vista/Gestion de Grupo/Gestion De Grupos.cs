@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
+    /// <summary>
+    /// Formulario de gestion de Grupos
+    /// </summary>
     public partial class FrmGestion_De_Grupos : Form
     {
         private bool EsNuevo;

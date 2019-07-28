@@ -1,0 +1,7 @@
+﻿CREATE PROCEDURE BuscarUsuariosPorDNI
+(@DNI INT)
+AS
+BEGIN
+SELECT * FROM Usuarios WHERE DNI=@DNI;
+end
+

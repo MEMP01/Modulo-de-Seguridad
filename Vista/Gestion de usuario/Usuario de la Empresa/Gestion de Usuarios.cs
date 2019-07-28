@@ -47,7 +47,7 @@ namespace Vista
             ttMensajeAyuda.SetToolTip(chkbEliminar, "Click aquí para habilitar el boton Eliminar");
             ttMensajeAyuda.SetToolTip(btnCancelar, "Click aquí para deshacer cambios");
             ttMensajeAyuda.SetToolTip(btnSalirGestioGrupo, "Click aquí para regresar al formulario principal");
-            ttMensajeAyuda.SetToolTip(rbFiltrarPoNombre, "Seleccione esta opcion para filtrar por Nombre");
+            ttMensajeAyuda.SetToolTip(rb_FiltrarPorDni, "Seleccione esta opcion para filtrar por Nombre");
             ttMensajeAyuda.SetToolTip(rbfiltrarPorEstado, "Seleccione esta opcion para filtrar por DNI");
         }
         /// <summary>
@@ -81,12 +81,14 @@ namespace Vista
             txtbNombre.Text = string.Empty;
             txtbApellido.Text = string.Empty;
             txtbSexo.Text = string.Empty;
+            txtbTelefono.Text = string.Empty;
             txtbEdad.Text = string.Empty;
             txtbEmail.Text = string.Empty;
             txtbPais.Text = string.Empty;
             txtbProvincia.Text = string.Empty;
             txtbDireccion.Text = string.Empty;
             txtbCodigoPostal.Text = string.Empty;
+            txtbBuscarUsuarioPorDNI.Text = string.Empty;
         }
         private void Habilitar(bool valor)
         {
@@ -101,7 +103,7 @@ namespace Vista
             txtbProvincia.ReadOnly = !valor;
             txtbDireccion.ReadOnly = !valor;
             txtbCodigoPostal.ReadOnly = !valor;
-                  }
+        }
 
         private void Botones()
         {
@@ -139,12 +141,28 @@ namespace Vista
 
         private void Filtrar()
         {
-            DataTable dt = DgvGrillaUsuarios.DataSource as DataTable;
-            string query = string.Format("EstadoDelUsuario = '{0}'", cmbEstadoUsuario.Text);
-            dt.DefaultView.RowFilter = query;
-            lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuarios.Rows.Count);
-
-        }
+            try
+            {
+                if (cmbEstadoUsuario.Text == "Activo")
+                {
+                    DataTable dt = DgvGrillaUsuarios.DataSource as DataTable;
+                    string query = string.Format("Estado = '{0}'", 1);
+                    dt.DefaultView.RowFilter = query;
+                    lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuarios.Rows.Count);
+                }
+                if (cmbEstadoUsuario.Text == "Inactivo")
+                {
+                    DataTable dt = DgvGrillaUsuarios.DataSource as DataTable;
+                    string query = string.Format("Estado = '{0}'", 2);
+                    dt.DefaultView.RowFilter = query;
+                    lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuarios.Rows.Count);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }      
 
         private void Gestion_de_Usuarios_Load(object sender, EventArgs e)
         {
@@ -212,11 +230,11 @@ namespace Vista
 
         }
 
-      //  private void BtnSalir_Click(object sender, EventArgs e)
-      //  {
-      //      Singleton = null;
-      //      Close();
-      //  }
+        //  private void BtnSalir_Click(object sender, EventArgs e)
+        //  {
+        //      Singleton = null;
+        //      Close();
+        //  }
 
         private void GroupB1_Enter(object sender, EventArgs e)
         {
@@ -245,25 +263,31 @@ namespace Vista
 
         private void RbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
         {
-            rbFiltrarPoNombre.Checked = false;
+            rb_FiltrarPorDni.Checked = false;
+            txtbBuscarUsuarioPorDNI.Enabled = false;
+            cmbEstadoUsuario.Enabled = true;
         }
 
-        private void RbFiltrarPoNombre_CheckedChanged(object sender, EventArgs e)
-        {
-            rbfiltrarPorEstado.Checked = false;
-        }
+        
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            if (txtbBuscarUsuarioPorDNI.Enabled == true)
+            try
             {
-                string DNI = txtbBuscarUsuarioPorDNI.Text;
-                ControlDeUsuarios = new ControlUsuarios();
-                DgvGrillaUsuarios.DataSource = ControlDeUsuarios.CBuscarUsuario(Convert.ToInt32(DNI));
+                if (txtbBuscarUsuarioPorDNI.Enabled == true)
+                {
+                    string DNI = txtbBuscarUsuarioPorDNI.Text;
+                    ControlDeUsuarios = new ControlUsuarios();
+                    DgvGrillaUsuarios.DataSource = ControlDeUsuarios.CBuscarUsuario(Convert.ToInt32(DNI));
+                }
+                else
+                {
+                    Filtrar();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                Filtrar();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -379,7 +403,7 @@ namespace Vista
                 if (txtbPais.Text == string.Empty)
                 {
                     MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
-                    ErrorIcono.SetError(txtbPais, "Ingrese un DNI para el Usuario");
+                    ErrorIcono.SetError(txtbPais, "Ingrese un pais para el Usuario");
                 }
                 if (txtbProvincia.Text == string.Empty)
                 {
@@ -389,12 +413,12 @@ namespace Vista
                 if (txtbDireccion.Text == string.Empty)
                 {
                     MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
-                    ErrorIcono.SetError(txtbDireccion, "Ingrese un DNI para el Usuario");
+                    ErrorIcono.SetError(txtbDireccion, "Ingrese una direccion para el Usuario");
                 }
                 if (txtbCodigoPostal.Text == string.Empty)
                 {
                     MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
-                    ErrorIcono.SetError(txtbCodigoPostal, "Ingrese un DNI para el Usuario");
+                    ErrorIcono.SetError(txtbCodigoPostal, "Ingrese un codigo postal para el Usuario");
                 }
 
                 else
@@ -406,38 +430,38 @@ namespace Vista
                         {
                             estado = "Activo";
                             estadodelusuario = 1;
-                            MessageBox.Show("aca bien" + estado);
+                            MessageBox.Show("aca activo" + estado);
 
                         }
-                        else if (RbUsuarioInactivo.Checked)
+                       if (RbUsuarioInactivo.Checked)
                         {
                             estado = "Inactivo";
                             estadodelusuario = 2;
-                            MessageBox.Show("aca bien" + estado);
+                            MessageBox.Show("aca inactivo" + estado);
                         }
 
                         MessageBox.Show("aca bien" + estado);
                         rpta = ControlDeUsuarios.CAltaUsuario(Convert.ToInt32(txtbDNI.Text),
-                            txtbApellido.Text.Trim(),txtbNombre.Text.Trim(),Convert.ToChar(txtbSexo.Text),Convert.ToInt32(txtbEdad.Text),
-                            txtbEmail.Text.Trim(),Convert.ToInt32(txtbTelefono.Text),txtbPais.Text.Trim(),txtbProvincia.Text.Trim(),
-                           txtbDireccion.Text,Convert.ToInt32(txtbCodigoPostal.Text), estadodelusuario);
+                            txtbApellido.Text.Trim(), txtbNombre.Text.Trim(), Convert.ToChar(txtbSexo.Text), Convert.ToInt32(txtbEdad.Text),
+                            txtbEmail.Text.Trim(), Convert.ToInt32(txtbTelefono.Text), txtbPais.Text.Trim(), txtbProvincia.Text.Trim(),
+                           txtbDireccion.Text, Convert.ToInt32(txtbCodigoPostal.Text), estadodelusuario);
                     }
                     else
                     {
                         estado = "";
 
-                       
+
                         if (rbEstadoActivo.Checked)
                         {
                             estado = "Activo";
                             estadodelusuario = 1;
-                            MessageBox.Show("aca bien" + estado);
+                            MessageBox.Show("aca activo" + estado);
                         }
-                        else if (RbUsuarioInactivo.Checked)
+                        if (RbUsuarioInactivo.Checked)
                         {
                             estado = "Inactivo";
                             estadodelusuario = 2;
-                            MessageBox.Show("aca bien" + estado);
+                            MessageBox.Show("aca inactivo" + estado);
                         }
 
 
@@ -494,19 +518,25 @@ namespace Vista
 
         private void DgvGrillaUsuarios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+
+        }
+
+        private void DgvGrillaUsuarios_DoubleClick(object sender, EventArgs e)
+        {
             txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["DNI"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Apellido"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Nombre"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Sexo"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Edad"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Email"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Telefono"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Pais"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Provincia"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Direccion"].Value);
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["CodigoPostal"].Value);            
-            txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Estado"].Value);
-            if (DgvGrillaUsuarios.CurrentRow.Cells["Estado"].Value.Equals("Activo"))
+            txtbApellido.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Apellido"].Value);
+            txtbNombre.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Nombre"].Value);
+            txtbSexo.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Sexo"].Value);
+            txtbEdad.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Edad"].Value);
+            txtbEmail.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Email"].Value);
+            txtbTelefono.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Telefono"].Value);
+            txtbPais.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Pais"].Value);
+            txtbProvincia.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Provincia"].Value);
+            txtbDireccion.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Direccion"].Value);
+            txtbCodigoPostal.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["CodigoPostal"].Value);
+            //9  txtbDNI.Text = Convert.ToString(DgvGrillaUsuarios.CurrentRow.Cells["Estado"].Value);
+            if (DgvGrillaUsuarios.CurrentRow.Cells["Estado"].Value.Equals("1"))
             {
                 rbEstadoActivo.Checked = true;
             }
@@ -515,6 +545,65 @@ namespace Vista
                 RbUsuarioInactivo.Checked = true;
             }
             tabFrmGestionDeUsuarios.SelectedIndex = 1;
+
+
+        }
+
+        private void BtnEliminar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("Realmente desea eliminar los registros", "Gestion de Usuarios de Empresa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    string DNI = "";
+                    string rta = "";
+
+                    foreach (DataGridViewRow row in DgvGrillaUsuarios.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            DNI = Convert.ToString(row.Cells[1].Value);
+
+                            ControlDeUsuarios = new ControlUsuarios();
+                            rta = ControlDeUsuarios.CEliminarUsuario(Convert.ToInt32(DNI));
+
+                            if (rta.Equals("OK"))
+                            {
+                                MensanjeOK("Se elimino correctamente el registro");
+                            }
+                            else
+                            {
+                                MensanjeError("No se pudo eliminar correctamente el registro" + rta);
+                            }
+
+                        }
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            LlenarGrilla();
+            chkbEliminar.Checked = false;
+        }
+
+      
+
+        private void Rb_FiltrarPorDni_CheckedChanged(object sender, EventArgs e)
+        {
+            rbfiltrarPorEstado.Checked = false;
+            txtbBuscarUsuarioPorDNI.Enabled = true;
+            cmbEstadoUsuario.Enabled = false;
+        }
+
+        private void txtbBuscarUsuarioPorDNI_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tabFrmGestionDeUsuarios = new System.Windows.Forms.TabControl();
             this.tabUsuarios = new System.Windows.Forms.TabPage();
+            this.rb_FiltrarPorDni = new System.Windows.Forms.RadioButton();
             this.btnListar = new System.Windows.Forms.Button();
-            this.rbFiltrarPoNombre = new System.Windows.Forms.RadioButton();
             this.rbfiltrarPorEstado = new System.Windows.Forms.RadioButton();
             this.lbnumeroDeRegistros = new System.Windows.Forms.Label();
             this.lbCantidadDeRegistros = new System.Windows.Forms.Label();
-            this.lbNombreDelGrupo = new System.Windows.Forms.Label();
+            this.lbDNIdelUsuario = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.chkbEliminar = new System.Windows.Forms.CheckBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
@@ -100,12 +100,12 @@
             // tabUsuarios
             // 
             this.tabUsuarios.BackColor = System.Drawing.Color.Snow;
+            this.tabUsuarios.Controls.Add(this.rb_FiltrarPorDni);
             this.tabUsuarios.Controls.Add(this.btnListar);
-            this.tabUsuarios.Controls.Add(this.rbFiltrarPoNombre);
             this.tabUsuarios.Controls.Add(this.rbfiltrarPorEstado);
             this.tabUsuarios.Controls.Add(this.lbnumeroDeRegistros);
             this.tabUsuarios.Controls.Add(this.lbCantidadDeRegistros);
-            this.tabUsuarios.Controls.Add(this.lbNombreDelGrupo);
+            this.tabUsuarios.Controls.Add(this.lbDNIdelUsuario);
             this.tabUsuarios.Controls.Add(this.btnEliminar);
             this.tabUsuarios.Controls.Add(this.chkbEliminar);
             this.tabUsuarios.Controls.Add(this.btnFiltrar);
@@ -121,6 +121,17 @@
             this.tabUsuarios.TabIndex = 0;
             this.tabUsuarios.Text = "Usuarios";
             // 
+            // rb_FiltrarPorDni
+            // 
+            this.rb_FiltrarPorDni.AutoSize = true;
+            this.rb_FiltrarPorDni.Location = new System.Drawing.Point(632, 85);
+            this.rb_FiltrarPorDni.Name = "rb_FiltrarPorDni";
+            this.rb_FiltrarPorDni.Size = new System.Drawing.Size(91, 17);
+            this.rb_FiltrarPorDni.TabIndex = 17;
+            this.rb_FiltrarPorDni.Text = "Filtrar Por DNI";
+            this.rb_FiltrarPorDni.UseVisualStyleBackColor = true;
+            this.rb_FiltrarPorDni.CheckedChanged += new System.EventHandler(this.Rb_FiltrarPorDni_CheckedChanged);
+            // 
             // btnListar
             // 
             this.btnListar.Location = new System.Drawing.Point(662, 394);
@@ -131,26 +142,13 @@
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.BtnListar_Click);
             // 
-            // rbFiltrarPoNombre
-            // 
-            this.rbFiltrarPoNombre.AutoSize = true;
-            this.rbFiltrarPoNombre.Location = new System.Drawing.Point(632, 85);
-            this.rbFiltrarPoNombre.Name = "rbFiltrarPoNombre";
-            this.rbFiltrarPoNombre.Size = new System.Drawing.Size(109, 17);
-            this.rbFiltrarPoNombre.TabIndex = 15;
-            this.rbFiltrarPoNombre.Text = "Filtrar Por Nombre";
-            this.rbFiltrarPoNombre.UseVisualStyleBackColor = true;
-            this.rbFiltrarPoNombre.CheckedChanged += new System.EventHandler(this.RbFiltrarPoNombre_CheckedChanged);
-            // 
             // rbfiltrarPorEstado
             // 
             this.rbfiltrarPorEstado.AutoSize = true;
-            this.rbfiltrarPorEstado.Checked = true;
             this.rbfiltrarPorEstado.Location = new System.Drawing.Point(632, 62);
             this.rbfiltrarPorEstado.Name = "rbfiltrarPorEstado";
             this.rbfiltrarPorEstado.Size = new System.Drawing.Size(105, 17);
             this.rbfiltrarPorEstado.TabIndex = 14;
-            this.rbfiltrarPorEstado.TabStop = true;
             this.rbfiltrarPorEstado.Text = "Filtrar Por Estado";
             this.rbfiltrarPorEstado.UseVisualStyleBackColor = true;
             this.rbfiltrarPorEstado.CheckedChanged += new System.EventHandler(this.RbfiltrarPorEstado_CheckedChanged);
@@ -172,14 +170,14 @@
             this.lbCantidadDeRegistros.TabIndex = 12;
             this.lbCantidadDeRegistros.Text = "Cantidad De Registros :";
             // 
-            // lbNombreDelGrupo
+            // lbDNIdelUsuario
             // 
-            this.lbNombreDelGrupo.AutoSize = true;
-            this.lbNombreDelGrupo.Location = new System.Drawing.Point(50, 37);
-            this.lbNombreDelGrupo.Name = "lbNombreDelGrupo";
-            this.lbNombreDelGrupo.Size = new System.Drawing.Size(63, 13);
-            this.lbNombreDelGrupo.TabIndex = 6;
-            this.lbNombreDelGrupo.Text = "Descripcion";
+            this.lbDNIdelUsuario.AutoSize = true;
+            this.lbDNIdelUsuario.Location = new System.Drawing.Point(50, 37);
+            this.lbDNIdelUsuario.Name = "lbDNIdelUsuario";
+            this.lbDNIdelUsuario.Size = new System.Drawing.Size(82, 13);
+            this.lbDNIdelUsuario.TabIndex = 6;
+            this.lbDNIdelUsuario.Text = "DNI del Usuario";
             // 
             // btnEliminar
             // 
@@ -189,6 +187,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click_1);
             // 
             // chkbEliminar
             // 
@@ -229,6 +228,7 @@
             this.DgvGrillaUsuarios.TabIndex = 9;
             this.DgvGrillaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaUsuarios_CellContentClick);
             this.DgvGrillaUsuarios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaUsuarios_CellContentDoubleClick);
+            this.DgvGrillaUsuarios.DoubleClick += new System.EventHandler(this.DgvGrillaUsuarios_DoubleClick);
             // 
             // Eliminar
             // 
@@ -267,6 +267,7 @@
             this.txtbBuscarUsuarioPorDNI.Name = "txtbBuscarUsuarioPorDNI";
             this.txtbBuscarUsuarioPorDNI.Size = new System.Drawing.Size(207, 20);
             this.txtbBuscarUsuarioPorDNI.TabIndex = 7;
+            this.txtbBuscarUsuarioPorDNI.TextChanged += new System.EventHandler(this.txtbBuscarUsuarioPorDNI_TextChanged);
             // 
             // tabGestionDeUsuarios
             // 
@@ -602,16 +603,17 @@
 
         }
 
+        
+
         #endregion
 
         private System.Windows.Forms.TabControl tabFrmGestionDeUsuarios;
         private System.Windows.Forms.TabPage tabUsuarios;
         private System.Windows.Forms.Button btnListar;
-        private System.Windows.Forms.RadioButton rbFiltrarPoNombre;
         private System.Windows.Forms.RadioButton rbfiltrarPorEstado;
         private System.Windows.Forms.Label lbnumeroDeRegistros;
         private System.Windows.Forms.Label lbCantidadDeRegistros;
-        private System.Windows.Forms.Label lbNombreDelGrupo;
+        private System.Windows.Forms.Label lbDNIdelUsuario;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.CheckBox chkbEliminar;
         private System.Windows.Forms.Button btnFiltrar;
@@ -654,5 +656,6 @@
         private System.Windows.Forms.Label lbDNI;
         private System.Windows.Forms.ErrorProvider ErrorIcono;
         private System.Windows.Forms.ToolTip ttMensajeAyuda;
+        private System.Windows.Forms.RadioButton rb_FiltrarPorDni;
     }
 }

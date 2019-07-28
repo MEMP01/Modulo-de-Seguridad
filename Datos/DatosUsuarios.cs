@@ -123,17 +123,19 @@ namespace Datos
         public string IngresarUsuarios(DatosUsuarios datosUsuarios)
         {
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+            miConeccion = new Coneccion();
+            SqlConnection sqlConnection = new SqlConnection();
 
             try
             {
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
+
 
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = "Sp_ABMC_Usuarios",
+                    CommandText = "insertUsuarios",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -257,15 +259,7 @@ namespace Datos
 
                 SqlComando.Parameters.Add(sqlparametersEstado);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Insert"
-                };
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
 
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
 
@@ -276,7 +270,7 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                sqlConnection.Close();
             }
             return rta;
         }
@@ -289,17 +283,18 @@ namespace Datos
         public string UpdateUsuarios(DatosUsuarios datosUsuarios)
         {
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+            miConeccion = new Coneccion();
+            SqlConnection sqlConnection = new SqlConnection();
 
             try
             {
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
 
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = "Sp_ABMC_Usuarios",
+                    CommandText = "updateUsuarios",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -423,17 +418,10 @@ namespace Datos
 
                 SqlComando.Parameters.Add(sqlparametersEstado);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Update"
-                };
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
 
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Modificar el registro ";
 
             }
             catch (Exception ex)
@@ -442,7 +430,7 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                sqlConnection.Close();
             }
             return rta;
 
@@ -457,45 +445,32 @@ namespace Datos
         {
 
             string rta = "";
-            ConneccionSql = new ConneccionSql();
+            miConeccion = new Coneccion();
+            SqlConnection sqlConnection = new SqlConnection();
 
             try
             {
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
 
-
-                ConneccionSql.OpenConneccion();
-                SqlConnection sqlConnection = new SqlConnection(ConneccionSql.ObtenerConeccion());
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = "Sp_ABMC_Usuarios",
+                    CommandText = "EliminarUsuarios",
                     CommandType = CommandType.StoredProcedure
                 };
 
-                SqlParameter sqlparametersDNI = new SqlParameter()
+                SqlParameter sqlparametersDNI = new SqlParameter
                 {
                     ParameterName = "@DNI",
                     SqlDbType = SqlDbType.Int,
-
                     Value = datosUsuarios.DNI1
-
                 };
 
                 SqlComando.Parameters.Add(sqlparametersDNI);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Delete"
-                };
-
-                SqlComando.Parameters.Add(sqlparameterStatementType);
-
-
-
-                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro ";
+                
+                rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Eliminar el registro ";
 
             }
             catch (Exception ex)
@@ -504,9 +479,10 @@ namespace Datos
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                sqlConnection.Close();
             }
             return rta;
+
 
         }
 
@@ -516,7 +492,7 @@ namespace Datos
         /// <returns>devuelve todos los usuarios con objeto de tipo datatable</returns>
         public DataTable ListarUsuarios()
         {
-            DataTable dataTable = new DataTable ("Usuarios");
+            DataTable dataTable = new DataTable("Usuarios");
             SqlConnection sqlConnection = new SqlConnection();
             miConeccion = new Coneccion();
             try
@@ -524,14 +500,9 @@ namespace Datos
 
                 sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConnection.Open();
-               
-            
-
-              
-         
-
+                 
                 SqlDataAdapter sqltabla = new SqlDataAdapter("select * from VistaUsuarios", sqlConnection);
-           
+
                 sqltabla.Fill(dataTable);
 
             }
@@ -556,21 +527,25 @@ namespace Datos
         {
 
             DataTable dataTable;
-            ConneccionSql = new ConneccionSql();
+           
+            miConeccion = new Coneccion();
+            SqlConnection sqlConnection = new SqlConnection();
+
             try
             {
-                ConneccionSql.OpenConneccion();
-                SqlConnection sql = new SqlConnection(ConneccionSql.ObtenerConeccion());
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
+
                 SqlComando = new SqlCommand
                 {
-                    Connection = sql,
-                    CommandText = "Sp_ABMC_Usuarios",
+                    Connection = sqlConnection,
+                    CommandText = "BuscarUsuariosPorDNI",
                     CommandType = CommandType.StoredProcedure
                 };
 
                 SqlParameter sqlparametersDNI = new SqlParameter
                 {
-                    ParameterName = "@DNI",
+                    ParameterName = "@Dni",
                     SqlDbType = SqlDbType.Int,
                     Value = datosUsuarios.DNI1
                 };
@@ -578,15 +553,7 @@ namespace Datos
                 SqlComando.Parameters.Add(sqlparametersDNI);
 
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Buscar"
-                };
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
                 dataTable = new DataTable();
@@ -597,13 +564,12 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                throw new ArgumentException("Error de Busqueda", ex);
+                throw new ArgumentException("Error de busqueda del usuario de la empresa", ex);
             }
             finally
             {
-                ConneccionSql.CloseConneccion();
+                sqlConnection.Close();
             }
-
             return dataTable;
         }
 
