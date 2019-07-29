@@ -6,7 +6,7 @@ namespace Datos
 {       /// <summary>
 /// Esta clase se utiliza para realizar ABM de Usuario del Sistema
 /// </summary>
-    class DatosUsuario
+    public class DatosUsuario
     {
         //private string PrimeraClave;
         private int legajo;
@@ -14,19 +14,19 @@ namespace Datos
         private string NombreDeUsuarioDeSistema;
         private int DNI;
         private string estadoDelUsuarioDelSistema;
+
+        //campos auxiliares
         private SqlCommand SqlComando;
         private SqlConnection sqlConneccion;
-        private Coneccion Miconeccion;
+        private Coneccion miConeccion;
 
-
-           /// <summary>
-           /// Constructor de la clase Datos Usuario
-           /// </summary>
-          
-           /// <param name="clave1"></param>
-           /// <param name="nombreDeUsuarioDeSistema1"></param>
-           /// <param name="dNI1"></param>
-           /// <param name="estadoDelUsuarioDelSistema"></param>
+        /// <summary>
+        /// Constructor de la clase Datos Usuario
+        /// </summary>
+        /// <param name="clave1"></param>
+        /// <param name="nombreDeUsuarioDeSistema1"></param>
+        /// <param name="dNI1"></param>
+        /// <param name="estadoDelUsuarioDelSistema"></param>
         public DatosUsuario(string clave1, string nombreDeUsuarioDeSistema1, int dNI1, string estadoDelUsuarioDelSistema)
         {
             //PrimeraClave1 = primeraClave1;
@@ -52,23 +52,25 @@ namespace Datos
         /// <summary>
         /// Insert de Usuario Nuevo
         /// </summary>
-        /// <param name="datosUsuario"></param>
+        /// <param name="datosUsuario">Objeto del tipo DatosUsuario</param>
         /// <returns>devuelve un OK si la operacion se completo exitosamente</returns>
         public string IngresarUsuario(DatosUsuario  datosUsuario)
         {
 
 
-            SqlConnection sqlConneccion = new SqlConnection();
             string rta = "";
+            miConeccion = new Coneccion();
+            SqlConnection sqlConnection = new SqlConnection();
+
             try
             {
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
 
-                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
-                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "insertUsuarios",
+                    CommandText = "InsertUsuario",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -76,7 +78,7 @@ namespace Datos
 
                 SqlParameter idlegajo = new SqlParameter
                 {
-                    ParameterName = "@legajo",
+                    ParameterName = "@Legajo",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Output
 
@@ -86,7 +88,7 @@ namespace Datos
 
                 SqlParameter Clave = new SqlParameter
                 {
-                    ParameterName = "@clave",
+                    ParameterName = "@Clave",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 1024,
                     Value = datosUsuario.Clave1
@@ -96,7 +98,7 @@ namespace Datos
 
                 SqlParameter NombreDelsuario = new SqlParameter()
                 {
-                    ParameterName = "@nombredeUsuario",
+                    ParameterName = "@NombreDeUsuario",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 60,
                     Value=  datosUsuario.NombreDeUsuarioDeSistema1
@@ -124,15 +126,7 @@ namespace Datos
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Insert"
-                };
-
-                SqlComando.Parameters.Add(sqlparameterStatementType);
+                
 
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro";
 
@@ -143,10 +137,7 @@ namespace Datos
             }
             finally
             {
-                if (sqlConneccion.State == ConnectionState.Open)
-                {
-                    sqlConneccion.Close();
-                }
+                sqlConnection.Close();
             }
             return rta;
 
@@ -155,25 +146,24 @@ namespace Datos
         /// <summary>
         /// metodo para  modificar un Usuario existente
         /// </summary>
-        /// <param name="datosUsuario">ingresar objeto del tipo grupo</param>
+        /// <param name="datosUsuario">ingresar objeto del tipo DatosUsuario</param>
         /// <returns>respuesta Si o No fue exitosa la operacion</returns>
         public string UpdateUsuario(DatosUsuario datosUsuario)
         {
 
             string rta = "";
-            Miconeccion = new Coneccion();
-            SqlConnection sqlConneccion = new SqlConnection();
+            miConeccion = new Coneccion();
+            SqlConnection sqlConnection = new SqlConnection();
 
             try
             {
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
 
-
-                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
-                sqlConneccion.Open();
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "SP_ABM_Usuario",
+                    CommandText = "updateUsuario",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -181,7 +171,7 @@ namespace Datos
 
                 SqlParameter idlegajo = new SqlParameter
                 {
-                    ParameterName = "@legajo",
+                    ParameterName = "@Legajo",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Input
 
@@ -191,7 +181,7 @@ namespace Datos
 
                 SqlParameter Clave = new SqlParameter
                 {
-                    ParameterName = "@clave",
+                    ParameterName = "@Clave",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 1024,
                     Value = datosUsuario.Clave1
@@ -201,7 +191,7 @@ namespace Datos
 
                 SqlParameter NombreDelsuario = new SqlParameter()
                 {
-                    ParameterName = "@nombredeUsuario",
+                    ParameterName = "@NombreDeUsuario",
                     SqlDbType = SqlDbType.VarChar,
                     Size = 60,
                     Value = datosUsuario.NombreDeUsuarioDeSistema1
@@ -213,7 +203,7 @@ namespace Datos
                 {
                     ParameterName = "@DNI",
                     SqlDbType = SqlDbType.Int,
-               
+
                     Value = datosUsuario.DNI1
 
                 };
@@ -229,15 +219,6 @@ namespace Datos
                 };
                 SqlComando.Parameters.Add(sqlparametreEstado);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Update"
-                };
-
-                SqlComando.Parameters.Add(sqlparameterStatementType);
 
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Modificar el registro ";
 
@@ -248,10 +229,7 @@ namespace Datos
             }
             finally
             {
-                if (sqlConneccion.State == ConnectionState.Open)
-                {
-                    sqlConneccion.Close();
-                }
+                sqlConnection.Close();
             }
             return rta;
 
@@ -267,17 +245,18 @@ namespace Datos
         public string EliminarUsuario(DatosUsuario datosUsuario)
         {
             string rta = "";
-            Miconeccion = new Coneccion();
-            SqlConnection sqlConneccion = new SqlConnection();
+            miConeccion = new Coneccion();
+            SqlConnection sqlConnection = new SqlConnection();
 
             try
             {
-                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
-                sqlConneccion.Open();
+                sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConnection.Open();
+
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "SP_ABM_Usuario",
+                    CommandText = "EliminarUsuario",
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -292,17 +271,6 @@ namespace Datos
 
                 SqlComando.Parameters.Add(Legajo);
 
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Delete"
-                };
-
-                SqlComando.Parameters.Add(sqlparameterStatementType);
-
-
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Eliminar el registro ";
 
             }
@@ -312,10 +280,7 @@ namespace Datos
             }
             finally
             {
-                if (sqlConneccion.State == ConnectionState.Open)
-                {
-                    sqlConneccion.Close();
-                }
+                sqlConnection.Close();
             }
             return rta;
 
@@ -330,7 +295,7 @@ namespace Datos
         {
             DataTable dataTablaResultado = new DataTable("Usuario");
             SqlConnection sqlConneccion = new SqlConnection();
-            Miconeccion = new Coneccion();
+            miConeccion = new Coneccion();
             try
             {
 
@@ -339,7 +304,7 @@ namespace Datos
 
 
 
-                SqlDataAdapter sqltabla = new SqlDataAdapter("Select * from VistaUsuario", sqlConneccion);
+                SqlDataAdapter sqltabla = new SqlDataAdapter("SELECT  Usuario.Legajo AS 'Legajo',    Usuario.NombreDeUsuario AS 'Nombre de Usuario',Usuario.DNI AS 'DNI', Usuario.EstadoDelUsuario AS 'Estado del Usuario' FROM Usuario", sqlConneccion);
 
                 sqltabla.Fill(dataTablaResultado);
 
@@ -350,10 +315,7 @@ namespace Datos
             }
             finally
             {
-                if (sqlConneccion.State == ConnectionState.Open)
-                {
-                    sqlConneccion.Close();
-                }
+                sqlConneccion.Close();
             }
             return dataTablaResultado;
 
@@ -362,13 +324,12 @@ namespace Datos
         /// <summary>
         /// buscar por ID un grupo en particular
         /// </summary>
-        /// <param name="datosGrupo">Ingrese el Id del grupo a encontrar</param>
         /// <returns>devuelve el grupo </returns>
-        public DataTable BuscarGrupos(DatosUsuario datosUsuario)
+        public DataTable BuscarUsuarioPorDni(DatosUsuario datosUsuario)
         {
             DataTable dataTable = new DataTable();
             SqlConnection sqlConneccion = new SqlConnection();
-            Miconeccion = new Coneccion();
+            miConeccion = new Coneccion();
             try
             {
 
@@ -377,30 +338,19 @@ namespace Datos
                 SqlComando = new SqlCommand
                 {
                     Connection = sqlConneccion,
-                    CommandText = "SP_ABM_Usuario",
+                    CommandText = "BuscarUsuarioPorDNI",
                     CommandType = CommandType.StoredProcedure
                 };
 
-
-
-                SqlParameter sqlLegajo = new SqlParameter
+                SqlParameter sqlparametersDNI = new SqlParameter
                 {
-                    ParameterName = "@legajo",
+                    ParameterName = "@DNI",
                     SqlDbType = SqlDbType.Int,
-                    
-                    Value = datosUsuario.Legajo
-                };
-                SqlComando.Parameters.Add(sqlLegajo);
-
-                SqlParameter sqlparameterStatementType = new SqlParameter
-                {
-                    ParameterName = "@statementType",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Size = 20,
-                    Value = "Buscar"
+                    Value = datosUsuario.DNI1
                 };
 
-                SqlComando.Parameters.Add(sqlparameterStatementType);
+                SqlComando.Parameters.Add(sqlparametersDNI);
+
 
                 SqlDataAdapter sqltabla = new SqlDataAdapter(SqlComando);
                 sqltabla.Fill(dataTable);
@@ -413,10 +363,7 @@ namespace Datos
             }
             finally
             {
-                if (sqlConneccion.State == ConnectionState.Open)
-                {
-                    sqlConneccion.Close();
-                }
+                sqlConneccion.Close();
             }
 
             return dataTable;
