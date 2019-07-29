@@ -10,8 +10,13 @@ using System.Windows.Forms;
 
 namespace Vista
 {
+    /// <summary>
+    /// Formulario de gestion de Usuario del Sistema
+    /// </summary>
     public partial class FrmGestrionarUsuario : Form
-    {
+    {                    /// <summary>
+                         /// Constructor del formulario de gestion de Usuario del Sistema
+                         /// </summary>
         public FrmGestrionarUsuario()
         {
             InitializeComponent();
