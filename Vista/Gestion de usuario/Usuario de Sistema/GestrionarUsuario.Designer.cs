@@ -52,8 +52,6 @@
             this.rbEstadoUsuarioActivo = new System.Windows.Forms.RadioButton();
             this.txtbNombreDelUsuario = new System.Windows.Forms.TextBox();
             this.lbNombreDelUsuario = new System.Windows.Forms.Label();
-            this.txtbPrimeraClave = new System.Windows.Forms.TextBox();
-            this.lbPrimeraClave = new System.Windows.Forms.Label();
             this.txtbLegajo = new System.Windows.Forms.TextBox();
             this.lbLegajo = new System.Windows.Forms.Label();
             this.txtbDNI = new System.Windows.Forms.TextBox();
@@ -72,6 +70,8 @@
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.ErrorIcon = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSalir = new System.Windows.Forms.Button();
+            this.lbClave = new System.Windows.Forms.Label();
+            this.txtbClave = new System.Windows.Forms.TextBox();
             this.tabFrmGestionDegrupo.SuspendLayout();
             this.tabGrupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaUsuario)).BeginInit();
@@ -273,13 +273,13 @@
             // 
             // groupB1
             // 
+            this.groupB1.Controls.Add(this.txtbClave);
+            this.groupB1.Controls.Add(this.lbClave);
             this.groupB1.Controls.Add(this.label3);
             this.groupB1.Controls.Add(this.RbEstadoUsuarioInactivo);
             this.groupB1.Controls.Add(this.rbEstadoUsuarioActivo);
             this.groupB1.Controls.Add(this.txtbNombreDelUsuario);
             this.groupB1.Controls.Add(this.lbNombreDelUsuario);
-            this.groupB1.Controls.Add(this.txtbPrimeraClave);
-            this.groupB1.Controls.Add(this.lbPrimeraClave);
             this.groupB1.Controls.Add(this.txtbLegajo);
             this.groupB1.Controls.Add(this.lbLegajo);
             this.groupB1.Controls.Add(this.txtbDNI);
@@ -335,7 +335,7 @@
             // 
             // txtbNombreDelUsuario
             // 
-            this.txtbNombreDelUsuario.Location = new System.Drawing.Point(118, 158);
+            this.txtbNombreDelUsuario.Location = new System.Drawing.Point(124, 160);
             this.txtbNombreDelUsuario.Name = "txtbNombreDelUsuario";
             this.txtbNombreDelUsuario.Size = new System.Drawing.Size(195, 20);
             this.txtbNombreDelUsuario.TabIndex = 49;
@@ -343,31 +343,15 @@
             // lbNombreDelUsuario
             // 
             this.lbNombreDelUsuario.AutoSize = true;
-            this.lbNombreDelUsuario.Location = new System.Drawing.Point(18, 161);
+            this.lbNombreDelUsuario.Location = new System.Drawing.Point(18, 163);
             this.lbNombreDelUsuario.Name = "lbNombreDelUsuario";
             this.lbNombreDelUsuario.Size = new System.Drawing.Size(100, 13);
             this.lbNombreDelUsuario.TabIndex = 48;
             this.lbNombreDelUsuario.Text = "Nombre del Usuario";
             // 
-            // txtbPrimeraClave
-            // 
-            this.txtbPrimeraClave.Location = new System.Drawing.Point(118, 116);
-            this.txtbPrimeraClave.Name = "txtbPrimeraClave";
-            this.txtbPrimeraClave.Size = new System.Drawing.Size(195, 20);
-            this.txtbPrimeraClave.TabIndex = 47;
-            // 
-            // lbPrimeraClave
-            // 
-            this.lbPrimeraClave.AutoSize = true;
-            this.lbPrimeraClave.Location = new System.Drawing.Point(18, 119);
-            this.lbPrimeraClave.Name = "lbPrimeraClave";
-            this.lbPrimeraClave.Size = new System.Drawing.Size(72, 13);
-            this.lbPrimeraClave.TabIndex = 46;
-            this.lbPrimeraClave.Text = "Primera Clave";
-            // 
             // txtbLegajo
             // 
-            this.txtbLegajo.Location = new System.Drawing.Point(118, 70);
+            this.txtbLegajo.Location = new System.Drawing.Point(124, 70);
             this.txtbLegajo.Name = "txtbLegajo";
             this.txtbLegajo.Size = new System.Drawing.Size(195, 20);
             this.txtbLegajo.TabIndex = 45;
@@ -383,7 +367,7 @@
             // 
             // txtbDNI
             // 
-            this.txtbDNI.Location = new System.Drawing.Point(118, 28);
+            this.txtbDNI.Location = new System.Drawing.Point(124, 28);
             this.txtbDNI.Name = "txtbDNI";
             this.txtbDNI.Size = new System.Drawing.Size(195, 20);
             this.txtbDNI.TabIndex = 43;
@@ -518,6 +502,22 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // lbClave
+            // 
+            this.lbClave.AutoSize = true;
+            this.lbClave.Location = new System.Drawing.Point(18, 121);
+            this.lbClave.Name = "lbClave";
+            this.lbClave.Size = new System.Drawing.Size(34, 13);
+            this.lbClave.TabIndex = 57;
+            this.lbClave.Text = "Clave";
+            // 
+            // txtbClave
+            // 
+            this.txtbClave.Location = new System.Drawing.Point(124, 114);
+            this.txtbClave.Name = "txtbClave";
+            this.txtbClave.Size = new System.Drawing.Size(195, 20);
+            this.txtbClave.TabIndex = 58;
+            // 
             // FrmGestrionarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,12 +578,12 @@
         private System.Windows.Forms.RadioButton rbEstadoUsuarioActivo;
         private System.Windows.Forms.TextBox txtbNombreDelUsuario;
         private System.Windows.Forms.Label lbNombreDelUsuario;
-        private System.Windows.Forms.TextBox txtbPrimeraClave;
-        private System.Windows.Forms.Label lbPrimeraClave;
         private System.Windows.Forms.TextBox txtbLegajo;
         private System.Windows.Forms.Label lbLegajo;
         private System.Windows.Forms.ToolTip ttMensajeAyuda;
         private System.Windows.Forms.ErrorProvider ErrorIcon;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.TextBox txtbClave;
+        private System.Windows.Forms.Label lbClave;
     }
 }
