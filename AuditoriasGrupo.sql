@@ -1,0 +1,6 @@
+﻿CREATE TABLE AuditoriasGrupo
+(id INT IDENTITY NOT NULL,
+idGrupo INT NOT NULL,
+lejago INT NOT NULL,
+accion VARCHAR (60) NOT NULL,
+fecha DATETIME NOT NULL)

@@ -1,0 +1,8 @@
+﻿CREATE TABLE AuditoriasUsuarios
+(
+id INT IDENTITY NOT NULL,
+DNI INT NOT NULL,
+lejago INT NOT NULL,
+accion VARCHAR (60) NOT NULL,
+fecha DATETIME NOT NULL
+)
