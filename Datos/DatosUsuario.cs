@@ -44,9 +44,21 @@ namespace Datos
             /// </summary>
         //public string PrimeraClave1 { get => PrimeraClave; set => PrimeraClave = value; }
         public string Clave1 { get => Clave; set => Clave = value; }
+        /// <summary>
+        /// encapsulamiento del campo NombreDeUsuarioDeSistema
+        /// </summary>
         public string NombreDeUsuarioDeSistema1 { get => NombreDeUsuarioDeSistema; set => NombreDeUsuarioDeSistema = value; }
+        /// <summary>
+        ///     encapsulamiento del campo  DNI
+        /// </summary>
         public int DNI1 { get => DNI; set => DNI = value; }
+        /// <summary>
+        /// encapsulamiento del campo    estadoDelUsuarioDelSistema
+        /// </summary>
         public string EstadoDelUsuarioDelSistema { get => estadoDelUsuarioDelSistema; set => estadoDelUsuarioDelSistema = value; }
+        /// <summary>
+        /// encapsulamiento del campo    legajo
+        /// </summary>
         public int Legajo { get => legajo; set => legajo = value; }
 
         /// <summary>

@@ -46,32 +46,22 @@ namespace Vista
         private void LimpiarTodo()
         {
             txtbDNI.Text = string.Empty;
-            txtbBuscarUsuarioPorDNI.Text = string.Empty;
-            txtbNombre.Text = string.Empty;
-            txtbApellido.Text = string.Empty;
-            txtbSexo.Text = string.Empty;
-            txtbTelefono.Text = string.Empty;
-            txtbEdad.Text = string.Empty;
-            txtbEmail.Text = string.Empty;
-            txtbPais.Text = string.Empty;
-            txtbProvincia.Text = string.Empty;
-            txtbDireccion.Text = string.Empty;
-            txtbCodigoPostal.Text = string.Empty;
-            txtbBuscarUsuarioPorDNI.Text = string.Empty;
+            txtbBuscaUsuarioPorDni.Text = string.Empty;
+            txtbLegajo.Text = string.Empty;
+            txtbNombreDelUsuario.Text = string.Empty;
+            txtbClave.Text = string.Empty;
+           
+            txtbCodigo.Text = string.Empty;
+            
         }
         private void Habilitar(bool valor)
         {
             txtbDNI.ReadOnly = !valor;
-            txtbNombre.ReadOnly = !valor;
-            txtbApellido.ReadOnly = !valor;
-            txtbTelefono.ReadOnly = !valor;
-            txtbSexo.ReadOnly = !valor;
-            txtbEdad.ReadOnly = !valor;
-            txtbEmail.ReadOnly = !valor;
-            txtbPais.ReadOnly = !valor;
-            txtbProvincia.ReadOnly = !valor;
-            txtbDireccion.ReadOnly = !valor;
-            txtbCodigoPostal.ReadOnly = !valor;
+            txtbLegajo.ReadOnly = !valor;
+            txtbNombreDelUsuario.ReadOnly = !valor;
+            txtbClave.ReadOnly = !valor;
+            txtbCodigo.ReadOnly = !valor;
+         
         }
 
         private void Botones()
@@ -100,62 +90,62 @@ namespace Vista
 
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
+        private void BtnFiltrar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void rbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
+        private void RbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void rbFiltrarPoNombre_CheckedChanged(object sender, EventArgs e)
+        private void RbFiltrarPoNombre_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void chkbEliminar_CheckedChanged(object sender, EventArgs e)
+        private void ChkbEliminar_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnListar_Click(object sender, EventArgs e)
+        private void BtnListar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        private void BtnGuardarCambios_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
-        private void rbEstadoUsuarioActivo_CheckedChanged(object sender, EventArgs e)
+        private void RbEstadoUsuarioActivo_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -165,7 +155,7 @@ namespace Vista
 
         }
 
-        private void rbEstadoGrupoActivo_CheckedChanged(object sender, EventArgs e)
+        private void RbEstadoGrupoActivo_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -175,7 +165,7 @@ namespace Vista
 
         }
 
-        private void txtbPrimeraClave_TextChanged(object sender, EventArgs e)
+        private void TxtbPrimeraClave_TextChanged(object sender, EventArgs e)
         {
 
         }
