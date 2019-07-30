@@ -1,4 +1,4 @@
-﻿using Acceso_a_Datos;
+﻿
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -75,7 +75,7 @@ namespace Datos
 
         //campos auxiliares
         private SqlCommand SqlComando;
-        private ConneccionSql ConneccionSql;
+  
         private Coneccion miConeccion;
 
         /// <summary>

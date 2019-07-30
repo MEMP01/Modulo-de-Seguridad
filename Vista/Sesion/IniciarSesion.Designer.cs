@@ -104,14 +104,14 @@
             resources.ApplyResources(this.btnRecuperarContraseña, "btnRecuperarContraseña");
             this.btnRecuperarContraseña.Name = "btnRecuperarContraseña";
             this.btnRecuperarContraseña.UseVisualStyleBackColor = true;
-            this.btnRecuperarContraseña.Click += new System.EventHandler(this.btnRecuperarContraseña_Click);
+            this.btnRecuperarContraseña.Click += new System.EventHandler(this.BtnRecuperarContraseña_Click);
             // 
             // btnCambiarContraseña
             // 
             resources.ApplyResources(this.btnCambiarContraseña, "btnCambiarContraseña");
             this.btnCambiarContraseña.Name = "btnCambiarContraseña";
             this.btnCambiarContraseña.UseVisualStyleBackColor = true;
-            this.btnCambiarContraseña.Click += new System.EventHandler(this.btnCambiarContraseña_Click);
+            this.btnCambiarContraseña.Click += new System.EventHandler(this.BtnCambiarContraseña_Click);
             // 
             // IniciarSesion
             // 

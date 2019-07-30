@@ -141,7 +141,7 @@ namespace Datos
                 
 
                 rta = SqlComando.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Ingresar el registro";
-
+                 
             }
             catch (Exception ex)
             {

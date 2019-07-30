@@ -56,6 +56,7 @@
     <Compile Include="DatosGrupo.cs" />
     <Compile Include="DatosUsuario.cs" />
     <Compile Include="DatosUsuarios.cs" />
+    <Compile Include="DLogin.cs" />
     <Compile Include="Formularios.cs" />
     <Compile Include="GrupoUsuario.cs" />
     <Compile Include="Permisos.cs" />

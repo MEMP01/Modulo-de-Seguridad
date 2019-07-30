@@ -277,6 +277,7 @@ namespace Vista
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
+            txtbClave.Enabled = true;
             EsNuevo = true;
             EsEditar = false;
             Botones();
@@ -286,6 +287,7 @@ namespace Vista
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
+            txtbClave.Enabled = false;
             if (!txtbLegajo.Text.Equals(""))
             {
                 EsEditar = true;
@@ -456,6 +458,11 @@ namespace Vista
         }
 
         private void CmbDni_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupB1_Enter(object sender, EventArgs e)
         {
 
         }

@@ -300,6 +300,7 @@
             this.groupB1.TabIndex = 12;
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
+            this.groupB1.Enter += new System.EventHandler(this.groupB1_Enter);
             // 
             // cmbDni
             // 
