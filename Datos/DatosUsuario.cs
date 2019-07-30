@@ -81,7 +81,7 @@ namespace Datos
 
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConneccion,
+                    Connection = sqlConnection,
                     CommandText = "InsertUsuario",
                     CommandType = CommandType.StoredProcedure
                 };
@@ -174,7 +174,7 @@ namespace Datos
 
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConneccion,
+                    Connection = sqlConnection,
                     CommandText = "updateUsuario",
                     CommandType = CommandType.StoredProcedure
                 };
@@ -185,7 +185,9 @@ namespace Datos
                 {
                     ParameterName = "@Legajo",
                     SqlDbType = SqlDbType.Int,
+                    Value= datosUsuario.Legajo,
                     Direction = ParameterDirection.Input
+                   
 
                 };
 
@@ -267,7 +269,7 @@ namespace Datos
 
                 SqlComando = new SqlCommand
                 {
-                    Connection = sqlConneccion,
+                    Connection = sqlConnection,
                     CommandText = "EliminarUsuario",
                     CommandType = CommandType.StoredProcedure
                 };
@@ -380,6 +382,39 @@ namespace Datos
 
             return dataTable;
 
+
+        }
+        /// <summary>
+        /// llenar el combobox de dni 
+        /// </summary>
+        /// <returns>deveulve una lista de dni del tipo databable</returns>
+        public DataTable LlenarComboboxDNI()
+        {
+            DataTable dataTablaResultado = new DataTable("Usuarios");
+            SqlConnection sqlConneccion = new SqlConnection();
+            miConeccion = new Coneccion();
+            try
+            {
+
+                sqlConneccion.ConnectionString = Coneccion.CadenaDeconneccion;
+                sqlConneccion.Open();
+
+
+
+                SqlDataAdapter sqltabla = new SqlDataAdapter("SELECT  Usuarios.DNI AS 'DNI' FROM Usuarios", sqlConneccion);
+
+                sqltabla.Fill(dataTablaResultado);
+
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error de Listado", ex);
+            }
+            finally
+            {
+                sqlConneccion.Close();
+            }
+            return dataTablaResultado;
 
         }
 

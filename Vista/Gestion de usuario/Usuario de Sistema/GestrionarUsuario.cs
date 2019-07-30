@@ -57,6 +57,17 @@ namespace Vista
             Botones();
             chkbEliminar.Checked = false;
             DgvGrillaUsuario.Columns[0].Visible = false;
+            LlenarCOmbobox();
+
+        }
+        
+        private void LlenarCOmbobox()
+        {
+            controlusuario = new ControlUsuario();
+
+            cmbDni.DataSource = controlusuario.CLLenarComboDNI();
+            cmbDni.DisplayMember = "DNI";
+            cmbDni.ValueMember = "DNI";
 
         }
 
@@ -145,14 +156,14 @@ namespace Vista
                 if (cmbEstadoUsuario.Text == "Activo")
                 {
                     DataTable dt = DgvGrillaUsuario.DataSource as DataTable;
-                    string query = string.Format("Estado = '{0}'", 1);
+                    string query = string.Format("[Estado del Usuario] = '{0}'", cmbEstadoUsuario.Text);
                     dt.DefaultView.RowFilter = query;
                     lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuario.Rows.Count);
                 }
                 if (cmbEstadoUsuario.Text == "Inactivo")
                 {
                     DataTable dt = DgvGrillaUsuario.DataSource as DataTable;
-                    string query = string.Format("Estado = '{0}'", 2);
+                    string query = string.Format("[Estado del Usuario] = '{0}'", cmbEstadoUsuario.Text);
                     dt.DefaultView.RowFilter = query;
                     lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuario.Rows.Count);
                 }
@@ -188,14 +199,16 @@ namespace Vista
 
         private void RbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
         {
-            rbFiltrarPoDni.Checked = false;
+            //rbfiltrarPorEstado.Checked = true;
+           // rbFiltrarPoDni.Checked = false;
             txtbBuscaUsuarioPorDni.Enabled = false;
             cmbEstadoUsuario.Enabled = true;
         }
 
         private void RbFiltrarPoNombre_CheckedChanged(object sender, EventArgs e)
         {
-            rbFiltrarPoDni.Checked = true;
+           // rbFiltrarPoDni.Checked = true;
+           // rbfiltrarPorEstado.Checked=false;
             txtbBuscaUsuarioPorDni.Enabled = true;
             cmbEstadoUsuario.Enabled = false;
         }
@@ -287,7 +300,95 @@ namespace Vista
 
         private void BtnGuardarCambios_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string rpta = "";
+                string clave = "";
+                int estadodelusuario = 0;
+                string estado;
+                controlusuario = new ControlUsuario();
 
+                if (txtbNombreDelUsuario.Text == string.Empty)
+                {
+                    MensanjeError("Falta ingresar algunos datos, estos serán remarcados");
+                    ErrorIcon.SetError(txtbNombreDelUsuario, "Ingrese un nombre para el Usuario");
+                }
+                else
+                {
+                    if (EsNuevo)
+                    {
+                        estado = "";
+                        if (rbEstadoUsuarioActivo.Checked)
+                        {
+                            estado = "Activo";
+                            estadodelusuario = 1;
+                            MessageBox.Show("aca activo" + estado);
+
+                        }
+                        if (RbEstadoUsuarioInactivo.Checked)
+                        {
+                            estado = "Inactivo";
+                            estadodelusuario = 2;
+                            MessageBox.Show("aca inactivo" + estado);
+                        }
+
+                        
+                        EncriptarContraseñas encriptar = new EncriptarContraseñas();
+
+                        clave = encriptar.GetSHA256(txtbClave.Text);
+                        string b = Convert.ToString(cmbDni.SelectedValue);
+                        int a = Int32.Parse(b);
+                        rpta = controlusuario.CInsertUsuario(clave, txtbNombreDelUsuario.Text.Trim(),a ,    estado);
+                    }
+                    else
+                    {
+                        estado = "";
+
+
+                        if (rbEstadoUsuarioActivo.Checked)
+                        {
+                            estado = "Activo";
+                            estadodelusuario = 1;
+                            MessageBox.Show("aca activo" + estado);
+
+                        }
+                        if (RbEstadoUsuarioInactivo.Checked)
+                        {
+                            estado = "Inactivo";
+                            estadodelusuario = 2;
+                            MessageBox.Show("aca inactivo" + estado);
+                        }
+                        EncriptarContraseñas encriptar = new EncriptarContraseñas();
+
+                        clave = encriptar.GetSHA256(txtbClave.Text);
+                        rpta = controlusuario.CUpdateUsuario(Convert.ToInt32(txtbLegajo.Text.Trim()), clave, txtbNombreDelUsuario.Text.Trim(), Convert.ToInt32(cmbDni.SelectedValue), estado);
+
+                    }
+                    if (rpta.Equals("OK"))
+                    {
+
+                        if (EsNuevo)
+                        {
+                            MensanjeOK("Se ingreso exitosamente un nuevo grupo al sistema");
+                        }
+                        else
+                        {
+
+                            MensanjeOK("Se Modifico exitosamente el grupo dado");
+                        }
+                    }
+                    else if (rpta.Equals("No se pudo Ingresar el registro"))
+                    {
+
+                        MensanjeError(rpta);
+                    }
+
+
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

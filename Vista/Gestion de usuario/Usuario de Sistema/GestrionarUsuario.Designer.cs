@@ -47,6 +47,7 @@
             this.txtbBuscaUsuarioPorDni = new System.Windows.Forms.TextBox();
             this.tabGestionDeUsuario = new System.Windows.Forms.TabPage();
             this.groupB1 = new System.Windows.Forms.GroupBox();
+            this.cmbDni = new System.Windows.Forms.ComboBox();
             this.cmbNombreDeGrupo = new System.Windows.Forms.ComboBox();
             this.txtbClave = new System.Windows.Forms.TextBox();
             this.lbClave = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.ErrorIcon = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSalir = new System.Windows.Forms.Button();
-            this.cmbDni = new System.Windows.Forms.ComboBox();
             this.tabFrmGestionDeUsuario.SuspendLayout();
             this.tabUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaUsuario)).BeginInit();
@@ -138,12 +138,10 @@
             // rbfiltrarPorEstado
             // 
             this.rbfiltrarPorEstado.AutoSize = true;
-            this.rbfiltrarPorEstado.Checked = true;
             this.rbfiltrarPorEstado.Location = new System.Drawing.Point(632, 62);
             this.rbfiltrarPorEstado.Name = "rbfiltrarPorEstado";
             this.rbfiltrarPorEstado.Size = new System.Drawing.Size(105, 17);
             this.rbfiltrarPorEstado.TabIndex = 14;
-            this.rbfiltrarPorEstado.TabStop = true;
             this.rbfiltrarPorEstado.Text = "Filtrar Por Estado";
             this.rbfiltrarPorEstado.UseVisualStyleBackColor = true;
             this.rbfiltrarPorEstado.CheckedChanged += new System.EventHandler(this.RbfiltrarPorEstado_CheckedChanged);
@@ -302,6 +300,15 @@
             this.groupB1.TabIndex = 12;
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
+            // 
+            // cmbDni
+            // 
+            this.cmbDni.FormattingEnabled = true;
+            this.cmbDni.Location = new System.Drawing.Point(124, 20);
+            this.cmbDni.Name = "cmbDni";
+            this.cmbDni.Size = new System.Drawing.Size(195, 21);
+            this.cmbDni.TabIndex = 60;
+            this.cmbDni.SelectedIndexChanged += new System.EventHandler(this.CmbDni_SelectedIndexChanged);
             // 
             // cmbNombreDeGrupo
             // 
@@ -510,15 +517,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
-            // cmbDni
-            // 
-            this.cmbDni.FormattingEnabled = true;
-            this.cmbDni.Location = new System.Drawing.Point(124, 20);
-            this.cmbDni.Name = "cmbDni";
-            this.cmbDni.Size = new System.Drawing.Size(195, 21);
-            this.cmbDni.TabIndex = 60;
-            this.cmbDni.SelectedIndexChanged += new System.EventHandler(this.CmbDni_SelectedIndexChanged);
             // 
             // FrmGestrionarUsuario
             // 

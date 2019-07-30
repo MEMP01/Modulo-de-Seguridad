@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE InsertUsuario
 (
-@Legajo int,
+@Legajo INT output,
 @Clave varchar(1024) ,
 @NombreDeUsuario varchar(60),
 @DNI int ,
@@ -14,14 +14,13 @@ begin try
 			if @trancount=0
 			begin transaction;
 				insert INTO Usuario(
-				Legajo,
+				
 				Clave,
 				NombreDeUsuario,
 				DNI,
 				EstadoDelUsuario) VALUES
                 
-				(@Legajo,
-				@Clave,
+				(@Clave,
 				@NombreDeUsuario,
 				@DNI,
 				@EstadoDelUsuario);

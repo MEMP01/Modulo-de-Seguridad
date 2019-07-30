@@ -29,11 +29,11 @@ namespace Control
         /// <param name="dni">ingresar DNI, el mísmo debe existir</param>
         /// <param name="estadoDelUsuario">ingresar estado del Usuario</param>
         /// <returns>OK si la operacion fue exitosa, sino lo que devuelve un error</returns>
-        public string CInsertUsuario(int legajo, string clave, string nombredeusuario, int dni, string estadoDelUsuario)
+        public string CInsertUsuario( string clave, string nombredeusuario, int dni, string estadoDelUsuario)
         {
             DatosUsuario1 = new DatosUsuario
             {
-                Legajo = legajo,
+            
                 Clave1 = clave,
                 NombreDeUsuarioDeSistema1 = nombredeusuario,
                 DNI1 = dni,
@@ -98,6 +98,16 @@ namespace Control
                 DNI1 = dni
             };
             return DatosUsuario1.BuscarUsuarioPorDni(DatosUsuario1);
+        }
+
+        /// <summary>
+        /// metodo de control que llama a llenarcomboboxDNI
+        /// </summary>
+        /// <returns>devuelve una lista de dni de usuarios</returns>
+        public DataTable CLLenarComboDNI()
+        {
+            DatosUsuario1 = new DatosUsuario();
+            return DatosUsuario1.LlenarComboboxDNI();
         }
     }
 
