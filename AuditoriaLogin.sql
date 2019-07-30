@@ -1,0 +1,5 @@
+﻿CREATE TABLE AuditoriaLogin(
+id INT IDENTITY NOT NULL,
+legajo INT NOT NULL,
+fecha DATETIME NOT NULL
+)

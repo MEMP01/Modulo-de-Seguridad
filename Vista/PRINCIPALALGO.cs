@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Control;
 
 namespace Vista
 {
@@ -108,7 +109,7 @@ namespace Vista
 
         private void PRINCIPALALGO_Load(object sender, EventArgs e)
         {
-
+            //lbNombreGrupo.Text=
         }
 
         private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,6 +159,11 @@ namespace Vista
         {
             FrmGestrionarUsuario gestrionarUsuario = new FrmGestrionarUsuario();
             gestrionarUsuario.Show();
+        }
+
+        private void toolStripStatusLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
