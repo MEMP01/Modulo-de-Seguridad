@@ -267,7 +267,7 @@
             this.txtbBuscarUsuarioPorDNI.Name = "txtbBuscarUsuarioPorDNI";
             this.txtbBuscarUsuarioPorDNI.Size = new System.Drawing.Size(207, 20);
             this.txtbBuscarUsuarioPorDNI.TabIndex = 7;
-            this.txtbBuscarUsuarioPorDNI.TextChanged += new System.EventHandler(this.txtbBuscarUsuarioPorDNI_TextChanged);
+            this.txtbBuscarUsuarioPorDNI.TextChanged += new System.EventHandler(this.TxtbBuscarUsuarioPorDNI_TextChanged);
             // 
             // tabGestionDeUsuarios
             // 

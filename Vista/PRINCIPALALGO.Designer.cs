@@ -518,14 +518,14 @@
             this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
             this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
             this.usuariosToolStripMenuItem1.Text = "Usuarios de la Empresa";
-            this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
+            this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.UsuariosToolStripMenuItem1_Click);
             // 
             // usuariosDelSistemaToolStripMenuItem
             // 
             this.usuariosDelSistemaToolStripMenuItem.Name = "usuariosDelSistemaToolStripMenuItem";
             this.usuariosDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.usuariosDelSistemaToolStripMenuItem.Text = "Usuarios del Sistema";
-            this.usuariosDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.usuariosDelSistemaToolStripMenuItem_Click);
+            this.usuariosDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.UsuariosDelSistemaToolStripMenuItem_Click);
             // 
             // PRINCIPALALGO
             // 

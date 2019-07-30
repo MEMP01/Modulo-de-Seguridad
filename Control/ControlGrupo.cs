@@ -86,7 +86,7 @@ namespace Control
         /// <summary>
         ///  Controladora para Buscar un  grupo en el sistema mediante su ID
         /// </summary>
-        /// <param name="id_grupo"></param>
+        /// <param name="nombre">ingrese el nombre del grupo a buscar</param>
         /// <returns>Devuelve el grupo si existe</returns>
         public DataTable BuscarGrupo(string nombre)
         {

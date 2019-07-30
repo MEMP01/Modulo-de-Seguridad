@@ -47,6 +47,7 @@
             this.txtbBuscaUsuarioPorDni = new System.Windows.Forms.TextBox();
             this.tabGestionDeUsuario = new System.Windows.Forms.TabPage();
             this.groupB1 = new System.Windows.Forms.GroupBox();
+            this.cmbNombreDeGrupo = new System.Windows.Forms.ComboBox();
             this.txtbClave = new System.Windows.Forms.TextBox();
             this.lbClave = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.lbNombreDelUsuario = new System.Windows.Forms.Label();
             this.txtbLegajo = new System.Windows.Forms.TextBox();
             this.lbLegajo = new System.Windows.Forms.Label();
-            this.txtbDNI = new System.Windows.Forms.TextBox();
             this.lbDNI = new System.Windows.Forms.Label();
             this.RbGrupoInactivo = new System.Windows.Forms.RadioButton();
             this.rbEstadoGrupoActivo = new System.Windows.Forms.RadioButton();
@@ -71,7 +71,7 @@
             this.ttMensajeAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.ErrorIcon = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSalir = new System.Windows.Forms.Button();
-            this.cmbNombreDeGrupo = new System.Windows.Forms.ComboBox();
+            this.cmbDni = new System.Windows.Forms.ComboBox();
             this.tabFrmGestionDeUsuario.SuspendLayout();
             this.tabUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrillaUsuario)).BeginInit();
@@ -221,7 +221,8 @@
             this.DgvGrillaUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvGrillaUsuario.Size = new System.Drawing.Size(686, 268);
             this.DgvGrillaUsuario.TabIndex = 9;
-            this.DgvGrillaUsuario.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaUsuario_CellContentDoubleClick);
+            this.DgvGrillaUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGrillaUsuario_CellContentClick);
+            this.DgvGrillaUsuario.DoubleClick += new System.EventHandler(this.DgvGrillaUsuario_DoubleClick);
             // 
             // Eliminar
             // 
@@ -273,6 +274,7 @@
             // 
             // groupB1
             // 
+            this.groupB1.Controls.Add(this.cmbDni);
             this.groupB1.Controls.Add(this.cmbNombreDeGrupo);
             this.groupB1.Controls.Add(this.txtbClave);
             this.groupB1.Controls.Add(this.lbClave);
@@ -283,7 +285,6 @@
             this.groupB1.Controls.Add(this.lbNombreDelUsuario);
             this.groupB1.Controls.Add(this.txtbLegajo);
             this.groupB1.Controls.Add(this.lbLegajo);
-            this.groupB1.Controls.Add(this.txtbDNI);
             this.groupB1.Controls.Add(this.lbDNI);
             this.groupB1.Controls.Add(this.RbGrupoInactivo);
             this.groupB1.Controls.Add(this.rbEstadoGrupoActivo);
@@ -301,6 +302,14 @@
             this.groupB1.TabIndex = 12;
             this.groupB1.TabStop = false;
             this.groupB1.Text = "Gu";
+            // 
+            // cmbNombreDeGrupo
+            // 
+            this.cmbNombreDeGrupo.FormattingEnabled = true;
+            this.cmbNombreDeGrupo.Location = new System.Drawing.Point(468, 91);
+            this.cmbNombreDeGrupo.Name = "cmbNombreDeGrupo";
+            this.cmbNombreDeGrupo.Size = new System.Drawing.Size(275, 21);
+            this.cmbNombreDeGrupo.TabIndex = 59;
             // 
             // txtbClave
             // 
@@ -380,13 +389,6 @@
             this.lbLegajo.Size = new System.Drawing.Size(39, 13);
             this.lbLegajo.TabIndex = 44;
             this.lbLegajo.Text = "Legajo";
-            // 
-            // txtbDNI
-            // 
-            this.txtbDNI.Location = new System.Drawing.Point(124, 28);
-            this.txtbDNI.Name = "txtbDNI";
-            this.txtbDNI.Size = new System.Drawing.Size(195, 20);
-            this.txtbDNI.TabIndex = 43;
             // 
             // lbDNI
             // 
@@ -509,13 +511,14 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // cmbNombreDeGrupo
+            // cmbDni
             // 
-            this.cmbNombreDeGrupo.FormattingEnabled = true;
-            this.cmbNombreDeGrupo.Location = new System.Drawing.Point(468, 91);
-            this.cmbNombreDeGrupo.Name = "cmbNombreDeGrupo";
-            this.cmbNombreDeGrupo.Size = new System.Drawing.Size(275, 21);
-            this.cmbNombreDeGrupo.TabIndex = 59;
+            this.cmbDni.FormattingEnabled = true;
+            this.cmbDni.Location = new System.Drawing.Point(124, 20);
+            this.cmbDni.Name = "cmbDni";
+            this.cmbDni.Size = new System.Drawing.Size(195, 21);
+            this.cmbDni.TabIndex = 60;
+            this.cmbDni.SelectedIndexChanged += new System.EventHandler(this.CmbDni_SelectedIndexChanged);
             // 
             // FrmGestrionarUsuario
             // 
@@ -569,7 +572,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbEstadoGrupo;
         private System.Windows.Forms.TextBox txtbCodigo;
-        private System.Windows.Forms.TextBox txtbDNI;
         private System.Windows.Forms.Label lbDNI;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton RbEstadoUsuarioInactivo;
@@ -584,5 +586,6 @@
         private System.Windows.Forms.TextBox txtbClave;
         private System.Windows.Forms.Label lbClave;
         private System.Windows.Forms.ComboBox cmbNombreDeGrupo;
+        private System.Windows.Forms.ComboBox cmbDni;
     }
 }

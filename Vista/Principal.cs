@@ -54,14 +54,14 @@ namespace Vista
 
     }
 
-        private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GruposToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGestion_De_Grupos GestionDeGrupos = new FrmGestion_De_Grupos();
             GestionDeGrupos.MdiParent = this;
             GestionDeGrupos.InstanciaSingleton.Show();
         }
 
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGestion_de_Usuarios_de_Empresa gestionDeUsuarios = new FrmGestion_de_Usuarios_de_Empresa();
             gestionDeUsuarios.MdiParent = this;

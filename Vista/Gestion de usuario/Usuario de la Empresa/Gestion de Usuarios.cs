@@ -139,6 +139,9 @@ namespace Vista
             lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuarios.Rows.Count);
         }
 
+        /// <summary>
+        /// metodo Para Filtrar por estado
+        /// </summary>
         private void Filtrar()
         {
             try
@@ -309,7 +312,7 @@ namespace Vista
                 DataGridViewCheckBoxCell chkboxEliminar = (DataGridViewCheckBoxCell)DgvGrillaUsuarios.Rows[e.RowIndex].Cells["Eliminar"];
                 chkboxEliminar.Value = !Convert.ToBoolean(chkboxEliminar.Value);
             }
-        }
+        }                               
 
         private void ChkbEliminar_CheckedChanged(object sender, EventArgs e)
         {
@@ -602,7 +605,7 @@ namespace Vista
             cmbEstadoUsuario.Enabled = false;
         }
 
-        private void txtbBuscarUsuarioPorDNI_TextChanged(object sender, EventArgs e)
+        private void TxtbBuscarUsuarioPorDNI_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -20,7 +20,7 @@ namespace Vista
         private bool EsNuevo;
         private bool EsEditar;
         private ControlUsuario controlusuario;
-        private static FrmGestion_de_Usuarios_de_Empresa Singleton;
+        private static FrmGestrionarUsuario Singleton;
 
 
         /// <summary>
@@ -29,12 +29,53 @@ namespace Vista
         public FrmGestrionarUsuario()
         {
             InitializeComponent();
+
+            ttMensajeAyuda.SetToolTip(rbEstadoUsuarioActivo, "Seleccione esta opcion para setear el estado del Usuario como Activo");
+            ttMensajeAyuda.SetToolTip(RbEstadoUsuarioInactivo, "Seleccione esta opcion para setear el estado del Usuario como Inactivo ");
+            ttMensajeAyuda.SetToolTip(cmbDni, "Aqui Aparece el DNI del Usuario");
+            ttMensajeAyuda.SetToolTip(txtbClave, "Aqui ingrese la clave o password");
+            ttMensajeAyuda.SetToolTip(txtbLegajo, "Aqui aparece el legajo del usuario");
+            ttMensajeAyuda.SetToolTip(txtbNombreDelUsuario, "Ingrese el nombre del usuario del sistema");
+
+            ttMensajeAyuda.SetToolTip(cmbEstadoUsuario, "Seleccione un estado de Usuario como filtro de busqueda");
+            ttMensajeAyuda.SetToolTip(btnFiltrar, "Ingrese un DNI de Usuario y/o un estado de Usuario para realizar la busqueda");
+            ttMensajeAyuda.SetToolTip(btnNuevo, "Click para ingresar datos para un nuevo Usuario al Sistema");
+            ttMensajeAyuda.SetToolTip(btnGuardarCambios, "Click para confirmar datos del Usuario del Sistema");
+            ttMensajeAyuda.SetToolTip(btnEditar, "Click para modificar datos del Usuario del sistema");
+            ttMensajeAyuda.SetToolTip(chkbEliminar, "Click aquí para habilitar el boton Eliminar");
+            ttMensajeAyuda.SetToolTip(btnCancelar, "Click aquí para deshacer cambios");
+            ttMensajeAyuda.SetToolTip(btnSalir, "Click aquí para regresar al formulario principal");
+            ttMensajeAyuda.SetToolTip(rbFiltrarPoDni, "Seleccione esta opcion para filtrar por Nombre");
+            ttMensajeAyuda.SetToolTip(rbfiltrarPorEstado, "Seleccione esta opcion para filtrar por DNI");
         }
+
 
         private void GestrionarUsuario_Load(object sender, EventArgs e)
         {
+            Habilitar(false);
+            LlenarGrilla();
+            Botones();
+            chkbEliminar.Checked = false;
+            DgvGrillaUsuario.Columns[0].Visible = false;
 
         }
+
+        /// <summary>
+        /// Singleton de FrmGestion_de_Usuarios_de_Empresa
+        /// </summary>
+        public FrmGestrionarUsuario InstanciaSingleton
+        {
+            get
+            {
+                if (Singleton == null)
+                {
+                    Singleton = new FrmGestrionarUsuario();
+                }
+                return Singleton;
+            }
+        }
+
+
         private void MensanjeOK(string mensaje)
         {
             MessageBox.Show(mensaje, "Modulo de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -45,7 +86,7 @@ namespace Vista
         }
         private void LimpiarTodo()
         {
-            txtbDNI.Text = string.Empty;
+          
             txtbBuscaUsuarioPorDni.Text = string.Empty;
             txtbLegajo.Text = string.Empty;
             txtbNombreDelUsuario.Text = string.Empty;
@@ -56,7 +97,7 @@ namespace Vista
         }
         private void Habilitar(bool valor)
         {
-            txtbDNI.ReadOnly = !valor;
+            
             txtbLegajo.ReadOnly = !valor;
             txtbNombreDelUsuario.ReadOnly = !valor;
             txtbClave.ReadOnly = !valor;
@@ -84,50 +125,164 @@ namespace Vista
             }
         }
 
-
-        private void DgvGrillaUsuario_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        /// <summary>
+        /// metodo para llenar grilla DgvGrillaUsuario con los usuarios del sistema 
+        /// </summary>
+        public void LlenarGrilla()
         {
-
+            controlusuario = new ControlUsuario();
+            DgvGrillaUsuario.DataSource = controlusuario.CListarusuariosDelSistema();
+            lbCantidadDeRegistros.Text = Convert.ToString(DgvGrillaUsuario.Rows.Count);
         }
+
+        /// <summary>
+        /// metodo Para Filtrar por estado
+        /// </summary>
+        private void Filtrar()
+        {
+            try
+            {
+                if (cmbEstadoUsuario.Text == "Activo")
+                {
+                    DataTable dt = DgvGrillaUsuario.DataSource as DataTable;
+                    string query = string.Format("Estado = '{0}'", 1);
+                    dt.DefaultView.RowFilter = query;
+                    lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuario.Rows.Count);
+                }
+                if (cmbEstadoUsuario.Text == "Inactivo")
+                {
+                    DataTable dt = DgvGrillaUsuario.DataSource as DataTable;
+                    string query = string.Format("Estado = '{0}'", 2);
+                    dt.DefaultView.RowFilter = query;
+                    lbnumeroDeRegistros.Text = Convert.ToString(DgvGrillaUsuario.Rows.Count);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+      
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (txtbBuscaUsuarioPorDni.Enabled == true)
+                {
+                    string DNI = txtbBuscaUsuarioPorDni.Text;
+                    controlusuario = new ControlUsuario();
+                    DgvGrillaUsuario.DataSource = controlusuario.CBuscarUsuarioDelSistema(Convert.ToInt32(DNI));
+                }
+                else
+                {
+                    Filtrar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void RbfiltrarPorEstado_CheckedChanged(object sender, EventArgs e)
         {
-
+            rbFiltrarPoDni.Checked = false;
+            txtbBuscaUsuarioPorDni.Enabled = false;
+            cmbEstadoUsuario.Enabled = true;
         }
 
         private void RbFiltrarPoNombre_CheckedChanged(object sender, EventArgs e)
         {
-
+            rbFiltrarPoDni.Checked = true;
+            txtbBuscaUsuarioPorDni.Enabled = true;
+            cmbEstadoUsuario.Enabled = false;
         }
 
         private void ChkbEliminar_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkbEliminar.Checked)
+            {
+                DgvGrillaUsuario.Columns[0].Visible = true;
+            }
+            else
+            {
+                DgvGrillaUsuario.Columns[0].Visible = false;
+            }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("Realmente desea eliminar los registros", "Gestion de Usuarios de Empresa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    string DNI = "";
+                    string rta = "";
 
+                    foreach (DataGridViewRow row in DgvGrillaUsuario.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            DNI = Convert.ToString(row.Cells[1].Value);
+
+                            controlusuario = new ControlUsuario();
+                            rta = controlusuario.CdeleteUsuario(Convert.ToInt32(DNI));
+
+                            if (rta.Equals("OK"))
+                            {
+                                MensanjeOK("Se elimino correctamente el registro");
+                            }
+                            else
+                            {
+                                MensanjeError("No se pudo eliminar correctamente el registro" + rta);
+                            }
+
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            LlenarGrilla();
+            chkbEliminar.Checked = false;
         }
+           
+        
 
         private void BtnListar_Click(object sender, EventArgs e)
         {
-
+            LimpiarTodo();
+            LlenarGrilla();
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-
+            EsNuevo = true;
+            EsEditar = false;
+            Botones();
+            LimpiarTodo();
+            Habilitar(true);
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-
+            if (!txtbLegajo.Text.Equals(""))
+            {
+                EsEditar = true;
+                Botones();
+                Habilitar(true);
+            }
+            else
+            {
+                MensanjeError("Debe selecciona primero el registro a modificar");
+            }
         }
 
         private void BtnGuardarCambios_Click(object sender, EventArgs e)
@@ -137,7 +292,11 @@ namespace Vista
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-
+            EsNuevo = false;
+            EsEditar = false;
+            Botones();
+            LimpiarTodo();
+            Habilitar(false);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -166,6 +325,36 @@ namespace Vista
         }
 
         private void TxtbPrimeraClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DgvGrillaUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DgvGrillaUsuario.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkboxEliminar = (DataGridViewCheckBoxCell)DgvGrillaUsuario.Rows[e.RowIndex].Cells["Eliminar"];
+                chkboxEliminar.Value = !Convert.ToBoolean(chkboxEliminar.Value);
+            }
+        }
+
+        private void DgvGrillaUsuario_DoubleClick(object sender, EventArgs e)
+        {
+            cmbDni.Text = Convert.ToString(DgvGrillaUsuario.CurrentRow.Cells["DNI"].Value);
+            txtbLegajo.Text = Convert.ToString(DgvGrillaUsuario.CurrentRow.Cells["Legajo"].Value);
+            txtbNombreDelUsuario.Text = Convert.ToString(DgvGrillaUsuario.CurrentRow.Cells["Nombre de Usuario"].Value);
+            if (DgvGrillaUsuario.CurrentRow.Cells["Estado del Usuario"].Value.Equals("1"))
+            {
+                rbEstadoUsuarioActivo.Checked = true;
+            }
+            else
+            {
+                RbEstadoUsuarioInactivo.Checked = true;
+            }
+            tabFrmGestionDeUsuario.SelectedIndex = 1;
+        }
+
+        private void CmbDni_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

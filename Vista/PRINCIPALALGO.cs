@@ -13,7 +13,9 @@ namespace Vista
     public partial class PRINCIPALALGO : Form
     {
         private int childFormNumber = 0;
-
+                     /// <summary>
+                     /// contructor del formulario principal
+                     /// </summary>
         public PRINCIPALALGO()
         {
             InitializeComponent();
@@ -146,13 +148,13 @@ namespace Vista
 
         }
 
-        private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void UsuariosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmGestion_de_Usuarios_de_Empresa frmGestion_De_Usuarios_De_ = new FrmGestion_de_Usuarios_de_Empresa();
             frmGestion_De_Usuarios_De_.Show();
         }
 
-        private void usuariosDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UsuariosDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGestrionarUsuario gestrionarUsuario = new FrmGestrionarUsuario();
             gestrionarUsuario.Show();
