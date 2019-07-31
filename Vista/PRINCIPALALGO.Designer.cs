@@ -1,5 +1,7 @@
 ﻿namespace Vista
-{
+{    /// <summary>
+/// clase del formulario Principal
+/// </summary>
     partial class PRINCIPALALGO
     {
         /// <summary>
@@ -527,7 +529,7 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
-            this.toolStripStatusLabel.Click += new System.EventHandler(this.toolStripStatusLabel_Click);
+            this.toolStripStatusLabel.Click += new System.EventHandler(this.ToolStripStatusLabel_Click);
             // 
             // lbNombreGrupo
             // 

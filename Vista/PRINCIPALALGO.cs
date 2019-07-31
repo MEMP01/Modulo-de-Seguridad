@@ -24,17 +24,21 @@ namespace Vista
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
+            Form childForm = new Form
+            {
+                MdiParent = this,
+                Text = "Ventana " + childFormNumber++
+            };
             childForm.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
+            };
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string FileName = openFileDialog.FileName;
@@ -43,9 +47,11 @@ namespace Vista
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
+            };
             if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string FileName = saveFileDialog.FileName;
@@ -161,7 +167,7 @@ namespace Vista
             gestrionarUsuario.Show();
         }
 
-        private void toolStripStatusLabel_Click(object sender, EventArgs e)
+        private void ToolStripStatusLabel_Click(object sender, EventArgs e)
         {
 
         }

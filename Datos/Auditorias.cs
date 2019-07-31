@@ -7,7 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
-{
+{     /// <summary>
+/// Clase de la capa datos de auditorias
+/// </summary>
     public class Auditorias
     {
         //campos auxiliares
@@ -15,7 +17,9 @@ namespace Datos
         private SqlConnection sqlConneccion;
         private Coneccion miConeccion;
         private string rta;
-
+           /// <summary>
+           /// Metodo para auditar los Login
+           /// </summary>
         public void AuditoriaLogin()
         {
             DLogin dLogin = new DLogin();

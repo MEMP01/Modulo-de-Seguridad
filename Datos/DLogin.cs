@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
@@ -28,6 +22,9 @@ namespace Datos
             NombreDeUsuario1 = nombreDeUsuario1;
             Password1 = password1;
         }
+        /// <summary>
+        /// contructor vacio de la clase DLogin
+        /// </summary>
         public DLogin() { }
         /// <summary>
         /// Campos encapsulados  NombreDeUsuario
@@ -43,6 +40,13 @@ namespace Datos
         private SqlConnection sqlConneccion;
         private Coneccion miConeccion;
 
+        /// <summary>
+        ///  Metodo para validar si los datos ingresados en el formulario Iniciar sesion son validos y permite el acceso siempre y cuando el usuario posea un estado de 'Activo'
+        /// </summary>
+        /// <param name="login">Un objeto del tipo Dlogin</param>
+        /// <returns>devuelve un valor mayor a 0(cero) si la operacion es correcta y devuleve 0(cero) en caso de que
+        /// la operacion posea algo incorrecto, ya sea porque no exite el usuario, no es correcto el nombre de usuario
+        /// , no es correcto la clave o el estado del usuario es 'Inactivo' </returns>
         public int ValidarDatos(DLogin login)
         {
             string rta;
@@ -56,7 +60,7 @@ namespace Datos
                 sqlConnection.ConnectionString = Coneccion.CadenaDeconneccion;
                 sqlConnection.Open();
 
-                string commandString = "SELECT ISNULL([Legajo],0)  FROM [Usuario] WHERE [NombreDeUsuario]= @user AND[Clave]= @pass";
+                string commandString = "SELECT ISNULL([Legajo],0)  FROM [Usuario] WHERE [NombreDeUsuario]= @user AND[Clave]= @pass AND [EstadoDelUsuario]= 'Activo'";
 
                 SqlCommand cmd = new SqlCommand(commandString, sqlConnection);
                 cmd.Parameters.AddWithValue("@user", login.NombreDeUsuario1);

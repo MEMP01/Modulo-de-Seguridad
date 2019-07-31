@@ -1,18 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace Vista
-{
+{        /// <summary>
+/// Clase dedicada a encriptiar cadenas de caracteres
+/// </summary>
     public class EncriptarContraseñas
     {
-          public EncriptarContraseñas() { }
+        /// <summary>
+        /// Contructor de la clase   EncriptarContraseñas
+        /// </summary>
+        public EncriptarContraseñas() { }
 
-
+                  /// <summary>
+                  /// metodo de encriptacion con SHA256
+                  /// </summary>
+                  /// <param name="str">ingrese la cadena de tipo string a encriptar</param>
+                  /// <returns>devuelve la cadena pasada por parametro encriptada con SHA256</returns>
         public  string GetSHA256(string str)
         {
             SHA256 sha256 = SHA256Managed.Create();
