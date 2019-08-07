@@ -19,7 +19,7 @@ namespace Vista
                   /// <returns>devuelve la cadena pasada por parametro encriptada con SHA256</returns>
         public  string GetSHA256(string str)
         {
-            SHA256 sha256 = SHA256Managed.Create();
+            SHA256 sha256 = SHA256.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();
             byte[] stream = null;
             StringBuilder sb = new StringBuilder();
@@ -28,6 +28,25 @@ namespace Vista
             return sb.ToString();
         }
 
-    
+        /// <summary>
+        ///     metodo de encriptacion con   SHA512
+        /// </summary>
+        /// <param name="input">ingrese la cadena de tipo string a encriptar</param>
+        /// <returns>devuelve la cadena pasada por parametro encriptada con SHA256</returns>
+        public string SHA512(string input)
+        {
+            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+
+                // Convert to text
+                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
+                var hashedInputStringBuilder = new StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
     }
 }

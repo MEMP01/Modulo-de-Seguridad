@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceso a Datos", "Acceso a 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Vista\Vista.csproj", "{3A5F678D-CD00-4CCD-A774-8FE4A3872D69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa Soporte", "Capa Soporte\Capa Soporte.csproj", "{F3218287-F3D7-45BB-B30A-E2D78B03925D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3A5F678D-CD00-4CCD-A774-8FE4A3872D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A5F678D-CD00-4CCD-A774-8FE4A3872D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A5F678D-CD00-4CCD-A774-8FE4A3872D69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3218287-F3D7-45BB-B30A-E2D78B03925D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3218287-F3D7-45BB-B30A-E2D78B03925D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3218287-F3D7-45BB-B30A-E2D78B03925D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3218287-F3D7-45BB-B30A-E2D78B03925D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

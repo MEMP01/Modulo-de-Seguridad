@@ -221,6 +221,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capa Soporte\Capa Soporte.csproj">
+      <Project>{f3218287-f3d7-45bb-b30a-e2d78b03925d}</Project>
+      <Name>Capa Soporte</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Control\Control.csproj">
       <Project>{bcc2e8e2-8407-4ddb-bfbb-81f5bd2ae4ca}</Project>
       <Name>Control</Name>

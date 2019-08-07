@@ -58,7 +58,7 @@
     <Compile Include="DatosUsuarios.cs" />
     <Compile Include="DLogin.cs" />
     <Compile Include="Formularios.cs" />
-    <Compile Include="GrupoUsuario.cs" />
+    <Compile Include="DGrupoUsuario.cs" />
     <Compile Include="Permisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +66,10 @@
     <ProjectReference Include="..\Acceso a Datos\Acceso a Datos.csproj">
       <Project>{5211bba9-91f4-4807-8e86-6e8bf1ac1c2f}</Project>
       <Name>Acceso a Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa Soporte\Capa Soporte.csproj">
+      <Project>{f3218287-f3d7-45bb-b30a-e2d78b03925d}</Project>
+      <Name>Capa Soporte</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
